@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #7226FF, #010030);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn1 {
+      background: rgb(255, 255, 255);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 8px 16px;
+      margin-bottom: 15px; /* kasih jarak dari card */
+      border-radius: 8px;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn1:hover {
+        background: red;
+        color: white;
+    }
+    .contact-container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 25px;
+      border-radius: 15px;
+      width: 350px;
+      box-shadow: 0px 5px 20px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+
+    .contact-container h2 {
+      margin-bottom: 20px;
+    }
+
+    .contact-container input,
+    .contact-container textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .contact-container button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background: #F042FF;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .contact-container button[type="submit"]:hover {
+      background: #ff2cff;
+    }
+
+    /* Tombol WhatsApp */
+    .whatsapp-btn {
+      position: relative;
+      width: 180px;
+      height: 50px;
+      background: #25D366;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      overflow: hidden;
+      perspective: 1000px;
+      margin-top: 15px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-text, .btn-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.6s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-text {
+        font-size: 18px;
+        transform-origin: center;
+    }
+
+    .btn-icon {
+        opacity: 0;
+        transform: translate(-50%, -150%) rotate(-180deg);
+    }
+
+    .whatsapp-btn:hover .btn-text {
+        transform: translate(-50%, 150%) rotate(180deg);
+        opacity: 0;
+    }
+
+    .whatsapp-btn:hover .btn-icon {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    .btn-icon img {
+        width: 28px;
+        height: 28px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Tombol Back -->
+    <button id="btnPinda" class="btn1">Back/kembali</button>
+
+    <!-- Card Contact -->
+    <div class="contact-container">
+      <h2>Contact Me</h2>
+      <form id="contactForm">
+          <input type="text" name="from_name" placeholder="Your Name" required>
+          <input type="email" name="reply_to" placeholder="Your Email" required>
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Submit</button>
+      </form>
+
+      <!-- Tombol WhatsApp -->
+      <a href="https://wa.me/6282133141060" target="_blank" class="whatsapp-btn">
+          <span class="btn-text">WhatsApp</span>
+          <span class="btn-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+          </span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+  // Inisialisasi EmailJS
+  (function(){
+    emailjs.init("BCs2u9dXLWrQKCevc"); // Ganti dengan Public Key EmailJS kamu
+  })();
+
+  // Form submit
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm('service_xx9z5rq', 'template_1atpwkl', this)
+      .then(function() {
+          alert('Pesan berhasil terkirim!');
+          document.getElementById('contactForm').reset(); // reset form setelah kirim
+      }, function(error) {
+          alert('Pesan gagal terkirim, coba lagi!');
+          console.log(error);
+      });
+  });
+
+  // Tombol Back
+  document.getElementById("btnPinda").addEventListener("click", function() {
+      window.location.href = "home.html";
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechoiX Web — About</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    body {
+    color: white;
+    background: linear-gradient(135deg, #87F5F5, #7226FF);
+    text-align: center;
+    }
+    .container {
+      max-width: 900px;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    }
+    .lang-switch {
+      margin-bottom: 20px;
+    }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 8px 16px;
+      margin: 0 5px;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .lang-btn.active {
+      background: white;
+      color: #7226FF;
+    }
+    .about-text {
+      font-size: 1.6rem; /* lebih gede */
+      line-height: 1.8;
+      font-weight: 500;
+      transition: opacity 0.4s ease;
+    }
+    .hidden {
+      display: none;
+    }
+    .judul-text{
+      font-size: 1.6rem; /* lebih gede */
+      line-height: 1.8;
+      font-weight: 500;
+      transition: opacity 0.4s ease;
+      font-family: Arial, sans-serif;
+    }
+    .btn{
+        background: rgb(255, 255, 255);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 8px 16px;
+        margin: 0 5px;
+        border-radius: 8px;
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+    <button id="btnPindah" class="btn">Back/kembali</button>
+  <div class="container">
+    <!-- tombol translate -->
+    <div class="lang-switch">
+      <button class="lang-btn active" id="btn-en">English</button>
+      <button class="lang-btn" id="btn-id">Indonesia</button>
+    </div>
+    <div id="judu-en" class="judu-text">
+        <h1>About TechnoiX Web</h1>
+    </div>
+    <div id="judul-id" class="judul-text hidden">
+        <h1>Tentang TechnoiX Webs</h1>
+    </div>
+    <!-- teks about -->
+    <div id="about-en" class="about-text">
+      <p>
+        At TechoiX Web, we craft modern, responsive, and user-friendly websites
+        tailored to your business needs. Our mission is to help brands stand out
+        online with clean design, powerful functionality, and smart technology
+        solutions. Whether you’re a small startup or an established company,
+        TechoiX Web provides professional website development services that turn
+        your ideas into a digital reality.
+      </p>
+    </div>
+
+    <div id="about-id" class="about-text hidden">
+      <p>
+        Di TechoiX Web, kami merancang website modern, responsif, dan mudah digunakan
+        sesuai kebutuhan bisnis Anda. Misi kami adalah membantu brand tampil menonjol
+        di dunia online dengan desain yang bersih, fungsionalitas yang kuat, dan
+        solusi teknologi yang cerdas. Baik Anda pemula yang baru merintis maupun
+        perusahaan yang sudah mapan, TechoiX Web menyediakan layanan pembuatan
+        website profesional untuk mewujudkan ide Anda menjadi kenyataan digital.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const btnEn = document.getElementById("btn-en");
+    const btnId = document.getElementById("btn-id");
+    const aboutEn = document.getElementById("about-en");
+    const aboutId = document.getElementById("about-id");
+
+    btnEn.addEventListener("click", () => {
+      aboutEn.classList.remove("hidden");
+      aboutId.classList.add("hidden");
+      btnEn.classList.add("active");
+      btnId.classList.remove("active");
+    });
+
+    btnId.addEventListener("click", () => {
+      aboutId.classList.remove("hidden");
+      aboutEn.classList.add("hidden");
+      btnId.classList.add("active");
+      btnEn.classList.remove("active");
+    });
+
+    document.getElementById("btnPindah").addEventListener("click", function() {
+        window.location.href = "home.html"
+    })
+  </script>
+</body>
+</html>
