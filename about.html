@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="description" content="Professional, responsive and secure websites by TechnoiX Web.">
+  <meta name="robots" content="index, follow">
+  <!-- Replace the content value with the meta token Google Search Console gives you -->
+  <meta name="google-site-verification" content="REPLACE_WITH_GOOGLE_TOKEN">
+  <link rel="canonical" href="/about.html">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  <!-- Open Graph (optional but helps) -->
+  <meta property="og:title" content="TechoiX Web — About">
+  <meta property="og:description" content="Professional, responsive and secure websites by TechnoiX Web.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/about.html">
+  <meta name="twitter:card" content="summary_large_image">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TechoiX Web — About</title>
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png">
+  <link rel="icon" type="image/png" href="favicon.png">
   <style>
     body {
     color: white;
@@ -126,10 +135,46 @@
     });
 
     document.getElementById("btnPindah").addEventListener("click", function() {
-        window.location.href = "index.html"
+        window.location.href = "home.html"
     })
   </script>
+
+
+  <script>
+  (function(){
+    const expected = "f57356f8359265ba0e49a42415f9e06a5ff3bbff018d46687bfe532801075ab1";
+    async function sha256(hex) {
+      const enc = new TextEncoder();
+      const data = enc.encode(hex);
+      const hashBuf = await crypto.subtle.digest('SHA-256', data);
+      const hashArr = Array.from(new Uint8Array(hashBuf));
+      return hashArr.map(b => b.toString(16).padStart(2,'0')).join('');
+    }
+    async function check() {
+      try {
+        const current = document.documentElement.outerHTML;
+        const curHash = await sha256(current);
+        if(curHash !== expected) {
+          const overlay = document.createElement('div');
+          overlay.style.position='fixed';
+          overlay.style.inset=0;
+          overlay.style.background='rgba(0,0,0,0.85)';
+          overlay.style.color='white';
+          overlay.style.zIndex=99999;
+          overlay.style.display='flex';
+          overlay.style.flexDirection='column';
+          overlay.style.alignItems='center';
+          overlay.style.justifyContent='center';
+          overlay.style.textAlign='center';
+          overlay.style.padding='20px';
+          overlay.innerHTML = '<h1>Warning: File integrity check failed</h1><p>This page appears to have been modified from the expected version. If you recently updated files intentionally, ignore this message. Otherwise, check your server files.</p>';
+          document.body.appendChild(overlay);
+        }
+      } catch(e) { console.warn('Integrity check failed', e); }
+    }
+    if(document.readyState === 'complete') check(); else window.addEventListener('load', check);
+  })();
+  </script>
+
 </body>
-
 </html>
-

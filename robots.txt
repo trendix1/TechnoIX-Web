@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://example.com/sitemap.xml
+# If you want to block indexing of a folder, add: Disallow: /private/
