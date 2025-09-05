@@ -300,43 +300,5 @@
       menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
   </script>
-
-
-  <script>
-  (function(){
-    const expected = "b9328981d139031e985c6da319bf48e6f9b25961c4e71045f477097948655cc8";
-    async function sha256(hex) {
-      const enc = new TextEncoder();
-      const data = enc.encode(hex);
-      const hashBuf = await crypto.subtle.digest('SHA-256', data);
-      const hashArr = Array.from(new Uint8Array(hashBuf));
-      return hashArr.map(b => b.toString(16).padStart(2,'0')).join('');
-    }
-    async function check() {
-      try {
-        const current = document.documentElement.outerHTML;
-        const curHash = await sha256(current);
-        if(curHash !== expected) {
-          const overlay = document.createElement('div');
-          overlay.style.position='fixed';
-          overlay.style.inset=0;
-          overlay.style.background='rgba(0,0,0,0.85)';
-          overlay.style.color='white';
-          overlay.style.zIndex=99999;
-          overlay.style.display='flex';
-          overlay.style.flexDirection='column';
-          overlay.style.alignItems='center';
-          overlay.style.justifyContent='center';
-          overlay.style.textAlign='center';
-          overlay.style.padding='20px';
-          overlay.innerHTML = '<h1>Warning: File integrity check failed</h1><p>This page appears to have been modified from the expected version. If you recently updated files intentionally, ignore this message. Otherwise, check your server files.</p>';
-          document.body.appendChild(overlay);
-        }
-      } catch(e) { console.warn('Integrity check failed', e); }
-    }
-    if(document.readyState === 'complete') check(); else window.addEventListener('load', check);
-  })();
-  </script>
-
 </body>
 </html>
