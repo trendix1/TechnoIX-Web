@@ -17,13 +17,7 @@
   <title>TechnoIX Web</title>
   <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
     body {
       background: linear-gradient(-45deg, #87ceeb, #1e3c72, #0f2027);
       color: white;
@@ -39,56 +33,32 @@
         75%{background-position: 0% 100%;}
         100%{background-position: 0% 0%;}
     }
-
-    /* Glass effect navbar */
     .navbar {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      z-index: 20;
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+      width: 90%; display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 30px; border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2); z-index: 20;
     }
     .logo { font-size: 20px; font-weight: bold; }
-
     .menu { display: flex; gap: 25px; }
     .menu a {
-      text-decoration: none; color: white; font-weight: bold;
-      transition: color 0.3s ease;
+      text-decoration: none; color: white; font-weight: bold; transition: color 0.3s ease;
     }
     .menu a:hover { color: #00f7ff; }
-
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .hamburger span {
-      width: 25px; height: 3px; background: white; border-radius: 2px;
-      transition: all 0.3s ease;
+      width: 25px; height: 3px; background: white; border-radius: 2px; transition: all 0.3s ease;
     }
     .menu-mobile {
       position: absolute; background: #3b3a3a86; top: 70px; right: 20px;
       border-radius: 15px; display: none; flex-direction: column; gap: 15px; padding: 20px;
       animation: fadeIn 0.3s ease;
     }
-    .menu-mobile a {
-      color: #fff; text-decoration: none; font-weight: bold;
-    }
+    .menu-mobile a { color: #fff; text-decoration: none; font-weight: bold; }
     .menu-mobile a:hover { color: #00f7ff; }
-
-    /* Hero */
-    .hero {
-      max-width: 700px; margin: 140px auto 40px; padding: 20px;
-      animation: fadeIn 1.5s ease-in-out;
-    }
+    .hero { max-width: 700px; margin: 140px auto 40px; padding: 20px; animation: fadeIn 1.5s ease-in-out; }
     .hero h1 { font-size: 28px; margin-bottom: 20px; line-height: 1.5; }
-
-    /* Button */
     .btn {
       background: linear-gradient(135deg, #00f7ff, #00c4ff);
       border: none; padding: 15px 40px; border-radius: 50px;
@@ -96,28 +66,19 @@
       transition: all 0.4s ease; box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
       animation: floatUp 2s ease-in-out infinite alternate;
     }
-    .btn:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 8px 25px rgba(0, 255, 255, 0.6);
-    }
-
-    /* Cards */
+    .btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 8px 25px rgba(0, 255, 255, 0.6); }
     .cards {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px; margin: 60px auto; padding: 20px;
-      max-width: 1100px; width: 100%;
+      gap: 20px; margin: 60px auto; padding: 20px; max-width: 1100px; width: 100%;
     }
     .card {
       background: rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px;
       backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeInUp 1.5s ease forwards;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; animation: fadeInUp 1.5s ease forwards;
     }
     .card:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0, 255, 255, 0.5); }
     .card h2 { font-size: 22px; margin-bottom: 15px; color: #00f7ff; }
     .card p { font-size: 15px; line-height: 1.6; }
-
-    /* Testimonials */
     .slider { position: relative; max-width: 800px; margin: auto; overflow: hidden; }
     .slides { display: flex; transition: transform 0.5s ease-in-out; }
     .testimonial-card {
@@ -131,37 +92,23 @@
       background: rgba(0,0,0,0.4); border: none; padding: 10px;
       color: #fff; cursor: pointer; border-radius: 50%;
     }
-    .prev { left: 10px; }
-    .next { right: 10px; }
-
-    /* Portfolio */
+    .prev { left: 10px; } .next { right: 10px; }
     .portfolio-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
       gap: 20px; padding: 20px; max-width: 1000px; margin: auto;
     }
-    .portfolio-item img {
-      width: 100%; border-radius: 12px; transition: transform 0.3s ease;
-    }
+    .portfolio-item img { width: 100%; border-radius: 12px; transition: transform 0.3s ease; }
     .portfolio-item img:hover { transform: scale(1.05); }
-
-    /* FAQ */
     .faq-container { max-width: 800px; margin: auto; text-align: left; padding: 20px; }
     .faq-item {
       margin-bottom: 20px; background: rgba(255,255,255,0.1);
       padding: 20px; border-radius: 10px; backdrop-filter: blur(10px);
     }
     .faq-item h3 { margin-bottom: 10px; color: #00f7ff; }
-
-    /* Animations */
     @keyframes fadeIn { from {opacity:0;transform:translateY(30px);} to {opacity:1;transform:translateY(0);} }
     @keyframes fadeInUp { from {opacity:0;transform:translateY(30px);} to {opacity:1;transform:translateY(0);} }
     @keyframes floatUp { from {transform:translateY(0);} to {transform:translateY(-10px);} }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .menu { display: none; }
-      .hamburger { display: flex; }
-    }
+    @media (max-width: 768px) { .menu { display: none; } .hamburger { display: flex; } }
   </style>
 </head>
 <body>
@@ -173,9 +120,7 @@
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     <div class="menu-mobile" id="menuMobile">
       <a href="#home">Home</a>
       <a href="#service">Services</a>
@@ -194,86 +139,60 @@
   <!-- Services -->
   <section id="service">
     <div class="cards">
-      <div class="card">
-        <h2>Fast Development</h2>
-        <p>We build responsive and modern websites quickly without compromising quality.</p>
-      </div>
-      <div class="card">
-        <h2>Secure & Reliable</h2>
-        <p>Your data and website are protected with the latest security technologies.</p>
-      </div>
-      <div class="card">
-        <h2>Custom Design</h2>
-        <p>We provide a unique and stylish design tailored to your brand identity.</p>
-      </div>
+      <div class="card"><h2>Fast Development</h2><p>We build responsive and modern websites quickly without compromising quality.</p></div>
+      <div class="card"><h2>Secure & Reliable</h2><p>Your data and website are protected with the latest security technologies.</p></div>
+      <div class="card"><h2>Custom Design</h2><p>We provide a unique and stylish design tailored to your brand identity.</p></div>
     </div>
   </section>
 
   <!-- Testimonials -->
-<!-- Testimonials -->
-<section id="testimonials">
-  <h2 style="margin:40px 0 20px;color:#00f7ff;">What Our Clients Say</h2>
-  <div class="slider">
-    <div class="slides" id="testimonialSlides">
-      <div class="testimonial-card">
-        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=200&h=200&fit=crop" alt="User 1" class="user-photo">
-        <p class="testimonial-text">
-          “Working with TechnoIX Web was a wonderful experience. My website was delivered
-          faster than expected, responsive across all devices, and secured with the latest
-          technology. I’m very happy and will surely recommend it.”
-        </p>
-        <h4 class="user-name">Jhon Doe</h4>
-        <span class="user-role">Entrepreneur</span>
+  <section id="testimonials">
+    <h2 style="margin:40px 0 20px;color:#00f7ff;">What Our Clients Say</h2>
+    <div class="slider">
+      <div class="slides" id="testimonialSlides">
+        <div class="testimonial-card">
+          <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=200&h=200&fit=crop" alt="John Doe" class="user-photo">
+          <p class="testimonial-text">“Working with TechnoIX Web was a wonderful experience. My website was delivered faster than expected, responsive across all devices, and secured with the latest technology. I’m very happy and will surely recommend it.”</p>
+          <h4 class="user-name">John Doe</h4><span class="user-role">Entrepreneur</span>
+        </div>
+        <div class="testimonial-card">
+          <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=200&h=200&fit=crop" alt="Siti Aulia" class="user-photo">
+          <p class="testimonial-text">“Excellent service! Every detail of the design matches my brand. They also gave me guidance on managing the website so I can handle it myself later.”</p>
+          <h4 class="user-name">Siti Aulia</h4><span class="user-role">Freelancer</span>
+        </div>
+        <div class="testimonial-card">
+          <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?w=200&h=200&fit=crop" alt="Budi Santoso" class="user-photo">
+          <p class="testimonial-text">“I love how professional and fast they are. The support team is always ready whenever I need help. Truly a reliable partner for my business.”</p>
+          <h4 class="user-name">Budi Santoso</h4><span class="user-role">Employee</span>
+        </div>
       </div>
-      <div class="testimonial-card">
-        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=200&h=200&fit=crop" alt="User 2" class="user-photo">
-        <p class="testimonial-text">
-          “Excellent service! Every detail of the design matches my brand. They also gave
-          me guidance on managing the website so I can handle it myself later.”
-        </p>
-        <h4 class="user-name">Siti Nurhaliza</h4>
-        <span class="user-role">Freelancer</span>
-      </div>
-      <div class="testimonial-card">
-        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop" class="user-photo" alt="User 3">
-        <p class="testimonial-text">
-          “I love how professional and fast they are. The support team is always ready
-          whenever I need help. Truly a reliable partner for my business.”
-        </p>
-        <h4 class="user-name">Budi Santoso</h4>
-        <span class="user-role">Employee</span>
-      </div>
+      <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </div>
-    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="next" onclick="moveSlide(1)">&#10095;</button>
-  </div>
-</section>
+  </section>
 
-<!-- Portfolio -->
-<section id="portfolio">
-  <h2 style="margin:50px 0 20px;color:#00f7ff;">Our Portfolio</h2>
-  <div class="portfolio-grid">
-    <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1581090700227-4c4f50b597f8?w=600&h=400&fit=crop" alt="Project 1"></div>
-    <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?w=600&h=400&fit=crop" alt="Project 2"></div>
-    <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&h=400&fit=crop" alt="Project 3"></div>
-    <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop" alt="Project 4"></div>
-    <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=600&h=400&fit=crop" alt="Project 5"></div>
-    <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop" alt="Project 6"></div>
-    <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=400&fit=crop" alt="Project 7"></div>
-    <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="Project 8"></div>
-  </div>
-</section>
-
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <h2 style="margin:50px 0 20px;color:#00f7ff;">Our Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop" alt="Project 1 - Coding"></div>
+      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?w=600&h=400&fit=crop" alt="Project 2 - Laptop"></div>
+      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&h=400&fit=crop" alt="Project 3 - Design UI"></div>
+      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop" alt="Project 4 - Office Work"></div>
+      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=600&h=400&fit=crop" alt="Project 5 - Code Editor"></div>
+      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop" alt="Project 6 - Responsive"></div>
+      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=400&fit=crop" alt="Project 7 - Creative"></div>
+      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop" alt="Project 8 - Teamwork"></div>
+    </div>
+  </section>
 
   <script>
     function toggleMenu() {
       const menu = document.getElementById("menuMobile");
       menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
-
     let currentIndex = 0;
     const slides = document.getElementById("testimonialSlides");
-
     function moveSlide(step) {
       const totalSlides = slides.children.length;
       currentIndex = (currentIndex + step + totalSlides) % totalSlides;
