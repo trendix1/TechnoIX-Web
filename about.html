@@ -3,12 +3,10 @@
 <head>
   <meta name="description" content="Professional, responsive and secure websites by TechnoiX Web.">
   <meta name="robots" content="index, follow">
-  <!-- Replace the content value with the meta token Google Search Console gives you -->
   <meta name="google-site-verification" content="googleffcef74519e2a356.html">
   <link rel="canonical" href="/about.html">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-  <!-- Open Graph (optional but helps) -->
-  <meta property="og:title" content="TechoiX Web — About">
+  <meta property="og:title" content="TechnoiX Web — About">
   <meta property="og:description" content="Professional, responsive and secure websites by TechnoiX Web.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="/about.html">
@@ -16,21 +14,55 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechoiX Web — About</title>
+  <title>TechnoiX Web — About</title>
   <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <style>
     body {
-    color: white;
-    background: linear-gradient(135deg, #87F5F5, #7226FF);
-    text-align: center;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      background: linear-gradient(135deg, #87F5F5, #7226FF);
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
+
     .container {
       max-width: 900px;
-      padding: 30px;
-      background: rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.4);
       border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 1s ease-in-out;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn {
+      background: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border-radius: 8px;
+      color: #7226FF;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #7226FF;
+      color: white;
+      transform: scale(1.05);
+    }
+
     .lang-switch {
       margin-bottom: 20px;
     }
@@ -43,72 +75,75 @@
       color: white;
       cursor: pointer;
       font-weight: bold;
+      transition: 0.3s;
+    }
+    .lang-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
     }
     .lang-btn.active {
       background: white;
       color: #7226FF;
     }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #00f7ff, #ff00d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
     .about-text {
-      font-size: 1.6rem; /* lebih gede */
+      font-size: 1.2rem;
       line-height: 1.8;
-      font-weight: 500;
+      font-weight: 400;
       transition: opacity 0.4s ease;
+      animation: fadeIn 0.8s ease-in-out;
     }
     .hidden {
       display: none;
     }
-    .judul-text{
-      font-size: 1.6rem; /* lebih gede */
-      line-height: 1.8;
-      font-weight: 500;
-      transition: opacity 0.4s ease;
-      font-family: Arial, sans-serif;
-    }
-    .btn{
-        background: rgb(255, 255, 255);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        padding: 8px 16px;
-        margin: 0 5px;
-        border-radius: 8px;
-        color: rgb(0, 0, 0);
-        cursor: pointer;
-        font-weight: bold;
-    }
   </style>
 </head>
 <body>
-    <button class="btn" onclick="window.location.href='index.html'">Back/kembali</button>
   <div class="container">
+    <!-- tombol kembali -->
+    <button class="btn" onclick="window.location.href='index.html'">← Back</button>
+
     <!-- tombol translate -->
     <div class="lang-switch">
       <button class="lang-btn active" id="btn-en">English</button>
       <button class="lang-btn" id="btn-id">Indonesia</button>
     </div>
-    <div id="judu-en" class="judu-text">
-        <h1>About TechnoiX Web</h1>
+
+    <!-- judul -->
+    <div id="judul-en">
+      <h1>About TechnoiX Web</h1>
     </div>
-    <div id="judul-id" class="judul-text hidden">
-        <h1>Tentang TechnoiX Webs</h1>
+    <div id="judul-id" class="hidden">
+      <h1>Tentang TechnoiX Web</h1>
     </div>
+
     <!-- teks about -->
     <div id="about-en" class="about-text">
       <p>
-        At TechoiX Web, we craft modern, responsive, and user-friendly websites
+        At TechnoiX Web, we craft modern, responsive, and user-friendly websites
         tailored to your business needs. Our mission is to help brands stand out
         online with clean design, powerful functionality, and smart technology
         solutions. Whether you’re a small startup or an established company,
-        TechoiX Web provides professional website development services that turn
+        TechnoiX Web provides professional website development services that turn
         your ideas into a digital reality.
       </p>
     </div>
 
     <div id="about-id" class="about-text hidden">
       <p>
-        Di TechoiX Web, kami merancang website modern, responsif, dan mudah digunakan
+        Di TechnoiX Web, kami merancang website modern, responsif, dan mudah digunakan
         sesuai kebutuhan bisnis Anda. Misi kami adalah membantu brand tampil menonjol
         di dunia online dengan desain yang bersih, fungsionalitas yang kuat, dan
         solusi teknologi yang cerdas. Baik Anda pemula yang baru merintis maupun
-        perusahaan yang sudah mapan, TechoiX Web menyediakan layanan pembuatan
+        perusahaan yang sudah mapan, TechnoiX Web menyediakan layanan pembuatan
         website profesional untuk mewujudkan ide Anda menjadi kenyataan digital.
       </p>
     </div>
@@ -119,10 +154,14 @@
     const btnId = document.getElementById("btn-id");
     const aboutEn = document.getElementById("about-en");
     const aboutId = document.getElementById("about-id");
+    const judulEn = document.getElementById("judul-en");
+    const judulId = document.getElementById("judul-id");
 
     btnEn.addEventListener("click", () => {
       aboutEn.classList.remove("hidden");
       aboutId.classList.add("hidden");
+      judulEn.classList.remove("hidden");
+      judulId.classList.add("hidden");
       btnEn.classList.add("active");
       btnId.classList.remove("active");
     });
@@ -130,6 +169,8 @@
     btnId.addEventListener("click", () => {
       aboutId.classList.remove("hidden");
       aboutEn.classList.add("hidden");
+      judulId.classList.remove("hidden");
+      judulEn.classList.add("hidden");
       btnId.classList.add("active");
       btnEn.classList.remove("active");
     });
