@@ -181,14 +181,14 @@
   <script>
   // Inisialisasi EmailJS
   (function(){
-    emailjs.init("BCs2u9dXLWrQKCevc"); // Ganti dengan Public Key EmailJS kamu
+    emailjs.init("631v7GwR5Zs4pHP01"); // Ganti dengan Public Key EmailJS kamu
   })();
 
   // Form submit
   document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
-      emailjs.sendForm('service_xx9z5rq', 'template_1atpwkl', this)
+      emailjs.sendForm('service_gbaqlrq', 'template_8a3hivf', this)
       .then(function() {
           alert('Pesan berhasil terkirim!');
           document.getElementById('contactForm').reset(); // reset form setelah kirim
