@@ -1,185 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ✅ Google Search Console Verification -->
+  <meta name="google-site-verification" content="KODE_VERIFIKASI_KAMU" />
+
   <title>TechnoIX Web</title>
-
-  <!-- SEO Meta -->
   <meta name="description" content="Professional, responsive and secure websites by TechnoiX Web.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.technoix.com/" />
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://www.technoix.com/">
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <!-- ✅ Favicon -->
   <link rel="shortcut icon" href="favicon.ico">
 
-  <!-- Google Fonts -->
+  <!-- ✅ Fonts & Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    html { scroll-behavior: smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
     body {
-      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      line-height: 1.6;
-      overflow-x: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-
-    /* Navbar */
-    .navbar {
-      position: fixed; top: 0; left: 0; width: 100%;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 15px 30px; background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      z-index: 100; transition: background 0.3s ease;
+    header {
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
-    .logo { font-size: 22px; font-weight: 700; color: #00f7ff; letter-spacing: 1px; }
-    .menu { display: flex; gap: 25px; }
-    .menu a {
-      text-decoration: none; color: white; font-weight: 500; font-size: 15px;
-      transition: color 0.3s ease;
+    header img {
+      height: 50px;
+      filter: drop-shadow(0 0 8px #38bdf8);
+      animation: glow 2s infinite alternate;
     }
-    .menu a:hover { color: #00f7ff; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 28px; height: 3px; background: #fff; border-radius: 3px; }
-
-    .menu-mobile {
-      position: absolute; top: 60px; right: 20px; background: rgba(0,0,0,0.85);
-      border-radius: 12px; padding: 20px; display: none; flex-direction: column; gap: 15px;
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 5px #38bdf8); }
+      to { filter: drop-shadow(0 0 20px #38bdf8); }
     }
-    .menu-mobile a { color: #fff; text-decoration: none; font-weight: 500; }
-    .menu-mobile.active { display: flex; animation: fadeIn 0.3s ease; }
-
-    /* Hero */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #f8fafc;
+      font-weight: 500;
+      transition: color .3s;
+    }
+    nav a:hover { color: #38bdf8; }
+    .menu-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      display: none;
+    }
     .hero {
-      min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; padding: 0 20px; background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600') center/cover no-repeat;
-      position: relative;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      animation: fadeIn 2s ease-in-out;
     }
-    .hero::before {
-      content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .hero h1 {
-      position: relative; font-size: 40px; font-weight: 700;
-      max-width: 800px; margin-bottom: 20px; line-height: 1.3;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #38bdf8, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .hero p { position: relative; font-size: 18px; margin-bottom: 30px; }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
     .btn {
-      position: relative;
-      background: linear-gradient(135deg, #00f7ff, #00c4ff);
-      border: none; padding: 15px 40px; border-radius: 50px;
-      font-size: 18px; font-weight: 600; color: #000; cursor: pointer;
-      transition: all 0.4s ease; box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+      display: inline-block;
+      background: #3b82f6;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform .3s, background .3s;
     }
-    .btn:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0,255,255,0.6); }
-
+    .btn:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
     /* Services */
-    .section { padding: 80px 20px; text-align: center; }
-    .section h2 { font-size: 32px; color: #00f7ff; margin-bottom: 40px; }
-    .cards {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px; max-width: 1100px; margin: auto;
+    .services {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .services h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #38bdf8;
+    }
+    .service-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
     .card {
-      background: rgba(255,255,255,0.08); padding: 30px; border-radius: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: rgba(255,255,255,0.05);
+      padding: 2rem;
+      border-radius: 1rem;
+      transition: transform .3s, background .3s;
     }
-    .card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,255,255,0.3); }
-    .card h3 { margin-bottom: 15px; color: #00f7ff; font-size: 20px; }
-
-    /* Portfolio */
-    .portfolio-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px; max-width: 1000px; margin: auto;
+    .card:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-5px);
     }
-    .portfolio-item img {
-      width: 100%; border-radius: 12px; transition: transform 0.4s ease;
+    /* Testimonials */
+    .testimonials {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: rgba(255,255,255,0.03);
     }
-    .portfolio-item img:hover { transform: scale(1.08); }
-
-    /* Footer */
+    .testimonials h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #38bdf8;
+    }
+    .testimonial {
+      display: none;
+      background: rgba(255,255,255,0.05);
+      padding: 2rem;
+      border-radius: 1rem;
+      font-style: italic;
+      min-height: 120px;
+    }
+    .testimonial.active { display: block; }
+    /* CTA */
+    .cta {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .cta h2 {
+      margin-bottom: 1rem;
+    }
     footer {
-      text-align: center; padding: 20px; background: rgba(0,0,0,0.7);
-      font-size: 14px; color: #aaa;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background: rgba(0,0,0,0.3);
     }
-
-    @keyframes fadeIn { from {opacity:0;transform:translateY(-10px);} to {opacity:1;transform:translateY(0);} }
-    @media (max-width: 768px) {
-      .menu { display: none; }
-      .hamburger { display: flex; }
-      .hero h1 { font-size: 28px; }
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 3.5rem; }
+      .hero p { font-size: 1.3rem; }
+      .service-cards { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <div class="navbar">
-    <div class="logo">TECHNOIX WEB</div>
-    <div class="menu">
-      <a href="#home">Home</a>
-      <a href="#service">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-    <div class="menu-mobile" id="menuMobile">
-      <a href="#home">Home</a>
-      <a href="#service">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
+  <header>
+    <img src="logo.png" alt="TechnoIX Logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-btn">☰</button>
+  </header>
 
   <!-- Hero -->
-  <section class="hero" id="home">
-    <h1>Your journey to a responsive and reliable website starts with <br> <span style="color:#00f7ff">TechnoIX</span></h1>
-    <p>We create modern, secure, and responsive websites to grow your business.</p>
-    <button class="btn" onclick="document.getElementById('service').scrollIntoView({behavior: 'smooth'})">Get Started</button>
+  <section class="hero">
+    <h1>Your journey to a responsive and reliable website starts with <br> <span style="color:#38bdf8;">TechnoIX</span></h1>
+    <p>We craft professional, elegant, and modern websites to help you build your digital presence and grow your business.</p>
+    <a href="contact.html" class="btn">Get Started</a>
   </section>
 
   <!-- Services -->
-  <section class="section" id="service">
+  <section class="services">
     <h2>Our Services</h2>
-    <div class="cards">
-      <div class="card"><h3>Fast Development</h3><p>We deliver modern and responsive websites in record time.</p></div>
-      <div class="card"><h3>Secure & Reliable</h3><p>Your data and website are protected with enterprise-level security.</p></div>
-      <div class="card"><h3>Custom Design</h3><p>We craft unique and stylish designs tailored to your brand identity.</p></div>
+    <div class="service-cards">
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>Responsive, modern, and scalable websites built with the latest technology.</p>
+      </div>
+      <div class="card">
+        <h3>UI/UX Design</h3>
+        <p>Beautiful and user-friendly designs that provide the best user experience.</p>
+      </div>
+      <div class="card">
+        <h3>SEO Optimization</h3>
+        <p>Rank higher on search engines and attract the right audience for your business.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Portfolio -->
-  <section class="section" id="portfolio">
-    <h2>Our Portfolio</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600" alt="Coding project"></div>
-      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?w=600" alt="Laptop project"></div>
-      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600" alt="UI Design project"></div>
-      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600" alt="Office work project"></div>
-    </div>
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial active">"TechnoIX transformed our outdated website into a modern platform. Sales increased by 40%!<br>– Sarah, Business Owner"</div>
+    <div class="testimonial">"Professional team, great communication, and excellent results. Highly recommended!<br>– David, Startup Founder"</div>
+    <div class="testimonial">"My site is now fast, responsive, and SEO friendly. Couldn’t be happier!<br>– Aulia, Freelancer"</div>
   </section>
 
-  <!-- Contact -->
-  <section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <p>Have a project in mind? Let’s build it together.</p>
-    <a href="mailto:hello@technoix.com" class="btn">Say Hello</a>
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready to grow your business online?</h2>
+    <p>Let’s build your digital presence together with TechnoIX Web.</p>
+    <a href="contact.html" class="btn">Contact Us</a>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 TechnoIX Web. All rights reserved.</p>
+    © 2025 TechnoIX Web. All rights reserved.
   </footer>
 
+  <!-- ✅ JavaScript -->
   <script>
-    function toggleMenu() {
-      document.getElementById("menuMobile").classList.toggle("active");
+    // Mobile menu toggle
+    const menuBtn = document.querySelector(".menu-btn");
+    const nav = document.querySelector("nav");
+    menuBtn.addEventListener("click", () => {
+      if (nav.style.display === "flex") {
+        nav.style.display = "none";
+      } else {
+        nav.style.display = "flex";
+        nav.style.flexDirection = "column";
+        nav.style.gap = "1rem";
+        nav.style.background = "rgba(0,0,0,0.8)";
+        nav.style.position = "absolute";
+        nav.style.top = "70px";
+        nav.style.right = "20px";
+        nav.style.padding = "1rem 2rem";
+        nav.style.borderRadius = "8px";
+      }
+    });
+
+    function checkWidth() {
+      if (window.innerWidth < 768) {
+        nav.style.display = "none";
+        menuBtn.style.display = "block";
+      } else {
+        nav.style.display = "flex";
+        nav.style.flexDirection = "row";
+        nav.style.position = "static";
+        nav.style.background = "transparent";
+        nav.style.gap = "1.5rem";
+        menuBtn.style.display = "none";
+      }
     }
+    checkWidth();
+    window.addEventListener("resize", checkWidth);
+
+    // Testimonial slider
+    let currentIndex = 0;
+    const testimonials = document.querySelectorAll(".testimonial");
+
+    function showTestimonial(index) {
+      testimonials.forEach((t, i) => {
+        t.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextTestimonial() {
+      currentIndex = (currentIndex + 1) % testimonials.length;
+      showTestimonial(currentIndex);
+    }
+
+    setInterval(nextTestimonial, 4000);
   </script>
 </body>
 </html>
