@@ -19,7 +19,7 @@
     }
     {
       "src": "favicon.ico",
-      "type": "image/ico"
+      "type": "image/x-ico"
     }
   ],
   "theme_color": "#ffffff",
