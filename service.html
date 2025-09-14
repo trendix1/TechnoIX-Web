@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services - TechnoIX</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    html {
+      scroll-behavior: smooth; /* Smooth scrolling */
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+    }
+    header {
+      text-align: center;
+      padding: 50px 20px 30px;
+      background: rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin: 10px 0;
+      letter-spacing: 1px;
+    }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.85;
+    }
+    .btn-back {
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(90deg, #2c5364, #203a43);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    .btn-back:hover {
+      background: linear-gradient(90deg, #4ca1af, #2c3e50);
+      transform: translateX(-5px);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      padding: 50px;
+    }
+    .service-card {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 25px;
+      border-radius: 14px;
+      transition: all 0.4s ease;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+    .service-card:nth-child(1) { animation-delay: 0.2s; }
+    .service-card:nth-child(2) { animation-delay: 0.4s; }
+    .service-card:nth-child(3) { animation-delay: 0.6s; }
+    .service-card:nth-child(4) { animation-delay: 0.8s; }
+    .service-card:nth-child(5) { animation-delay: 1s; }
+    .service-card:nth-child(6) { animation-delay: 1.2s; }
+
+    .service-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .service-card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      color: #4ca1af;
+    }
+    .service-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .bottom-btn {
+      text-align: center;
+      padding: 40px;
+    }
+    .bottom-btn a {
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(90deg, #2c5364, #203a43);
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+    .bottom-btn a:hover {
+      background: linear-gradient(90deg, #4ca1af, #2c3e50);
+      transform: translateY(-3px);
+    }
+    footer {
+      text-align: center; padding: 20px; background: rgba(0,0,0,0.7);
+      font-size: 14px; color: #aaa;
+    }
+    .menu2{
+      text-decoration: none;
+      color: gray;
+      font-family: Arial, sans-serif;
+      font-size: bold;
+     padding: 8px 12px;    /* biar ada jarak */
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Services</h1>
+    <p>Professional web development solutions tailored for your business</p>
+  </header>
+
+  <section class="services">
+    <div class="service-card">
+      <h2>Custom Website Development</h2>
+      <p>We build modern and scalable websites using the latest technologies such as HTML, CSS, and JavaScript to ensure performance and responsiveness.</p>
+    </div>
+
+    <div class="service-card">
+      <h2>Frontend Development</h2>
+      <p>Elegant UI design and smooth user experiences with HTML, CSS, and advanced JavaScript frameworks.</p>
+    </div>
+
+    <div class="service-card">
+      <h2>Backend Development</h2>
+      <p>Robust server-side solutions built with <strong>Ruby</strong> and JavaScript-based frameworks to support scalable business operations.</p>
+    </div>
+
+    <div class="service-card">
+      <h2>Full-Stack Development</h2>
+      <p>End-to-end development service covering both frontend and backend for a complete digital solution.</p>
+    </div>
+
+    <div class="service-card">
+      <h2>UI/UX Design</h2>
+      <p>We design intuitive, user-friendly, and elegant interfaces that reflect your brand identity.</p>
+    </div>
+
+    <div class="service-card">
+      <h2>Website Optimization</h2>
+      <p>Improve your website’s speed, SEO, and overall performance to achieve better results and higher ranking in search engines.</p>
+    </div>
+  </section>
+
+  <div class="bottom-btn">
+    <a href="index.html">back to Home</a>
+  </div>
+  <footer>
+          <a href="https://wa.me/6282133141060" target="_blank" class="menu2">
+        WhatsApp</a>
+      <a href="contact.html" class="menu2">Gmail</a>
+      <a href="privacy.html" class="menu2">Privacy</a>
+      <a href="about.html" class="menu2">About</a>
+    <p>&copy; 2025 TechnoIX Web. All rights reserved.</p>
+  </footer>
+</body>
+</html>
