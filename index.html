@@ -3,19 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>TechnoIX Web</title>
 
   <!-- SEO Meta -->
-  <meta name="description" content=" buat website murah, Buat Website Murah, Jasa buat website murah, JASA BUAT WEBISTE MURAH, Professional, responsive and secure websites by TechnoiX Web.">
+  <meta name="description" content="buat website murah, Buat Website Murah, Jasa buat website murah, JASA BUAT WEBISTE MURAH, Professional, responsive and secure websites by TechnoiX Web.">
   <meta name="keywords" content="TechnoIX, Technoix-Web ,Technoix, technoix, Technoix-web, technoix-web, technoixweb, Desain Website, Jasa website harga 100.000, jasa buat website, jasa pembuatan website, jasa desain web, bikin website, jasa buat toko online, pembuatan website cepat, web developer Indonesia, jasa buat landing page, website creation services, website design services, jasa pembuatan website, Jasa pembuatan website, JASA PEMBUATAN WEBSITE, custom website design, create a website, business website builder, responsive website services, web development company, خدمات تصميم المواقع, خدمات تطوير المواقع, إنشاء موقع إلكتروني, برمجة المواقع, شركة تطوير مواقع, تصميم متجر إلكتروني, 网站建设服务, 网站设计, 网站开发公司, 创建网站, 响应式网站设计, 企业网站建设, servicios de creación de sitios web, diseño web profesional, desarrollo de páginas web, crear sitio web, agencia de diseño web, páginas web responsivas, ウェブサイト制作サービス, ウェブデザイン会社, ホームページ作成, ウェブ開発サービス, レスポンシブウェブデザイン, カスタムウェブサイト">
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="googleffcef74519e2a356.html">
+
+  <!-- Canonical & Sitemap -->
   <link rel="canonical" href="https://trendix1.github.io/TechnoIX-Web/index.html">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://trendix1.github.io/TechnoIX-Web/sitemap.xml">
+
+  <!-- Open Graph -->
   <meta property="og:title" content="TechnoiX Web">
   <meta property="og:description" content="Professional, responsive and secure websites by TechnoiX Web.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://trendix1.github.io/TechnoIX-Web/index.html">
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Favicons -->
@@ -23,13 +30,27 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="shortcut icon" href="favicon.ico">
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Manifest -->
   <link rel="manifest" href="manifest.json">
 
+  <!-- Styles -->
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    html { scroll-behavior: smooth; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: linear-gradient(to bottom, #1e3c72, #2a5298);
       color: #fff;
@@ -39,136 +60,290 @@
 
     /* Navbar */
     .navbar {
-      position: fixed; top: 0; left: 0; width: 100%;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 15px 30px; background: rgba(0,0,0,0.6);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(10px);
-      z-index: 100; transition: background 0.3s ease;
+      z-index: 100;
+      transition: background 0.3s ease;
     }
-    .logo { font-size: 22px; font-weight: 700; color: #00f7ff; letter-spacing: 1px; }
-    .menu { display: flex; gap: 25px; }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #00f7ff;
+      letter-spacing: 1px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 25px;
+    }
+
     .menu a {
-      text-decoration: none; color: white; font-weight: 500; font-size: 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      font-size: 15px;
       transition: color 0.3s ease;
     }
-    .menu a:hover { color: #00f7ff; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 28px; height: 3px; background: #fff; border-radius: 3px; }
+
+    .menu a:hover {
+      color: #00f7ff;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #fff;
+      border-radius: 3px;
+    }
 
     .menu-mobile {
-      position: absolute; top: 60px; right: 20px; background: rgba(0,0,0,0.85);
-      border-radius: 12px; padding: 20px; display: none; flex-direction: column; gap: 15px;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 12px;
+      padding: 20px;
+      display: none;
+      flex-direction: column;
+      gap: 15px;
     }
-    .menu-mobile a { color: #fff; text-decoration: none; font-weight: 500; }
-    .menu-mobile.active { display: flex; animation: fadeIn 0.3s ease; }
+
+    .menu-mobile a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .menu-mobile.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
 
     /* Hero */
     .hero {
-      min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; padding: 0 20px; background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600') center/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
       position: relative;
     }
+
     .hero::before {
-      content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
     }
+
     .hero h1 {
-      position: relative; font-size: 40px; font-weight: 700;
-      max-width: 800px; margin-bottom: 20px; line-height: 1.3;
-            opacity: 0; /* awalnya transparan */
-      animation: fadeIn 2.5s forwards; /* animasi 1.5 detik */
+      position: relative;
+      font-size: 40px;
+      font-weight: 700;
+      max-width: 800px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+      opacity: 0;
+      animation: fadeIn 2.5s forwards;
     }
-    .hero p { position: relative; font-size: 18px; margin-bottom: 30px; }
+
+    .hero p {
+      position: relative;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
     .btn {
       position: relative;
       background: linear-gradient(135deg, #00f7ff, #00c4ff);
-      border: none; padding: 15px 40px; border-radius: 50px;
-      font-size: 18px; font-weight: 600; color: #000; cursor: pointer;
-      opacity: 0; /* awalnya transparan */
-      animation: fadeIn 2.5s forwards; /* animasi 1.5 detik */
-      transition: all 0.4s ease; box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+      border: none;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeIn 2.5s forwards;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
     }
-    .btn:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0,255,255,0.6); 
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 255, 255, 0.6);
     }
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
 
     /* Services */
-    .section { padding: 80px 20px; text-align: center; }
-    .section h2 { font-size: 32px; color: #00f7ff; margin-bottom: 40px; }
-    .cards {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px; max-width: 1100px; margin: auto;
+    .section {
+      padding: 80px 20px;
+      text-align: center;
     }
+
+    .section h2 {
+      font-size: 32px;
+      color: #00f7ff;
+      margin-bottom: 40px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
     .card {
-      background: rgba(255,255,255,0.08); padding: 30px; border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 30px;
+      border-radius: 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,255,255,0.3); }
-    .card h3 { margin-bottom: 15px; color: #00f7ff; font-size: 20px; }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #00f7ff;
+      font-size: 20px;
+    }
 
     /* Portfolio */
     .portfolio-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px; max-width: 1000px; margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
     }
+
     .portfolio-item img {
-      width: 100%; border-radius: 12px; transition: transform 0.4s ease;
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.4s ease;
     }
-    .portfolio-item img:hover { transform: scale(1.08); }
+
+    .portfolio-item img:hover {
+      transform: scale(1.08);
+    }
 
     /* Footer */
     footer {
-      text-align: center; padding: 20px; background: rgba(0,0,0,0.7);
-      font-size: 14px; color: #aaa;
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      font-size: 14px;
+      color: #aaa;
     }
 
-    @keyframes fadeIn { from {opacity:0;transform:translateY(-10px);} to {opacity:1;transform:translateY(0);} }
-    @media (max-width: 768px) {
-      .menu { display: none; }
-      .hamburger { display: flex; }
-      .hero h1 { font-size: 28px; }
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .menu2{
+
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+    }
+
+    /* Extra Menu Styling */
+    .menu2 {
       text-decoration: none;
       color: gray;
       font-family: Arial, sans-serif;
-      font-size: bold;
-     padding: 8px 12px;    /* biar ada jarak */
-  }
-  span.glow {
-  color: #00f7ff;
-  text-shadow: 
-    0 0 5px #00f7ff,
-    0 0 10px #00f7ff,
-    0 0 20px #00f7ff,
-    0 0 40px #00f7ff;
-  animation: glow 2s infinite alternate;
-}
+      font-weight: bold;
+      padding: 8px 12px;
+    }
 
-@keyframes glow {
-  from {
-    text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff;
-  }
-  to {
-    text-shadow: 0 0 20px #00f7ff, 0 0 40px #00f7ff, 0 0 60px #00f7ff;
-  }
-}
+    span.glow {
+      color: #00f7ff;
+      text-shadow:
+        0 0 5px #00f7ff,
+        0 0 10px #00f7ff,
+        0 0 20px #00f7ff,
+        0 0 40px #00f7ff;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff;
+      }
+      to {
+        text-shadow: 0 0 20px #00f7ff, 0 0 40px #00f7ff, 0 0 60px #00f7ff;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Navbar -->
   <div class="navbar">
     <div class="logo">TECHNOIX WEB</div>
-    <div class="menu">
+
+    <div class="menu" id="menu">
       <a href="#home">Home</a>
       <a href="service.html">Services</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
-    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <div class="menu-mobile" id="hamburger">
       <a href="#home">Home</a>
       <a href="service.html">Services</a>
@@ -179,62 +354,90 @@
 
   <!-- Hero -->
   <section class="hero" id="home">
-    <h1>Your journey to a responsive and reliable website starts with <br> <span class="glow">TechnoIX</span></h1>
+    <h1>
+      Your journey to a responsive and reliable website starts with 
+      <br> 
+      <span class="glow">TechnoIX</span>
+    </h1>
     <p>We create modern, secure, and responsive websites to grow your business.</p>
-    <button class="btn" onclick= "href='contact.html'">Get Started</button>
+    <button class="btn" onclick="window.location.href='contact.html'">Get Started</button>
   </section>
 
   <!-- Services -->
   <section class="section" id="service">
     <h2>Our Services</h2>
+
     <div class="cards">
-      <div class="card"><h3>Fast Development</h3><p>We deliver modern and responsive websites in record time.</p></div>
-      <div class="card"><h3>Secure & Reliable</h3><p>Your data and website are protected with enterprise-level security.</p></div>
-      <div class="card"><h3>Custom Design</h3><p>We craft unique and stylish designs tailored to your brand identity.</p></div>
+      <div class="card">
+        <h3>Fast Development</h3>
+        <p>We deliver modern and responsive websites in record time.</p>
+      </div>
+
+      <div class="card">
+        <h3>Secure & Reliable</h3>
+        <p>Your data and website are protected with enterprise-level security.</p>
+      </div>
+
+      <div class="card">
+        <h3>Custom Design</h3>
+        <p>We craft unique and stylish designs tailored to your brand identity.</p>
+      </div>
     </div>
   </section>
 
   <!-- Portfolio -->
   <section class="section" id="portfolio">
     <h2>Our Portfolio</h2>
+
     <div class="portfolio-grid">
-      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600" alt="Coding project"></div>
-      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?w=600" alt="Laptop project"></div>
-      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600" alt="UI Design project"></div>
-      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600" alt="Office work project"></div>
+      <div class="portfolio-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80" alt="Coding project">
+      </div>
+
+      <div class="portfolio-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1508780709619-79562169bc64?w=600&auto=format&fit=crop&q=80" alt="Laptop project">
+      </div>
+
+      <div class="portfolio-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&auto=format&fit=crop&q=80" alt="UI Design project">
+      </div>
+
+      <div class="portfolio-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80" alt="Office work project">
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-      <a href="https://wa.me/6282133141060" target="_blank" class="menu2">
-        WhatsApp</a>
-      <a href="contact.html" class="menu2">Gmail</a>
-      <a href="privacy.html" class="menu2">Privacy policy</a>
-      <a href="about.html" class="menu2">About</a>
-      <a href="service.html" class="menu2">
-        Service
-      </a>
+    <a href="https://wa.me/6282133141060" target="_blank" class="menu2">WhatsApp</a>
+    <a href="contact.html" class="menu2">Gmail</a>
+    <a href="privacy.html" class="menu2">Privacy Policy</a>
+    <a href="about.html" class="menu2">About</a>
+    <a href="service.html" class="menu2">Service</a>
+
     <p>&copy; 2025 TechnoIX Web. All rights reserved.</p>
   </footer>
 
-  <script>
+  <!-- Script -->
+  <script defer>
     function toggleMenu() {
-      document.getElementById("hamburger").classList.toggle("active")
-      const hamburger = document.getElementById("hamburger");
-const menu = document.getElementById("menu");
-
-hamburger.addEventListener("click", (e) => {
-  e.stopPropagation();
-  menu.classList.toggle("show");
-});
-
-document.addEventListener("click", (e) => {
-  if (menu.classList.contains("show") && !menu.contains(e.target)) {
-    menu.classList.remove("show");
-  }
-});;
+      document.getElementById("hamburger").classList.toggle("active");
     }
+
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("menu");
+
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menu.classList.toggle("show");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (menu.classList.contains("show") && !menu.contains(e.target)) {
+        menu.classList.remove("show");
+      }
+    });
   </script>
 </body>
 </html>
