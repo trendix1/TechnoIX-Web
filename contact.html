@@ -115,8 +115,7 @@
   </main>
 
   <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-  <script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     // ---------- CONFIG (replace with your EmailJS values) ----------
     const EMAILJS_PUBLIC_KEY = '631v7GwR5Zs4pHP01'; // 👉 replace if needed
     const EMAILJS_SERVICE_ID = 'service_gbaqlrq';   // 👉 replace with your service id
@@ -125,7 +124,7 @@
     // Initialize EmailJS robustly
     (function init() {
       try {
-        emailjs.init(EMAILJS_PUBLIC_KEY);
+        emailjs.init({ publicKey:EMAILJS_PUBLIC_KEY });
         console.log('EmailJS initialized');
       } catch (e) {
         console.warn('EmailJS not loaded or init failed', e);
