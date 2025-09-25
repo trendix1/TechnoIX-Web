@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Contact | TechnoIX Web</title>
+  <title>Contact - TechnoIX Web | Jasa Website Modern & Profesional</title>
 
   <!-- SEO Meta -->
   <meta name="description" content="Hubungi TechnoIX Web melalui formulir kontak, email, atau WhatsApp. Kami siap membantu kebutuhan website Anda.">
-  <meta name="keywords" content="technoix, Technoix, TECHNOIX, Technoix Web, technoix web, technoix Web, TECHNOIX WEB">
+  <meta name="keywords" content="technoix, Technoix, TECHNOIX, Technoix Web, technoix web, technoix Web, TECHNOIX WEB, Jasa Membuat Website UMKM, jasa membuat website umkm, Jasa membuat website umkm, jasa membuat website UMKM, JASA MEMBUAT WEBSITE UMKM, jasa buat website murah, Jasa membuat website mursh, Jasa Buat Website Murah, Technoix Web, Jasa Buat Portofoilo">
   <meta name="robots" content="index, follow">
 
   <!-- Canonical -->
@@ -22,9 +22,9 @@
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-    <!-- Favicons -->
+  <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="shortcut icon" href="favicon.ico">
@@ -45,156 +45,175 @@
   }
   </script>
 
-  <!-- Styles -->
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    :root{
+      --bg:#07070a;
+      --panel:#0d0d10;
+      --muted:#cfcfcf;
+      --accent:#6f42c1;
+      --glass:rgba(255,255,255,0.02);
     }
-
-    body {
-      background: linear-gradient(135deg, #1e3c72, #2a5298, #00f7ff);
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 15px;
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial;}
+    body{background:linear-gradient(180deg,var(--bg),#050507);color:var(--muted);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
+    .contact-container{background:linear-gradient(180deg,var(--panel),#0b0b0e);width:100%;max-width:680px;border-radius:14px;padding:28px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 18px 60px rgba(10,6,20,0.6)}
+    h1{color:var(--muted);margin-bottom:8px;font-size:26px}
+    p.lead{color:rgba(207,207,207,0.85);margin-bottom:16px}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{font-size:13px;color:rgba(207,207,207,0.95);margin-bottom:6px}
+    input,select,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:#0b0b0e;color:#0b0b0f;font-weight:600}
+    textarea{color: white;grid-column:1 / -1;min-height:140px;resize:vertical}
+    .full{grid-column:1 / -1}
+    .btn{display:inline-block;background:linear-gradient(90deg,var(--accent),#4a2b8d);padding:12px 16px;border-radius:12px;border:none;color:#0b0b0f;font-weight:800;cursor:pointer;letter-spacing:.6px}
+    .note{grid-column:1 / -1;color:rgba(207,207,207,0.75);font-size:13px;margin-top:8px}
+    .small{font-size:12px;color:rgba(207,207,207,0.75)}
+    @media (max-width:720px){form{grid-template-columns:1fr} textarea{min-height:120px} .contact-container{padding:18px}}
+    #country{color: white;}
+    input{
+      color: white;
     }
-
-    .contact-container {
-      background: rgba(0,0,0,0.75);
-      padding: 40px;
-      border-radius: 20px;
-      max-width: 500px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 8px 30px rgba(0, 247, 255, 0.4);
-    }
-
-    .contact-container h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
-      color: #00f7ff;
-      text-shadow: 0 0 10px #00f7ff;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      text-align: left;
-    }
-
-    label {
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
-
-    input, textarea {
-      padding: 12px 15px;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      font-size: 15px;
-      color: #333;
-      width: 100%;
-    }
-
-    input:focus, textarea:focus {
-      box-shadow: 0 0 10px #00f7ff;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .btn {
-      background: linear-gradient(135deg, #00f7ff, #00c4ff);
-      border: none;
-      padding: 14px;
-      border-radius: 50px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #000;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(0, 255, 255, 0.6);
-    }
-
-    .social-links {
-      margin-top: 25px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .social-links a {
-      color: #00f7ff;
-      font-weight: 600;
+    .link{
+      color: white;
       text-decoration: none;
-      transition: 0.3s ease;
-    }
-
-    .social-links a:hover {
-      color: #fff;
-      text-shadow: 0 0 10px #00f7ff;
+      padding: 20px
     }
   </style>
 </head>
 <body>
-  <div class="contact-container">
-    <h1>Hubungi Kami</h1>
-    <form id="contact-form">
-      <div>
+  <main class="contact-container" role="main" aria-labelledby="contact-heading">
+    <h1 id="contact-heading">Contact US</h1>
+    <p class="lead">Fill the form below — message will be prefilled if you selected a package.</p>
+
+    <form id="contact-form" autocomplete="on">
+      <div class="full">
         <label for="name">Name</label>
-        <input type="text" id="name" name="from_name" placeholder="Your Name..." required>
+        <input id="name" name="from_name" type="text" placeholder="Your full name" required>
       </div>
 
       <div>
         <label for="email">Email</label>
-        <input type="email" id="email" name="reply_to" placeholder="Your Email..." required>
+        <input id="email" name="reply_to" type="email" placeholder="you@example.com" required>
       </div>
 
       <div>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Send Your Maessage..." required></textarea>
+        <label for="country">Country</label>
+        <select id="country" name="country" required>
+          <option value="">Select country</option>
+        </select>
       </div>
 
-      <button type="submit" class="btn" aria-label="Kirim Pesan">Kirim Pesan</button>
-    </form>
+      <div class="full">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Your request..." required></textarea>
+      </div>
 
-    <div class="social-links">
-      <a href="https://wa.me/6282133141060" target="_blank" aria-label="WhatsApp">WhatsApp</a>
-      <a href="index.html" aria-label="Beranda">Beranda</a>
-    </div>
-  </div>
+      <div class="full">
+        <button type="submit" class="btn">Send Message</button>
+        <p class="note">Or contact via WhatsApp: <a href="https://wa.me/6282133141060" style="color:var(--muted)">WhatsApp</a></p>
+        <a href="index.html" class="link">Back To Home Page</a>
+      </div>
+    </form>
+  </main>
 
   <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
   <script>
-    (function() {
-      emailjs.init("631v7GwR5Zs4pHP01"); // ganti dengan public key kamu
+    // ---------- CONFIG (replace with your EmailJS values) ----------
+    const EMAILJS_PUBLIC_KEY = '631v7GwR5Zs4pHP01'; // 👉 replace if needed
+    const EMAILJS_SERVICE_ID = 'service_gbaqlrq';   // 👉 replace with your service id
+    const EMAILJS_TEMPLATE_ID = 'template_8a3hivf'; // 👉 replace with your template id
+
+    // Initialize EmailJS robustly
+    (function init() {
+      try {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+        console.log('EmailJS initialized');
+      } catch (e) {
+        console.warn('EmailJS not loaded or init failed', e);
+      }
     })();
 
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      emailjs.sendForm('service_gbaqlrq', 'template_8a3hivf', this)
-        .then(function() {
-          alert("Pesan berhasil dikirim!");
-        }, function(error) {
-          alert("Gagal mengirim pesan: " + JSON.stringify(error));
+    // Country list (A-Z)
+    const COUNTRIES = ["Afghanistan","Albania","Algeria","Andorra","Angola","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Central African Republic","Chad","Chile","China","Colombia","Comoros","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Korea","North Macedonia","Norway","Oman","Pakistan","Palau","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"];
+
+    // DOM elements
+    const countrySelect = document.getElementById('country');
+    const formEl = document.getElementById('contact-form');
+    const msgEl = document.getElementById('message');
+
+    // Populate country select A-Z
+    function populateCountries() {
+      const sorted = COUNTRIES.slice().sort((a,b)=>a.localeCompare(b));
+      for (const c of sorted) {
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c;
+        countrySelect.appendChild(opt);
+      }
+    }
+
+    // Autofill message if user came from pricing (via localStorage) or via ?website= param
+    function autofillMessage() {
+      const urlParams = new URLSearchParams(window.location.search);
+      let website = urlParams.get('website');
+      if (!website) {
+        try { website = localStorage.getItem('selectedService'); } catch(e){}
+      }
+      if (website) {
+        const decoded = decodeURIComponent(website);
+        msgEl.value = `Hello, I would like to have a ${decoded} website. Please share pricing, timeline and next steps. Thank you.`;
+      }
+    }
+
+    // Basic validation helper
+    function validate(values) {
+      if (!values.from_name || values.from_name.trim().length < 2) return 'Please enter your name.';
+      if (!values.reply_to || !/^\S+@\S+\.\S+$/.test(values.reply_to)) return 'Please enter a valid email.';
+      if (!values.country) return 'Please select your country.';
+      if (!values.message || values.message.trim().length < 10) return 'Please write a longer message.';
+      return null;
+    }
+
+    // Send using EmailJS (uses sendForm API because template expects form fields)
+    function sendEmail(e) {
+      e.preventDefault();
+      const btn = formEl.querySelector('button[type="submit"]');
+      const payload = {
+        from_name: formEl.from_name.value.trim(),
+        reply_to: formEl.reply_to.value.trim(),
+        country: formEl.country.value,
+        message: formEl.message.value.trim()
+      };
+      const err = validate(payload);
+      if (err) { alert(err); return; }
+
+      // disable UI feedback
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      // emailjs.sendForm requires passing the form element; but we can also use send with object
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, payload)
+        .then(function(resp){
+          alert('Message sent! We will contact you shortly.');
+          formEl.reset();
+          try { localStorage.removeItem('selectedService'); } catch(e) {}
+        }, function(err){
+          console.error('EmailJS error', err);
+          alert('Failed to send message. Please try again or contact via WhatsApp.');
+        })
+        .finally(()=>{
+          btn.disabled = false;
+          btn.textContent = 'Send Message';
         });
-    });
+    }
+
+    // Run initialization
+    (function init(){
+      populateCountries();
+      autofillMessage();
+      formEl.addEventListener('submit', sendEmail);
+      // little UX: focus name field on load
+      document.getElementById('name').focus();
+    })();
   </script>
 </body>
 </html>

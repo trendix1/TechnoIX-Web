@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Code Pad - TechnoIX</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #00f7ff;
+      letter-spacing: 1px;
+    }
+    #editor { width: 50%; height: 100%; }
+    #preview { width: 50%; height: 100%; border: none; }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs/loader.min.js"></script>
+</head>
+<body>
+  <div id="editor"></div>
+  <iframe id="preview"></iframe>
+
+  <script>
+    // Konfigurasi Monaco
+    require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs' }});
+    require(['vs/editor/editor.main'], function() {
+      const editor = monaco.editor.create(document.getElementById('editor'), {
+        value: `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    h1 { color: skyblue; }
+  </style>
+</head>
+<body>
+  <h1>Hello Sobat Technoix</h1>
+  <p>Edit kode di sebelah kiri lalu lihat hasilnya di sini.</p>
+</body>
+</html>`,
+        language: "html",
+        theme: "vs-dark",
+        automaticLayout: true
+      });
+
+      const iframe = document.getElementById('preview');
+      function updatePreview() {
+        const code = editor.getValue();
+        const blob = new Blob([code], { type: 'text/html' });
+        iframe.src = URL.createObjectURL(blob);
+      }
+
+      editor.onDidChangeModelContent(updatePreview);
+      updatePreview();
+
+      // Tambahkan autocomplete sederhana
+      monaco.languages.registerCompletionItemProvider('html', {
+        provideCompletionItems: () => {
+          return {
+            suggestions: [
+              {
+                label: 'html5',
+                kind: monaco.languages.CompletionItemKind.Snippet,
+                insertText: `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>`,
+                insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+                documentation: "Template HTML5"
+              },
+              {
+                label: 'css-text-align',
+                kind: monaco.languages.CompletionItemKind.Keyword,
+                insertText: 'text-align: center;',
+                documentation: "CSS text-align property"
+              }
+            ]
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
