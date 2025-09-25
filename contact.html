@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -76,6 +76,13 @@
       text-decoration: none;
       padding: 20px
     }
+    .status {
+      grid-column: 1 / -1;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    .status.success { color: lightgreen; }
+    .status.error { color: #ff6b6b; }
   </style>
 </head>
 <body>
@@ -110,6 +117,7 @@
         <button type="submit" class="btn">Send Message</button>
         <p class="note">Or contact via WhatsApp: <a href="https://wa.me/6282133141060" style="color:var(--muted)">WhatsApp</a></p>
         <a href="index.html" class="link">Back To Home Page</a>
+        <p id="form-status" class="status"></p>
       </div>
     </form>
   </main>
@@ -139,6 +147,7 @@
     const countrySelect = document.getElementById('country');
     const formEl = document.getElementById('contact-form');
     const msgEl = document.getElementById('message');
+    const statusEl = document.getElementById('form-status');
 
     // Populate country select A-Z
     function populateCountries() {
@@ -164,41 +173,28 @@
       }
     }
 
-    // Basic validation helper
-    function validate(values) {
-      if (!values.from_name || values.from_name.trim().length < 2) return 'Please enter your name.';
-      if (!values.reply_to || !/^\S+@\S+\.\S+$/.test(values.reply_to)) return 'Please enter a valid email.';
-      if (!values.country) return 'Please select your country.';
-      if (!values.message || values.message.trim().length < 10) return 'Please write a longer message.';
-      return null;
-    }
-
-    // Send using EmailJS (uses sendForm API because template expects form fields)
+    // Send using EmailJS (pakai sendForm API)
     function sendEmail(e) {
       e.preventDefault();
       const btn = formEl.querySelector('button[type="submit"]');
-      const payload = {
-        from_name: formEl.from_name.value.trim(),
-        reply_to: formEl.reply_to.value.trim(),
-        country: formEl.country.value,
-        message: formEl.message.value.trim()
-      };
-      const err = validate(payload);
-      if (err) { alert(err); return; }
+      statusEl.textContent = '';
+      statusEl.className = 'status';
 
       // disable UI feedback
       btn.disabled = true;
       btn.textContent = 'Sending...';
 
-      // emailjs.sendForm requires passing the form element; but we can also use send with object
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, payload)
+      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formEl)
         .then(function(resp){
-          alert('Message sent! We will contact you shortly.');
-          formEl.reset();
+          statusEl.textContent = '✅ Message sent! We will contact you shortly.';
+          statusEl.classList.add('success');
+          formEl.reset(); // ✅ reset kalau berhasil
           try { localStorage.removeItem('selectedService'); } catch(e) {}
         }, function(err){
           console.error('EmailJS error', err);
-          alert('Failed to send message. Please try again or contact via WhatsApp.');
+          statusEl.textContent = '❌ Failed to send message. Please try again or contact via WhatsApp.';
+          statusEl.classList.add('error');
+          formEl.reset(); // ✅ reset juga kalau gagal
         })
         .finally(()=>{
           btn.disabled = false;
@@ -211,7 +207,6 @@
       populateCountries();
       autofillMessage();
       formEl.addEventListener('submit', sendEmail);
-      // little UX: focus name field on load
       document.getElementById('name').focus();
     })();
   </script>
