@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -76,13 +76,6 @@
       text-decoration: none;
       padding: 20px
     }
-    .status {
-      grid-column: 1 / -1;
-      font-size: 13px;
-      margin-top: 10px;
-    }
-    .status.success { color: lightgreen; }
-    .status.error { color: #ff6b6b; }
   </style>
 </head>
 <body>
@@ -117,7 +110,6 @@
         <button type="submit" class="btn">Send Message</button>
         <p class="note">Or contact via WhatsApp: <a href="https://wa.me/6282133141060" style="color:var(--muted)">WhatsApp</a></p>
         <a href="index.html" class="link">Back To Home Page</a>
-        <p id="form-status" class="status"></p>
       </div>
     </form>
   </main>
@@ -126,7 +118,7 @@
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
   <script>
     // ---------- CONFIG (replace with your EmailJS values) ----------
-    const EMAILJS_PUBLIC_KEY = 'DpqTxb-iom8W2ei0o'; // 👉 replace if needed
+    const EMAILJS_PUBLIC_KEY = '631v7GwR5Zs4pHP01'; // 👉 replace if needed
     const EMAILJS_SERVICE_ID = 'service_gbaqlrq';   // 👉 replace with your service id
     const EMAILJS_TEMPLATE_ID = 'template_8a3hivf'; // 👉 replace with your template id
 
@@ -147,7 +139,6 @@
     const countrySelect = document.getElementById('country');
     const formEl = document.getElementById('contact-form');
     const msgEl = document.getElementById('message');
-    const statusEl = document.getElementById('form-status');
 
     // Populate country select A-Z
     function populateCountries() {
@@ -177,8 +168,6 @@
     function sendEmail(e) {
       e.preventDefault();
       const btn = formEl.querySelector('button[type="submit"]');
-      statusEl.textContent = '';
-      statusEl.className = 'status';
 
       // disable UI feedback
       btn.disabled = true;
@@ -186,15 +175,12 @@
 
       emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formEl)
         .then(function(resp){
-          statusEl.textContent = '✅ Message sent! We will contact you shortly.';
-          statusEl.classList.add('success');
-          formEl.reset(); // ✅ reset kalau berhasil
+          alert('Message sent! We will contact you shortly.');
+          formEl.reset();
           try { localStorage.removeItem('selectedService'); } catch(e) {}
         }, function(err){
           console.error('EmailJS error', err);
-          statusEl.textContent = '❌ Failed to send message. Please try again or contact via WhatsApp.';
-          statusEl.classList.add('error');
-          formEl.reset(); // ✅ reset juga kalau gagal
+          alert('Failed to send message. Please try again or contact via WhatsApp.');
         })
         .finally(()=>{
           btn.disabled = false;

@@ -10,7 +10,6 @@
   <meta name="description" content="buat website murah, Buat Website Murah, Jasa buat website murah, JASA BUAT WEBISTE MURAH, Professional, responsive and secure websites by TechnoiX Web.">
   <meta name="keywords" content="TechnoIX, Technoix-Web ,Technoix, technoix, Technoix-web, technoix-web, technoixweb, Desain Website, Jasa website harga 100.000, jasa buat website, jasa pembuatan website, jasa desain web, bikin website, jasa buat toko online, pembuatan website cepat, web developer Indonesia, jasa buat landing page, website creation services, website design services, jasa pembuatan website, Jasa pembuatan website, JASA PEMBUATAN WEBSITE, custom website design, create a website, business website builder, responsive website services, web development company, خدمات تصميم المواقع, خدمات تطوير المواقع, إنشاء موقع إلكتروني, برمجة المواقع, شركة تطوير مواقع, تصميم متجر إلكتروني, 网站建设服务, 网站设计, 网站开发公司, 创建网站, 响应式网站设计, 企业网站建设, servicios de creación de sitios web, diseño web profesional, desarrollo de páginas web, crear sitio web, agencia de diseño web, páginas web responsivas, ウェブサイト制作サービス, ウェブデザイン会社, ホームページ作成, ウェブ開発サービス, レスポンシブウェブデザイン, カスタムウェブサイト">
   <meta name="robots" content="index, follow">
-  <meta name="google-site-verification" content="googleffcef74519e2a356.html">
 
   <!-- Canonical & Sitemap -->
   <link rel="canonical" href="https://trendix1.github.io/TechnoIX-Web/index.html">
@@ -35,9 +34,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Manifest -->
-  <link rel="manifest" href="manifest.json">
-
   <!-- Styles -->
   <style>
     * {
@@ -47,15 +43,33 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
+    /* Background Aurora Effect */
     body {
-      background: linear-gradient(to bottom, #1e3c72, #2a5298);
+      background: #0d0d0d;
       color: #fff;
       line-height: 1.6;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at 20% 20%, rgba(0,255,255,0.15), transparent 60%),
+                  radial-gradient(circle at 80% 40%, rgba(255,0,200,0.15), transparent 60%),
+                  radial-gradient(circle at 50% 80%, rgba(0,200,255,0.15), transparent 60%);
+      animation: aurora 20s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes aurora {
+      0% { transform: translate(0,0) scale(1);}
+      50% { transform: translate(-5%, -5%) scale(1.1);}
+      100% { transform: translate(0,0) scale(1);}
     }
 
     /* Navbar */
@@ -68,8 +82,9 @@
       justify-content: space-between;
       align-items: center;
       padding: 15px 30px;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px);
+      background: rgba(15, 15, 15, 0.6);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
       z-index: 100;
       transition: background 0.3s ease;
     }
@@ -91,15 +106,22 @@
       color: white;
       font-weight: 500;
       font-size: 15px;
+      position: relative;
       transition: color 0.3s ease;
     }
 
-    .menu a:hover {
-      color: #00f7ff;
+    .menu a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0%; height: 2px;
+      background: #00f7ff;
+      transition: width 0.3s ease;
     }
+    .menu a:hover::after { width: 100%; }
 
-    .hamburger {
-      display: none;
+    .hamburger { 
+      display: flex;
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
@@ -134,7 +156,14 @@
       display: flex;
       animation: fadeIn 0.3s ease;
     }
-
+    .hamburger, .menu-mobile{
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .menu{ display: none;}
+      .hamburger{ display: flex;}
+      .menu-mobile{ display: none;}
+    }
     /* Hero */
     .hero {
       min-height: 100vh;
@@ -151,10 +180,8 @@
     .hero::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: rgba(0, 0, 0, 0.6);
     }
 
@@ -166,7 +193,8 @@
       margin-bottom: 20px;
       line-height: 1.3;
       opacity: 0;
-      animation: fadeIn 2.5s forwards;
+      transform: translateY(40px);
+      animation: slideUp 1.5s ease forwards;
     }
 
     .hero p {
@@ -185,36 +213,44 @@
       font-weight: 600;
       color: #000;
       cursor: pointer;
-      opacity: 0;
-      animation: fadeIn 2.5s forwards;
       transition: all 0.4s ease;
-      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+      box-shadow: 0 0 15px rgba(0,247,255,0.5);
     }
 
     .btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(0, 255, 255, 0.6);
+      box-shadow: 0 0 25px rgba(0,247,255,0.8);
+    }
+
+    @keyframes slideUp {
+      to { opacity: 1; transform: translateY(0);}
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    /* Services */
+    /* Sections */
     .section {
       padding: 80px 20px;
       text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    .section.active {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .section h2 {
-      font-size: 32px;
+      font-size: 34px;
       color: #00f7ff;
       margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .cards {
@@ -226,15 +262,16 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.05);
       padding: 30px;
       border-radius: 20px;
+      border: 1px solid rgba(0,255,255,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 0 25px rgba(0,255,255,0.3);
     }
 
     .card h3 {
@@ -271,33 +308,6 @@
       color: #aaa;
     }
 
-    /* Animations */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .menu {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .hero h1 {
-        font-size: 28px;
-      }
-    }
-
-    /* Extra Menu Styling */
     .menu2 {
       text-decoration: none;
       color: gray;
@@ -306,23 +316,35 @@
       padding: 8px 12px;
     }
 
+    /* Glow effect */
     span.glow {
       color: #00f7ff;
-      text-shadow:
-        0 0 5px #00f7ff,
-        0 0 10px #00f7ff,
-        0 0 20px #00f7ff,
-        0 0 40px #00f7ff;
+      text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff, 0 0 20px #00f7ff, 0 0 40px #00f7ff;
       animation: glow 2s infinite alternate;
     }
 
     @keyframes glow {
-      from {
-        text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff;
-      }
-      to {
-        text-shadow: 0 0 20px #00f7ff, 0 0 40px #00f7ff, 0 0 60px #00f7ff;
-      }
+      from { text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff; }
+      to { text-shadow: 0 0 20px #00f7ff, 0 0 40px #00f7ff, 0 0 60px #00f7ff; }
+    }
+
+    .feature {
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .feature img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+    .image{
+      height: 250px;
+      width: px;
+      padding: 30 20;
     }
   </style>
 </head>
@@ -330,7 +352,6 @@
   <!-- Navbar -->
   <div class="navbar">
     <div class="logo">TECHNOIX WEB</div>
-
     <div class="menu" id="menu">
       <a href="#home">Home</a>
       <a href="service.html">Services</a>
@@ -338,13 +359,9 @@
       <a href="contact.html">Contact</a>
       <a href="price.html">Pricing</a>
     </div>
-
     <div class="hamburger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
-
     <div class="menu-mobile" id="hamburger">
       <a href="#home">Home</a>
       <a href="service.html">Services</a>
@@ -356,56 +373,46 @@
 
   <!-- Hero -->
   <section class="hero" id="home">
-    <h1>
-      Your journey to a responsive and reliable website starts with 
-      <br> 
-      <span class="glow">TechnoIX</span>
-    </h1>
+    <h1>Your journey to a responsive and reliable website starts with <br> <span class="glow">TechnoIX</span></h1>
     <p>We create modern, secure, and responsive websites to grow your business.</p>
-    <button class="btn" onclick="window.location.href='contact.html'">Get Started</button>
+    <button class="btn">Get Started</button>
   </section>
 
   <!-- Services -->
   <section class="section" id="service">
     <h2>Our Services</h2>
-
     <div class="cards">
-      <div class="card">
-        <h3>Fast Development</h3>
-        <p>We deliver modern and responsive websites in record time.</p>
-      </div>
-
-      <div class="card">
-        <h3>Secure & Reliable</h3>
-        <p>Your data and website are protected with enterprise-level security.</p>
-      </div>
-
-      <div class="card">
-        <h3>Custom Design</h3>
-        <p>We craft unique and stylish designs tailored to your brand identity.</p>
-      </div>
+      <div class="card"><h3>Fast Development</h3><p>We deliver modern and responsive websites in record time.</p></div>
+      <div class="card"><h3>Secure & Reliable</h3><p>Your data and website are protected with enterprise-level security.</p></div>
+      <div class="card"><h3>Custom Design</h3><p>We craft unique and stylish designs tailored to your brand identity.</p></div>
+    </div>
   </section>
 
   <!-- Portfolio -->
   <section class="section" id="portfolio">
     <h2>Our Portfolio</h2>
-
     <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80" alt="Coding project">
-      </div>
+      <div class="portfolio-item"><img loading="lazy" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80" alt="Coding project"></div>
+      <div class="portfolio-item"><img loading="lazy" src="https://images.unsplash.com/photo-1508780709619-79562169bc64?w=600&auto=format&fit=crop&q=80" alt="Laptop project"></div>
+      <div class="portfolio-item"><img loading="lazy" src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&auto=format&fit=crop&q=80" alt="UI Design project"></div>
+      <div class="portfolio-item"><img loading="lazy" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80" alt="Office work project"></div>
+    </div>
+  </section>
 
-      <div class="portfolio-item">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1508780709619-79562169bc64?w=600&auto=format&fit=crop&q=80" alt="Laptop project">
-      </div>
-
-      <div class="portfolio-item">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&auto=format&fit=crop&q=80" alt="UI Design project">
-      </div>
-
-      <div class="portfolio-item">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80" alt="Office work project">
-      </div>
+  <!-- Code Pad Section -->
+  <section class="section">
+    <h2>Code Learning Feature</h2>
+    <div class="feature">
+      <img class="image" src="code.png" alt="CodePad TechnoIX">
+      <p>
+        Our interactive code pad feature is designed to help you learn coding directly on the website
+        without needing any external tools. With a simple and user-friendly interface,
+        you can write, edit, and run code in real time while immediately seeing the results.
+        This feature makes it easier for beginners to practice step by step, and also provides
+        a flexible space for more advanced learners to experiment with new ideas.
+        Whether you're looking to sharpen your skills, the code pad is the perfect
+        place to learn, practice, and grow as a coder.
+      </p>
     </div>
   </section>
 
@@ -421,25 +428,37 @@
     <p>&copy; 2025 TechnoIX Web. All rights reserved.</p>
   </footer>
 
-  <!-- Script -->
-  <script defer>
-    function toggleMenu() {
-      document.getElementById("hamburger").classList.toggle("active");
-    }
-
-    const hamburger = document.getElementById("hamburger");
-    const menu = document.getElementById("menu");
-
-    hamburger.addEventListener("click", (e) => {
-      e.stopPropagation();
-      menu.classList.toggle("show");
-    });
-
-    document.addEventListener("click", (e) => {
-      if (menu.classList.contains("show") && !menu.contains(e.target)) {
-        menu.classList.remove("show");
-      }
-    });
-  </script>
 </body>
+
+<script defer>
+  function toggleMenu() {
+    document.getElementById("hamburger").classList.toggle("active");
+  }
+
+  // Scroll Reveal
+  const reveals = document.querySelectorAll(".section, .card, .portfolio-item");
+
+  window.addEventListener("scroll", () => {
+    for (let i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const revealTop = reveals[i].getBoundingClientRect().top;
+      const revealPoint = 100;
+
+      if (revealTop < windowHeight - revealPoint) {
+        reveals[i].classList.add("active");
+      }
+    }
+  });
+
+  console.log("TechnoIX Website Loaded Successfully");
+
+  // Smooth scroll hanya ke Our Services
+  const getStartedBtn = document.querySelector('.btn');
+  if (getStartedBtn) {
+    getStartedBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById("service").scrollIntoView({ behavior: "smooth" });
+    });
+  }
+</script>
 </html>
