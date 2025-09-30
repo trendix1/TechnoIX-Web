@@ -3,130 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    <!-- SEO Meta -->
-    <meta name="description" content=" buat website murah, Buat Website Murah, Jasa buat website murah, JASA BUAT WEBISTE MURAH, Professional, responsive and secure websites by TechnoiX Web.">
-    <meta name="keywords" content="TechnoIX, Technoix-Web ,Technoix, technoix, Technoix-web, technoix-web, technoixweb, Desain Website, Jasa website harga 100.000, jasa buat website, jasa pembuatan website, jasa desain web, bikin website, jasa buat toko online, pembuatan website cepat, web developer Indonesia, jasa buat landing page, website creation services, website design services, jasa pembuatan website, Jasa pembuatan website, JASA PEMBUATAN WEBSITE, custom website design, create a website, business website builder, responsive website services, web development company, خدمات تصميم المواقع, خدمات تطوير المواقع, إنشاء موقع إلكتروني, برمجة المواقع, شركة تطوير مواقع, تصميم متجر إلكتروني, 网站建设服务, 网站设计, 网站开发公司, 创建网站, 响应式网站设计, 企业网站建设, servicios de creación de sitios web, diseño web profesional, desarrollo de páginas web, crear sitio web, agencia de diseño web, páginas web responsivas, ウェブサイト制作サービス, ウェブデザイン会社, ホームページ作成, ウェブ開発サービス, レスポンシブウェブデザイン, カスタムウェブサイト">
-    <meta name="robots" content="index, follow">
-    <meta name="google-site-verification" content="googleffcef74519e2a356.html">
-    <link rel="canonical" href="https://trendix1.github.io/TechnoIX-Web/price.html">
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://trendix1.github.io/TechnoIX-Web/sitemap.xml">
-    <meta property="og:title" content="Code Pad - TechnoIX">
-    <meta property="og:description" content="Professional, responsive and secure websites by TechnoiX Web.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://trendix1.github.io/TechnoIX-Web/price.html">
-    <meta name="twitter:card" content="summary_large_image">
-  
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="manifest" href="https://trendix1.github.io/TechnoIX-Web/manifest.json">
-    <link rel="stylesheet" href="style.css">
   <title>Code Pad - TechnoIX</title>
   <style>
-    body {
-      margin: 0;
-      display: flex;
-      height: 100vh;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-      
-    }
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 700;
-      color: #00f7ff;
-      letter-spacing: 1px;
-    }
-    #editor { width: 50%; height: 100%; }
-    #preview { width: 50%; height: 100%; border: none; }
+    :root{--bg:#0b1220;--panel:#0f1724;--accent:#00f7ff;--muted:#99b3c6}
+    body{margin:0;height:100vh;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#e6eef8;display:flex;flex-direction:column;overflow:hidden}
+    .topbar{height:56px;display:flex;align-items:center;gap:12px;padding:8px 12px;background:linear-gradient(90deg,#071126, #0b2540);box-shadow:0 2px 8px rgba(0,0,0,.6)}
+    .logo{font-weight:700;color:var(--accent);letter-spacing:1px}
+    .controls{margin-left:auto;display:flex;gap:8px}
+    button{background:#072034;border:1px solid rgba(255,255,255,.04);color:#cfeefc;padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:600}
+    #container{display:flex;flex:1;min-height:0}
+    #editor{width:50%;height:calc(100vh - 56px);border-right:1px solid rgba(255,255,255,.04)}
+    #right{width:50%;height:calc(100vh - 56px);display:flex;flex-direction:column}
+    #preview{flex:1;border:none;background:white}
+    #terminal{height:180px;background:#000;padding:8px;overflow:auto;font-family:monospace;font-size:13px;color:#bfe9ff;border-top:1px solid rgba(255,255,255,.04)}
+    .toolbar{display:flex;gap:8px;padding:8px;background:rgba(255,255,255,.02);align-items:center;border-bottom:1px solid rgba(255,255,255,.02)}
+    .select{background:#072034;border-radius:8px;padding:6px 8px;color:#cfeefc}
+    input[type=file]{display:none}
+    .info{color:var(--muted);font-size:12px;margin-left:8px}
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs/loader.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+  <!-- Prettier -->
+  <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
+  <script src="https://unpkg.com/prettier@2.8.8/parser-html.js"></script>
+  <script src="https://unpkg.com/prettier@2.8.8/parser-babel.js"></script>
+  <script src="https://unpkg.com/prettier@2.8.8/parser-postcss.js"></script>
 </head>
 <body>
-  <div id="editor"></div>
-  <iframe id="preview"></iframe>
+  <div class="topbar">
+    <div class="logo">TechnoIX Code Pad</div>
+    <div class="controls">
+      <button id="backIndex">⬅️ Kembali</button>
+      <select id="lang" class="select">
+        <option value="html">HTML (HTML/CSS/JS)</option>
+        <option value="javascript">JavaScript (JS)</option>
+        <option value="python">Python (Pyodide)</option>
+        <option value="text">Plain Text / Other</option>
+      </select>
+      <button id="runBtn">▶ Run</button>
+      <button id="stopBtn">■ Stop</button>
+      <button id="formatBtn">Format</button>
+      <button id="exportBtn">⬇️ Export</button>
+      <button id="importBtn">⬆️ Import</button>
+      <input id="fileInput" type="file" accept=".html,.htm,.js,.py,.txt"/>
+    </div>
+  </div>
+
+  <div id="container">
+    <div id="editor"></div>
+    <div id="right">
+      <div class="toolbar">
+        <div style="font-weight:700">Preview</div>
+      </div>
+      <iframe id="preview" sandbox="allow-scripts allow-same-origin"></iframe>
+      <div id="terminal"></div>
+    </div>
+  </div>
 
   <script>
-    // Konfigurasi Monaco
     require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs' }});
+    let editor, pyodideReady=false, pyodide=null;
     require(['vs/editor/editor.main'], function() {
-      const editor = monaco.editor.create(document.getElementById('editor'), {
-        value: `<!DOCTYPE html>
-<html lang="en">
+      const saved = localStorage.getItem('technoix_code') || 
+`<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    body { font-family: Arial; padding: 20px; }
-    h1 { color: skyblue; }
-  </style>
-</head>
-<body>
-  <h1>Hello Sobat Technoix</h1>
-  <p>Edit kode di sebelah kiri lalu lihat hasilnya di sini.</p>
-</body>
-</html>`,
+  <title>Hello</title>
+  </head>
+  <body>
+    <h1>Hello Sobat Technoix</h1>
+  </body>
+</html>`;
+      editor = monaco.editor.create(document.getElementById('editor'), {
+        value: saved,
         language: "html",
         theme: "vs-dark",
-        automaticLayout: true
+        automaticLayout: true,
+        minimap: {enabled:false}
       });
-
-      const iframe = document.getElementById('preview');
-      function updatePreview() {
-        const code = editor.getValue();
-        const blob = new Blob([code], { type: 'text/html' });
-        iframe.src = URL.createObjectURL(blob);
-      }
-
-      editor.onDidChangeModelContent(updatePreview);
-      updatePreview();
-
-      // Tambahkan autocomplete sederhana
-      monaco.languages.registerCompletionItemProvider('html', {
-        provideCompletionItems: () => {
-          return {
-            suggestions: [
-              {
-                label: 'html5',
-                kind: monaco.languages.CompletionItemKind.Snippet,
-                insertText: `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
-</html>`,
-                insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-                documentation: "Template HTML5"
-              },
-              {
-                label: 'css-text-align',
-                kind: monaco.languages.CompletionItemKind.Keyword,
-                insertText: 'text-align: center;',
-                documentation: "CSS text-align property"
-              }
-            ]
-          }
-        }
+      editor.onDidChangeModelContent(()=>{
+        localStorage.setItem('technoix_code', editor.getValue());
       });
     });
+
+    const terminal=document.getElementById('terminal');
+    function termLog(msg){const d=document.createElement('div');d.textContent=msg;terminal.appendChild(d);terminal.scrollTop=terminal.scrollHeight;}
+    function termClear(){terminal.innerHTML='';}
+
+    const preview=document.getElementById('preview');
+    window.addEventListener('message',ev=>{if(ev.data?.type==='console')termLog(ev.data.level+': '+ev.data.msg);if(ev.data?.type==='error')termLog('ERROR: '+ev.data.msg);});
+
+    function makePreviewHtml(code){return `<!DOCTYPE html><html><body><script>(function(){function send(t,p){parent.postMessage(Object.assign({type:t},p),'*');}['log','error','warn'].forEach(l=>{const o=console[l];console[l]=(...a)=>{send('console',{level:l,msg:a.join(' ')});o.apply(console,a);};});window.addEventListener('error',e=>send('error',{msg:e.message}));})();<\/script>${code}</body></html>`;}
+
+    async function ensurePyodide(){if(pyodideReady)return;termLog('Memuat Pyodide...');pyodide=await loadPyodide();pyodideReady=true;termLog('Pyodide siap.');}
+
+    document.getElementById('runBtn').onclick=async()=>{
+      termClear();const code=editor.getValue();const lang=document.getElementById('lang').value;
+      if(lang==='html'){const blob=new Blob([makePreviewHtml(code)],{type:'text/html'});preview.src=URL.createObjectURL(blob);}
+      else if(lang==='javascript'){const blob=new Blob([makePreviewHtml(`<script>${code}<\/script>`)],{type:'text/html'});preview.src=URL.createObjectURL(blob);}
+      else if(lang==='python'){await ensurePyodide();try{const res=await pyodide.runPythonAsync(code);if(res!==undefined)termLog('=> '+res);}catch(e){termLog('Python ERROR: '+e);}}
+      else{const blob=new Blob([code],{type:'text/plain'});preview.src=URL.createObjectURL(blob);}
+    };
+
+    document.getElementById('stopBtn').onclick=()=>{preview.src='about:blank';termLog('Stopped.');};
+    document.getElementById('backIndex').onclick=()=>{location.href='index.html';};
+
+    document.getElementById('formatBtn').onclick=()=>{
+      const code=editor.getValue();const lang=document.getElementById('lang').value;
+      let parser='babel';if(lang==='html')parser='html';if(lang==='javascript')parser='babel';if(lang==='css')parser='postcss';
+      try{const formatted=prettier.format(code,{parser:parser,plugins:prettierPlugins});editor.setValue(formatted);termLog('Code formatted.');}catch(e){termLog('Format error: '+e.message);} };
+
+    document.getElementById('exportBtn').onclick=()=>{
+      const code=editor.getValue();const lang=document.getElementById('lang').value;
+      let ext='.txt';if(lang==='html')ext='.html';if(lang==='javascript')ext='.js';if(lang==='python')ext='.py';
+      const blob=new Blob([code],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='code'+ext;a.click();termLog('Exported '+a.download);
+    };
+
+    document.getElementById('importBtn').onclick=()=>document.getElementById('fileInput').click();
+    document.getElementById('fileInput').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{editor.setValue(r.result);termLog('Imported '+f.name);};r.readAsText(f);};
   </script>
 </body>
 </html>
