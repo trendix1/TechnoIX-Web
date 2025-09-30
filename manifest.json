@@ -1,7 +1,7 @@
 {
   "name": "TechnoIX-Web",
   "short_name": "TechnoIX",
-  "start_url": "/",
+  "start_url": "https://trendix1.github.io/TechnoIX-Web/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
