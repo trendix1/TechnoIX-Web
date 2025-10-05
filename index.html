@@ -160,9 +160,11 @@
       display: flex;
       animation: fadeIn 0.3s ease;
     }
-    .hamburger, .menu-mobile{
+    .hamburger{
       display: none;
     }
+    @media (max-width: 768px){.menu{display:none;}.hamburger{display:flex;}.menu-mobile{display:none;position:absolute;top:60px;right:20px;background:rgba(0,0,0,0.9);border-radius:10px;padding:20px;flex-direction:column;gap:15px;}}
+
     @media (max-width: 768px) {
       .menu{ display: none;}
       .hamburger{ display: flex;}
@@ -478,7 +480,7 @@
       </p>
     </div>
     <!-- From Uiverse.io by adamgiebl --> 
-<button class="cssbuttons-io-button" onclick="href='code.html'">
+<button class="cssbuttons-io-button" onclick="window.location.href='code.html'">
   Try It Now
   <div class="icon">
     <svg
@@ -496,6 +498,10 @@
   </div>
 </button>
   </section>
+
+  
+<!-- Scroll To Top Button -->
+<button id="scrollTopBtn" style="position:fixed;bottom:30px;right:30px;padding:10px 15px;border:none;border-radius:50%;background:#00f7ff;color:#000;font-weight:bold;cursor:pointer;display:none;box-shadow:0 0 10px rgba(0,247,255,0.6);z-index:999;">↑</button>
 
   <!-- Footer -->
   <footer>
@@ -531,7 +537,27 @@
     }
   });
 
-  console.log("TechnoIX Website Loaded Successfully");
+  console.log('TechnoIX Website Loaded Successfully');
+  // Scroll to Top Button
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.style.display = 'block';
+    } else {
+      scrollTopBtn.style.display = 'none';
+    }
+  });
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Close mobile menu after clicking link
+  document.querySelectorAll('.menu-mobile a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById("hamburger").classList.remove("active");
+    });
+  });
+
 
   // Smooth scroll hanya ke Our Services
   const getStartedBtn = document.querySelector('.btn');
