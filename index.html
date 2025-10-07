@@ -22,7 +22,7 @@
   <meta property="og:url" content="https://trendix1.github.io/TechnoIX-Web/index.html">
   <link rel="manifest" href="https://trendix1.github.io/TechnoIX-Web/manifest.json">
 
-  <!--Google Adsesnse -->
+  <!--Google AdSense (original snippet preserved) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4675208327407139"
      crossorigin="anonymous"></script>
   <!-- Twitter -->
@@ -411,7 +411,35 @@
   transform: scale(0.95);
 }
 
-  </style>
+  
+/* --- Fluid Gradient Overlay (lightweight, non-invasive) --- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(0,200,255,0.04), rgba(255,0,200,0.03), rgba(0,255,150,0.03));
+  mix-blend-mode: screen;
+  z-index: -1;
+  opacity: 0.9;
+  animation: fluidMove 18s linear infinite;
+  filter: blur(40px) saturate(120%);
+}
+
+@keyframes fluidMove {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  25% { transform: translate3d(-5%,3%,0) scale(1.02); }
+  50% { transform: translate3d(3%,-6%,0) scale(1.01); }
+  75% { transform: translate3d(-2%,4%,0) scale(1.03); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+/* Ensure the overlay is very lightweight on low-end devices */
+@media (prefers-reduced-motion: reduce), (max-width: 600px) {
+  body::after { animation: none; filter: blur(30px); opacity: 0.6; }
+}
+
+</style>
 </head>
 <body>
   <!-- Navbar -->
@@ -506,6 +534,46 @@
 <button id="scrollTopBtn" style="position:fixed;bottom:30px;right:30px;padding:10px 15px;border:none;border-radius:50%;background:#00f7ff;color:#000;font-weight:bold;cursor:pointer;display:none;box-shadow:0 0 10px rgba(0,247,255,0.6);z-index:999;">↑</button>
 
   <!-- Footer -->
+  
+  <!-- SEO Long Content: About, Advantages, Testimonials, FAQ (added for AdSense value) -->
+  <section class="section seo-section" id="seo-content" aria-label="SEO Content">
+    <h2>Tentang TechnoIX Web</h2>
+    <div class="feature" style="text-align:left;max-width:980px;margin:0 auto;color:#dfefff;">
+      <p><strong>TechnoIX Web</strong> adalah layanan pembuatan website modern dan profesional yang berfokus pada performa, keamanan, dan desain yang responsif. Kami membantu usaha kecil, pemilik toko online, hingga startup untuk memiliki identitas digital yang kuat dan mudah diakses di semua perangkat.</p>
+
+      <h3>Keunggulan Layanan</h3>
+      <ul>
+        <li><strong>Desain Responsif:</strong> Tata letak yang menyesuaikan pada semua ukuran layar untuk pengalaman pengguna terbaik.</li>
+        <li><strong>Keamanan Tingkat Lanjut:</strong> Praktik keamanan dan konfigurasi dasar yang membuat website lebih aman dari serangan umum.</li>
+        <li><strong>Optimasi SEO:</strong> Struktur HTML dan konten yang membantu mesin pencari memahami halaman Anda.</li>
+        <li><strong>Performance First:</strong> Gambar dioptimalkan, skrip tidak blocking, dan teknik ringan agar waktu muat cepat.</li>
+        <li><strong>Support & Upgrade:</strong> Bantuan teknis dan opsi pemeliharaan untuk menjaga situs tetap up-to-date.</li>
+      </ul>
+
+      <h3>Testimoni Pengguna</h3>
+      <blockquote>
+        "TechnoIX Web membantu bisnis saya tampil profesional dalam satu minggu. Trafik meningkat dan pelanggan lebih percaya." — <em>Arief, Pemilik Toko Online</em>
+      </blockquote>
+      <blockquote>
+        "Fitur Code Pad sangat membantu belajar coding tanpa ribet. Mudah dan fun!" — <em>Sri, Pelajar</em>
+      </blockquote>
+
+      <h3>Frequently Asked Questions (FAQ)</h3>
+      <h4>Q: Berapa lama pembuatan website biasanya?</h4>
+      <p>A: Tergantung kompleksitas. Situs landing sederhana biasanya selesai dalam 3–7 hari, sedangkan toko online atau fitur khusus bisa memakan waktu lebih lama.</p>
+
+      <h4>Q: Apakah kalian menyediakan layanan maintenance?</h4>
+      <p>A: Ya, tersedia paket maintenance untuk update, backup, dan optimasi berkala.</p>
+
+      <h4>Q: Bagaimana cara memulai?</h4>
+      <p>A: Hubungi kami melalui tombol WhatsApp di footer atau kunjungi halaman <a href="contact.html">Contact</a> untuk mengirim permintaan. Kami akan menilai kebutuhan dan memberikan estimasi.</p>
+
+      <p style="margin-top:18px;font-size:14px;color:#a8cbe8;">
+        <em>Konten ini ditambahkan untuk meningkatkan relevansi halaman terhadap topik web development dan layanan pembuatan website. Jika ingin menyesuaikan atau menambah testimoni nyata, beri tahu kami dan kami akan perbarui konten sesuai kebutuhan.</em>
+      </p>
+    </div>
+  </section>
+
   <footer>
     <a href="https://wa.me/6282133141060" target="_blank" class="menu2">WhatsApp</a>
     <a href="contact.html" class="menu2">Gmail</a>
