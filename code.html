@@ -3,152 +3,230 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Code Pad - TechnoIX</title>
-    <!-- SEO Meta -->
-  <meta name="description" content="buat website murah, Buat Website Murah, Jasa buat website murah, JASA BUAT WEBISTE MURAH, Professional, responsive and secure websites by TechnoiX Web.">
-  <meta name="keywords" content="TechnoIX, Technoix-Web ,Technoix, technoix, Technoix-web, technoix-web, technoixweb, Desain Website, Jasa website harga 100.000, jasa buat website, jasa pembuatan website, jasa desain web, bikin website, jasa buat toko online, pembuatan website cepat, web developer Indonesia, jasa buat landing page, website creation services, website design services, jasa pembuatan website, Jasa pembuatan website, JASA PEMBUATAN WEBSITE, custom website design, create a website, business website builder, responsive website services, web development company, خدمات تصميم المواقع, خدمات تطوير المواقع, إنشاء موقع إلكتروني, برمجة المواقع, شركة تطوير مواقع, تصميم متجر إلكتروني, 网站建设服务, 网站设计, 网站开发公司, 创建网站, 响应式网站设计, 企业网站建设, servicios de creación de sitios web, diseño web profesional, desarrollo de páginas web, crear sitio web, agencia de diseño web, páginas web responsivas, ウェブサイト制作サービス, ウェブデザイン会社, ホームページ作成, ウェブ開発サービス, レスポンシブウェブデザイン, カスタムウェブサイト">
-  <meta name="robots" content="index, follow">
-
-  <!-- Canonical & Sitemap -->
-  <link rel="canonical" href="https://trendix1.github.io/TechnoIX-Web/code.html">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://trendix1.github.io/TechnoIX-Web/sitemap.xml">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="TechnoiX Web">
-  <meta property="og:description" content="Professional, responsive and secure websites by TechnoiX Web.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://trendix1.github.io/TechnoIX-Web/code.html">
-  <link rel="manifest" href="https://trendix1.github.io/TechnoIX-Web/manifest.json">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="shortcut icon" href="favicon.ico">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Code Pad - TechnoIX (Fixed)</title>
   <style>
-    :root{--bg:#0b1220;--panel:#0f1724;--accent:#00f7ff;--muted:#99b3c6}
-    body{margin:0;height:100vh;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#e6eef8;display:flex;flex-direction:column;overflow:hidden}
-    .topbar{height:56px;display:flex;align-items:center;gap:12px;padding:8px 12px;background:linear-gradient(90deg,#071126, #0b2540);box-shadow:0 2px 8px rgba(0,0,0,.6)}
-    .logo{font-weight:700;color:var(--accent);letter-spacing:1px}
-    .controls{margin-left:auto;display:flex;gap:8px}
-    button{background:#072034;border:1px solid rgba(255,255,255,.04);color:#cfeefc;padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:600}
+    :root{
+      --bg:#0b1220;--panel:#0f1724;--muted:#99b3c6;--logo-grad:linear-gradient(90deg,#3aa0ff,#0056d6);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;height:100vh;font-family:Arial, Helvetica, sans-serif;background:var(--bg);color:#e6eef8;display:flex;flex-direction:column;overflow:hidden}
+    .topbar{height:64px;display:flex;align-items:center;padding:8px 16px;background:linear-gradient(90deg,#071126,#0b2540);z-index:6;position:relative}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{font-weight:800;font-size:18px;background:var(--logo-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .controls{margin-left:auto;display:flex;gap:8px;align-items:center}
+    .btn{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);color:#cfeefc;padding:8px 10px;border-radius:10px;cursor:pointer;font-weight:600;display:inline-flex;gap:8px;align-items:center}
     #container{display:flex;flex:1;min-height:0}
-    #editor{width:50%;height:calc(100vh - 56px);border-right:1px solid rgba(255,255,255,.04)}
-    #right{width:50%;height:calc(100vh - 56px);display:flex;flex-direction:column}
-    #preview{flex:1;border:none;background:white}
-    #terminal{height:180px;background:#000;padding:8px;overflow:auto;font-family:monospace;font-size:13px;color:#bfe9ff;border-top:1px solid rgba(255,255,255,.04)}
-    .toolbar{display:flex;gap:8px;padding:8px;background:rgba(255,255,255,.02);align-items:center;border-bottom:1px solid rgba(255,255,255,.02)}
-    .select{background:#072034;border-radius:8px;padding:6px 8px;color:#cfeefc}
-    input[type=file]{display:none}
-    .info{color:var(--muted);font-size:12px;margin-left:8px}
+    #editor{width:50%;height:calc(100vh - 64px);border-right:1px solid rgba(255,255,255,.04);min-width:320px;position:relative;z-index:3}
+    #right{width:50%;height:calc(100vh - 64px);display:flex;flex-direction:column;min-width:320px;position:relative;z-index:3}
+    .toolbar{display:flex;gap:8px;padding:8px;background:rgba(255,255,255,.02);align-items:center;border-bottom:1px solid rgba(255,255,255,.02);z-index:4;position:relative}
+    iframe#preview{flex:1;border:none;background:white;z-index:2;position:relative;height:100%;width:100%}
+    .panels-bottom{display:flex;gap:8px;padding:8px;background:#071126;z-index:4;position:relative}
+    .panel{flex:1;background:var(--panel);border-radius:10px;padding:8px;min-height:120px;overflow:auto;border:1px solid rgba(255,255,255,.02)}
+    #console,#terminal{height:140px;font-family:monospace;font-size:13px;color:#bfe9ff;padding:8px;overflow:auto;background:transparent}
+    .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,.6);display:none;align-items:center;justify-content:center;z-index:20}
+    .modal{background:#081224;border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,.04);width:420px;max-width:92%}
+    @media (max-width:900px){#container{flex-direction:column}#editor,#right{width:100%;height:auto}iframe#preview{height:320px}.panels-bottom{flex-direction:column}}
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs/loader.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
-  <!-- Prettier -->
-  <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
-  <script src="https://unpkg.com/prettier@2.8.8/parser-html.js"></script>
-  <script src="https://unpkg.com/prettier@2.8.8/parser-babel.js"></script>
-  <script src="https://unpkg.com/prettier@2.8.8/parser-postcss.js"></script>
 </head>
 <body>
   <div class="topbar">
-    <div class="logo">TechnoIX Code Pad</div>
+    <div class="brand">
+      <div style="width:34px;height:34px;border-radius:6px;background:linear-gradient(90deg,#3aa0ff,#0056d6);margin-right:8px;"></div>
+      <div class="logo">TechnoIX Code Pad</div>
+    </div>
     <div class="controls">
-      <button id="backIndex">⬅️ Kembali</button>
-      <select id="lang" class="select">
-        <option value="html">HTML (HTML/CSS/JS)</option>
-        <option value="javascript">JavaScript (JS)</option>
-        <option value="python">Python (Pyodide)</option>
-        <option value="text">Plain Text / Other</option>
-      </select>
-      <button id="runBtn">▶ Run</button>
-      <button id="stopBtn">■ Stop</button>
-      <button id="formatBtn">Format</button>
-      <button id="exportBtn">⬇️ Export</button>
-      <button id="importBtn">⬆️ Import</button>
-      <input id="fileInput" type="file" accept=".html,.htm,.js,.py,.txt"/>
+      <button id="runBtn" class="btn">Run</button>
+      <button id="formatBtn" class="btn">Format</button>
+      <button id="exportBtn" class="btn">Export</button>
     </div>
   </div>
 
   <div id="container">
-    <div id="editor"></div>
+    <!-- Editor container: Monaco will mount here -->
+    <div id="editor" role="region" aria-label="Editor area"></div>
+
     <div id="right">
-      <div class="toolbar">
-        <div style="font-weight:700">Preview</div>
+      <div class="toolbar"><strong>Preview</strong></div>
+      <!-- Use srcdoc to avoid blob URL edge-cases -->
+      <iframe id="preview" sandbox="allow-scripts" title="Preview area" srcdoc="<p style='color:#888;padding:12px;font-family:monospace'>Preview kosong. Ketik kode HTML / JS untuk melihat hasil di sini.</p>"></iframe>
+
+      <div class="panels-bottom">
+        <div class="panel"><h4 style="margin:0 0 6px 0">Console (dari preview)</h4><div id="console" aria-live="polite"></div></div>
+        <div class="panel"><h4 style="margin:0 0 6px 0">Terminal (Python)</h4><div id="terminal" aria-live="polite"></div></div>
       </div>
-      <iframe id="preview" sandbox="allow-scripts allow-same-origin"></iframe>
-      <div id="terminal"></div>
     </div>
   </div>
 
+  <div id="modal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal">
+      <h3>Export file</h3>
+      <p style="color:#99b3c6;font-size:13px;margin-top:6px">Masukkan nama file (wajib diubah dari nilai default).</p>
+      <input id="exportName" type="text" value='\"\"' style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:transparent;color:#e6eef8"/>
+      <div style="display:flex;justify-content:flex-end;margin-top:12px;gap:8px">
+        <button id="cancelExport" class="btn">Batal</button>
+        <button id="confirmExport" class="btn" disabled>Export</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Monaco + Pyodide + Prettier same origin CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs/loader.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+  <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
+  <script src="https://unpkg.com/prettier@2.8.8/parser-html.js"></script>
+  <script src="https://unpkg.com/prettier@2.8.8/parser-babel.js"></script>
   <script>
+    // Keep code simple and robust: use iframe.srcdoc (no blob URLs) and z-index to prevent overlay.
     require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs' }});
-    let editor, pyodideReady=false, pyodide=null;
+    let editor;
     require(['vs/editor/editor.main'], function() {
-      const saved = localStorage.getItem('technoix_code') || 
-`<!DOCTYPE html>
-<html>
-<head>
-  <title>Hello</title>
-  </head>
-  <body>
-    <h1>Hello Sobat Technoix</h1>
-  </body>
-</html>`;
       editor = monaco.editor.create(document.getElementById('editor'), {
-        value: saved,
-        language: "html",
-        theme: "vs-dark",
+        value: '<!DOCTYPE html>\\n<html>\\n<head>\\n  <meta charset=\"utf-8\">\\n  <title>Sample</title>\\n</head>\\n<body>\\n  <h1>Hello</h1>\\n  <script>console.log(\"hello from preview\")<\\/script>\\n</body>\\n</html>',
+        language: 'html',
+        theme: 'vs-dark',
         automaticLayout: true,
-        minimap: {enabled:false}
+        minimap: { enabled:false }
       });
+
       editor.onDidChangeModelContent(()=>{
-        localStorage.setItem('technoix_code', editor.getValue());
+        // live preview for HTML/JS
+        const lang = document.getElementById('lang')?.value || 'html';
+        if(lang === 'html' || lang === 'javascript') {
+          // debounce
+          if(window._lp) clearTimeout(window._lp);
+          window._lp = setTimeout(updatePreviewLive, 250);
+        }
       });
     });
 
-    const terminal=document.getElementById('terminal');
-    function termLog(msg){const d=document.createElement('div');d.textContent=msg;terminal.appendChild(d);terminal.scrollTop=terminal.scrollHeight;}
+    // Simple UI controls (language select kept internal for compatibility)
+    const langSelect = document.createElement('select');
+    langSelect.id = 'lang';
+    ['html','javascript','python','text'].forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v==='html'?'HTML (HTML/CSS/JS)':v==='javascript'?'JavaScript (JS)':v==='python'?'Python (Pyodide)':'Plain Text';langSelect.appendChild(o)});
+    document.querySelector('.controls').insertBefore(langSelect, document.querySelector('.controls').children[0]);
+
+    const consoleEl = document.getElementById('console');
+    const terminal = document.getElementById('terminal');
+    function consoleLog(msg){const d=document.createElement('div');d.textContent=msg;consoleEl.appendChild(d);consoleEl.scrollTop = consoleEl.scrollHeight;}
+    function termLog(msg){const d=document.createElement('div');d.textContent=msg;terminal.appendChild(d);terminal.scrollTop = terminal.scrollHeight;}
+    function consoleClear(){consoleEl.innerHTML='';}
     function termClear(){terminal.innerHTML='';}
 
-    const preview=document.getElementById('preview');
-    window.addEventListener('message',ev=>{if(ev.data?.type==='console')termLog(ev.data.level+': '+ev.data.msg);if(ev.data?.type==='error')termLog('ERROR: '+ev.data.msg);});
+    // Preview handling using srcdoc (more predictable than blobs)
+    const preview = document.getElementById('preview');
+    function makePreviewHtml(code){
+      // make sure preview wrapper script can't break out to parent
+      const wrapper = `<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script>
+(function(){ 
+  // capture console and relay to parent
+  function send(type, payload){ try{ parent.postMessage({type:type, payload:payload}, '*'); }catch(e){} }
+  ['log','error','warn'].forEach(function(l){ const o = console[l]; console[l] = function(){ send('console',{level:l, args:Array.from(arguments)}); o.apply(console, arguments); }; });
+  window.addEventListener('error', function(e){ send('console',{level:'error', args:[e.message]}); });
+})();
+<\/script>
+${code}
+</body></html>`;
+      return wrapper;
+    }
 
-    function makePreviewHtml(code){return `<!DOCTYPE html><html><body><script>(function(){function send(t,p){parent.postMessage(Object.assign({type:t},p),'*');}['log','error','warn'].forEach(l=>{const o=console[l];console[l]=(...a)=>{send('console',{level:l,msg:a.join(' ')});o.apply(console,a);};});window.addEventListener('error',e=>send('error',{msg:e.message}));})();<\/script>${code}</body></html>`;}
+    window.addEventListener('message', (ev)=>{
+      try{
+        const data = ev.data;
+        if(data && data.type === 'console' && data.payload){
+          const lvl = data.payload.level || 'log';
+          const args = data.payload.args || [];
+          consoleLog(lvl + ': ' + args.join(' '));
+        }
+      }catch(e){ /* ignore */ }
+    }, false);
 
-    async function ensurePyodide(){if(pyodideReady)return;termLog('Memuat Pyodide...');pyodide=await loadPyodide();pyodideReady=true;termLog('Pyodide siap.');}
+    function updatePreviewLive(){
+      try{
+        const code = editor ? editor.getValue() : '<p>no editor</p>';
+        const lang = document.getElementById('lang').value;
+        if(lang === 'html') preview.srcdoc = makePreviewHtml(code);
+        else if(lang === 'javascript') preview.srcdoc = makePreviewHtml('<script>' + code + '<\\/script>');
+      }catch(e){
+        consoleClear(); termLog('Preview error: ' + e);
+      }
+    }
 
-    document.getElementById('runBtn').onclick=async()=>{
-      termClear();const code=editor.getValue();const lang=document.getElementById('lang').value;
-      if(lang==='html'){const blob=new Blob([makePreviewHtml(code)],{type:'text/html'});preview.src=URL.createObjectURL(blob);}
-      else if(lang==='javascript'){const blob=new Blob([makePreviewHtml(`<script>${code}<\/script>`)],{type:'text/html'});preview.src=URL.createObjectURL(blob);}
-      else if(lang==='python'){await ensurePyodide();try{const res=await pyodide.runPythonAsync(code);if(res!==undefined)termLog('=> '+res);}catch(e){termLog('Python ERROR: '+e);}}
-      else{const blob=new Blob([code],{type:'text/plain'});preview.src=URL.createObjectURL(blob);}
-    };
+    // Run / Format / Export actions
+    document.getElementById('runBtn').addEventListener('click', async ()=>{
+      consoleClear(); termClear();
+      const lang = document.getElementById('lang').value;
+      if(lang === 'html' || lang === 'javascript'){ updatePreviewLive(); termLog('Preview updated.'); }
+      else if(lang === 'python'){
+        termLog('Memuat Pyodide...');
+        try{
+          if(!window.pyodide){
+            window.pyodide = await loadPyodide();
+            termLog('Pyodide siap.');
+          }
+          const res = await window.pyodide.runPythonAsync(editor.getValue());
+          if(res !== undefined) termLog('=> ' + String(res));
+        }catch(e){ termLog('Python ERROR: ' + e); }
+      } else {
+        preview.srcdoc = '<pre style="font-family:monospace;padding:12px;color:#ddd">' + escapeHtml(editor.getValue()) + '</pre>';
+      }
+    });
 
-    document.getElementById('stopBtn').onclick=()=>{preview.src='about:blank';termLog('Stopped.');};
-    document.getElementById('backIndex').onclick=()=>{location.href='index.html';};
+    document.getElementById('formatBtn').addEventListener('click', ()=>{
+      try{
+        const code = editor.getValue();
+        const formatted = prettier.format(code, { parser: 'html', plugins: prettierPlugins });
+        editor.setValue(formatted);
+        termLog('Code formatted.');
+      }catch(e){ termLog('Format error: ' + (e && e.message ? e.message : e)); }
+    });
 
-    document.getElementById('formatBtn').onclick=()=>{
-      const code=editor.getValue();const lang=document.getElementById('lang').value;
-      let parser='babel';if(lang==='html')parser='html';if(lang==='javascript')parser='babel';if(lang==='css')parser='postcss';
-      try{const formatted=prettier.format(code,{parser:parser,plugins:prettierPlugins});editor.setValue(formatted);termLog('Code formatted.');}catch(e){termLog('Format error: '+e.message);} };
+    // Export modal: require user change name
+    const modal = document.getElementById('modal');
+    const exportName = document.getElementById('exportName');
+    const confirmExport = document.getElementById('confirmExport');
+    const cancelExport = document.getElementById('cancelExport');
+    let currentExt = '.txt';
+    document.getElementById('exportBtn').addEventListener('click', ()=>{
+      const lang = document.getElementById('lang').value;
+      currentExt = (lang==='html')?'.html':(lang==='javascript')?'.js':(lang==='python')?'.py':'.txt';
+      exportName.value = '\"\"' + currentExt;
+      confirmExport.disabled = true;
+      modal.style.display = 'flex';
+    });
+    exportName.addEventListener('input', ()=>{
+      confirmExport.disabled = (exportName.value.trim() === ('\"\"' + currentExt) || exportName.value.trim()==='');
+    });
+    cancelExport.addEventListener('click', ()=>{ modal.style.display='none'; });
+    confirmExport.addEventListener('click', ()=>{
+      let fn = exportName.value.trim();
+      if(!fn.endsWith(currentExt)) fn = fn + currentExt;
+      const blob = new Blob([editor.getValue()], { type: 'text/plain' });
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = fn; a.click();
+      modal.style.display='none';
+      termLog('Exported ' + fn);
+    });
 
-    document.getElementById('exportBtn').onclick=()=>{
-      const code=editor.getValue();const lang=document.getElementById('lang').value;
-      let ext='.txt';if(lang==='html')ext='.html';if(lang==='javascript')ext='.js';if(lang==='python')ext='.py';
-      const blob=new Blob([code],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='code'+ext;a.click();termLog('Exported '+a.download);
-    };
+    // import: simple file input
+    const input = document.createElement('input');
+    input.type = 'file'; input.accept = '.html,.htm,.js,.py,.txt';
+    input.style.display='none';
+    input.addEventListener('change', e=>{
+      const f = e.target.files[0]; if(!f) return; const r = new FileReader();
+      r.onload = ()=>{ if(editor) editor.setValue(r.result); termLog('Imported ' + f.name); };
+      r.readAsText(f);
+    });
+    document.body.appendChild(input);
+    // add an Import button to controls for convenience
+    const importBtn = document.createElement('button'); importBtn.className='btn'; importBtn.textContent='Import';
+    importBtn.addEventListener('click', ()=> input.click());
+    document.querySelector('.controls').appendChild(importBtn);
 
-    document.getElementById('importBtn').onclick=()=>document.getElementById('fileInput').click();
-    document.getElementById('fileInput').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{editor.setValue(r.result);termLog('Imported '+f.name);};r.readAsText(f);};
+    function escapeHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+    // initial preview
+    setTimeout(()=>{ if(window.monaco) updatePreviewLive(); }, 700);
+
   </script>
 </body>
 </html>
