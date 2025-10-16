@@ -1,64 +1,62 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>TechnoIX Code Pad - VSCode Layout</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TechnoIX Code Pad - Public Ready (VSCode Layout)</title>
 <style>
 :root{
-  --bg:#0b1220;--panel:#0f1724;--muted:#99b3c6;
+  --bg:#0b1220; --panel:#0f1724; --muted:#99b3c6;
   --logo-grad:linear-gradient(90deg,#3aa0ff,#0056d6);
+  --accent:#8fb2ff;
 }
 *{box-sizing:border-box}
+html,body{height:100%;margin:0}
 body{
   margin:0;background:var(--bg);color:#e6eef8;
-  font-family:Arial,Helvetica,sans-serif;height:100vh;overflow:hidden;
-  display:flex;flex-direction:column;
+  font-family:Arial, Helvetica, sans-serif;
+  display:flex;flex-direction:column;height:100vh;overflow:hidden;
 }
 .topbar{
   height:60px;display:flex;align-items:center;padding:0 16px;
   background:linear-gradient(90deg,#071126,#0b2540);flex-shrink:0;
 }
-.logo{font-weight:800;font-size:18px;background:var(--logo-grad);
-  -webkit-background-clip:text;color:transparent;}
-.controls{margin-left:auto;display:flex;gap:8px;}
+.logo{font-weight:800;font-size:18px;background:var(--logo-grad);-webkit-background-clip:text;color:transparent}
+.controls{margin-left:auto;display:flex;gap:8px;align-items:center}
 .btn{
   background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
   color:#cfeefc;padding:6px 12px;border-radius:8px;cursor:pointer;font-weight:600;
 }
 #main{
-  flex:1;display:grid;grid-template-columns:220px 1fr 400px;grid-template-rows:1fr;
-  height:calc(100vh - 60px);
+  flex:1;display:grid;grid-template-columns:220px 1fr 420px;grid-template-rows:1fr;height:calc(100vh - 60px);
 }
-#explorer{background:#081224;border-right:1px solid rgba(255,255,255,.05);padding:8px;overflow:auto;}
-#explorer h3{margin:8px 0;font-size:14px;color:#8fb2ff;}
-#files{list-style:none;padding:0;margin:0;}
-#files li{padding:6px 8px;border-radius:6px;cursor:pointer;}
-#files li.active,#files li:hover{background:rgba(255,255,255,.08);}
-#editor-area{display:flex;flex-direction:column;height:100%;background:#0f1724;}
-#tabs{display:flex;background:#0f1724;border-bottom:1px solid rgba(255,255,255,.1);}
-.tab{padding:8px 12px;cursor:pointer;font-size:13px;border-right:1px solid rgba(255,255,255,.05);}
-.tab.active{background:rgba(255,255,255,.07);}
-#editor{flex:1;min-height:0;}
-#right-panel{display:flex;flex-direction:column;background:#071126;border-left:1px solid rgba(255,255,255,.05);}
-#preview{flex:2;border:none;background:white;}
-#terminal-panel{flex:1;display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.05);}
-.panel{flex:1;padding:6px;font-family:monospace;font-size:13px;overflow:auto;}
-@media(max-width:1000px){
-  #main{grid-template-columns:180px 1fr 300px;}
-}
-@media(max-width:800px){
-  #main{grid-template-columns:180px 1fr 250px;}
-  body{zoom:0.8;}
-}
-@media(max-width:600px){
-  #main{grid-template-columns:160px 1fr 220px;}
-  body{zoom:0.65;}
-}
+#explorer{background:#081224;border-right:1px solid rgba(255,255,255,.05);padding:10px;overflow:auto}
+#explorer h3{margin:8px 0;font-size:14px;color:var(--accent)}
+#files{list-style:none;padding:0;margin:0}
+#files li{padding:6px 8px;border-radius:6px;cursor:pointer}
+#files li.active,#files li:hover{background:rgba(255,255,255,.06)}
+#editor-area{display:flex;flex-direction:column;background:#0f1724;min-width:0}
+#tabs{display:flex;background:#0f1724;border-bottom:1px solid rgba(255,255,255,.06);overflow:auto;align-items:center}
+.tab{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;font-size:13px;border-right:1px solid rgba(255,255,255,.05);white-space:nowrap}
+.tab.active{background:rgba(255,255,255,.06)}
+.tab .close-btn{color:#999;padding:0 6px;cursor:pointer;font-weight:700}
+.tab .close-btn:hover{color:#fff}
+#editor{flex:1;min-height:0;overflow:hidden}
+#right-panel{display:flex;flex-direction:column;background:#071126;border-left:1px solid rgba(255,255,255,.05)}
+#preview{flex:2;border:none;background:white;width:100%}
+#terminal-panel{flex:1;display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.06)}
+.panel{flex:1;padding:8px;font-family:monospace;font-size:13px;overflow:auto;background:transparent;color:#bfe9ff}
+#pyodideStatus{position:fixed;top:68px;right:18px;padding:6px 10px;background:rgba(0,0,0,.25);border-radius:8px;color:var(--accent);font-size:13px;z-index:30}
+.file-actions{display:flex;gap:6px;align-items:center}
+.small-btn{background:transparent;border:1px solid rgba(255,255,255,.04);padding:4px 8px;border-radius:6px;color:#cfeefc;cursor:pointer;font-size:12px}
+.newfile-input{width:100%;padding:8px;margin-top:8px;border-radius:6px;border:1px solid rgba(255,255,255,.04);background:transparent;color:inherit}
+@media (max-width:1000px){#main{grid-template-columns:180px 1fr 340px}}
+@media (max-width:800px){#main{grid-template-columns:160px 1fr 300px}; body{zoom:0.85}}
+@media (max-width:600px){#main{grid-template-columns:140px 1fr 260px}; body{zoom:0.65}}
 </style>
 </head>
 <body>
+
 <div class="topbar">
   <div class="logo">TechnoIX Code Pad</div>
   <div class="controls">
@@ -68,128 +66,335 @@ body{
     <button id="importBtn" class="btn">Import</button>
   </div>
 </div>
+
+<div id="pyodideStatus">🔄 Memuat Pyodide...</div>
+
 <div id="main">
   <div id="explorer">
     <h3>Explorer</h3>
     <ul id="files"></ul>
-    <button id="newFileBtn" class="btn" style="width:100%;margin-top:8px;">+ New File</button>
+    <div style="margin-top:10px">
+      <button id="newFileBtn" class="btn" style="width:100%">+ New File</button>
+      <input id="newFileName" class="newfile-input" placeholder="contoh: index.html" style="display:none"/>
+    </div>
   </div>
+
   <div id="editor-area">
-    <div id="tabs"></div>
-    <div id="editor"></div>
+    <div id="tabs" role="tablist" aria-label="File tabs"></div>
+    <div id="editor" role="region" aria-label="Code editor"></div>
   </div>
-  <div id="right-panel">
-    <iframe id="preview"></iframe>
+
+  <div id="right-panel" aria-hidden="false">
+    <iframe id="preview" title="Preview"></iframe>
     <div id="terminal-panel">
-      <div class="panel" id="console"></div>
-      <div class="panel" id="terminal"></div>
+      <div class="panel" id="console" aria-live="polite"></div>
+      <div class="panel" id="terminal" aria-live="polite"></div>
     </div>
   </div>
 </div>
 
+<!-- External libs -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs/loader.min.js"></script>
 <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
 <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
 <script src="https://unpkg.com/prettier@2.8.8/parser-html.js"></script>
 <script src="https://unpkg.com/prettier@2.8.8/parser-babel.js"></script>
-<script>
-require.config({paths:{'vs':'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs'}});
-let editor, files={}, activeFile=null;
 
-function addFile(name,content="",lang="html"){
-  if(files[name])return;
-  files[name]={content,lang};
-  const li=document.createElement("li");
-  li.textContent=name;li.onclick=()=>openFile(name);
-  document.getElementById("files").appendChild(li);
-  const tab=document.createElement("div");
-  tab.textContent=name;tab.className="tab";tab.onclick=()=>openFile(name);
-  document.getElementById("tabs").appendChild(tab);
+<script>
+/* ============================
+   Core app: Files, Editor, Tabs
+   ============================ */
+require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs' }});
+let editor = null;
+let files = {};          // { filename: {content, lang} }
+let activeFile = null;
+let pyodideReady = false;
+
+// UTIL
+function logConsole(msg){
+  const c = document.getElementById('console');
+  const d = document.createElement('div'); d.textContent = msg; c.appendChild(d); c.scrollTop = c.scrollHeight;
+}
+function logTerminal(msg){
+  const t = document.getElementById('terminal');
+  const d = document.createElement('div'); d.textContent = msg; t.appendChild(d); t.scrollTop = t.scrollHeight;
+}
+function safeDownload(filename, content){
+  const blob = new Blob([content], {type:'text/plain;charset=utf-8'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = filename; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 5000);
+}
+
+/* ============================
+   Pyodide preload (async)
+   ============================ */
+async function preloadPyodide(){
+  const statusEl = document.getElementById('pyodideStatus');
+  try{
+    statusEl.textContent = '🔄 Memuat Pyodide (mulai)...';
+    // loadPyodide() is exposed by the pyodide.js script
+    window.pyodide = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.23.4/full/' });
+    pyodideReady = true;
+    statusEl.textContent = '✅ Pyodide siap.';
+    setTimeout(()=> { statusEl.style.display='none'; }, 1800);
+    logTerminal('Pyodide siap.');
+  }catch(err){
+    statusEl.textContent = '❌ Gagal memuat Pyodide';
+    console.error('Pyodide load error', err);
+    logTerminal('Gagal memuat Pyodide: ' + String(err));
+  }
+}
+// Start loading immediately (background)
+preloadPyodide();
+
+/* ============================
+   File management + UI
+   ============================ */
+function addFile(name, content = '', lang='html'){
+  if(!name) return;
+  if(files[name]) {
+    openFile(name);
+    return;
+  }
+  files[name] = { content: String(content || ''), lang };
+  // explorer entry
+  const li = document.createElement('li');
+  li.textContent = name;
+  li.tabIndex = 0;
+  li.onclick = () => openFile(name);
+  li.onkeydown = (e)=>{ if(e.key==='Enter') openFile(name); };
+  document.getElementById('files').appendChild(li);
+  // tab
+  const tab = document.createElement('div');
+  tab.className = 'tab';
+  tab.setAttribute('data-name', name);
+  tab.innerHTML = `<span class="tab-name">${name}</span><span class="close-btn" title="Close file">×</span>`;
+  // close handler
+  tab.querySelector('.close-btn').addEventListener('click', (ev)=>{
+    ev.stopPropagation();
+    closeFile(name);
+  });
+  tab.addEventListener('click', ()=>openFile(name));
+  document.getElementById('tabs').appendChild(tab);
   openFile(name);
 }
-function openFile(name){
-  activeFile=name;
-  Array.from(document.querySelectorAll("#files li")).forEach(li=>li.classList.toggle("active",li.textContent===name));
-  Array.from(document.querySelectorAll(".tab")).forEach(t=>t.classList.toggle("active",t.textContent===name));
-  const lang=files[name].lang;const val=files[name].content;
-  if(editor){editor.setValue(val);monaco.editor.setModelLanguage(editor.getModel(),lang);}
-}
-function saveActive(){if(activeFile&&editor)files[activeFile].content=editor.getValue();}
-window.addEventListener("beforeunload",saveActive);
 
-require(["vs/editor/editor.main"],function(){
-  editor=monaco.editor.create(document.getElementById("editor"),{
-    value:"",language:"html",theme:"vs-dark",automaticLayout:true,minimap:{enabled:false}
+function closeFile(name){
+  if(!files[name]) return;
+  // remove from files object
+  delete files[name];
+  // remove explorer li
+  Array.from(document.querySelectorAll('#files li')).forEach(li=>{
+    if(li.textContent === name) li.remove();
   });
-  editor.addCommand(monaco.KeyMod.Shift|monaco.KeyMod.Alt|monaco.KeyCode.KEY_F,()=>formatCode());
-  editor.onKeyDown(e=>{
-    if(e.code==="Digit1"&&e.shiftKey&&!e.ctrlKey){
-      if(files[activeFile]?.lang==="html"){
-        editor.setValue('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>Document</title>\n</head>\n<body>\n\n</body>\n</html>');
+  // remove tab
+  Array.from(document.querySelectorAll('#tabs .tab')).forEach(t=>{
+    if(t.getAttribute('data-name') === name) t.remove();
+  });
+  // if active, switch to another tab if exists
+  if(activeFile === name){
+    const remaining = Object.keys(files);
+    if(remaining.length) openFile(remaining[0]);
+    else {
+      activeFile = null;
+      if(editor) editor.setValue('');
+    }
+  }
+}
+
+function openFile(name){
+  if(!files[name]) return;
+  saveActive(); // save current before switching
+  activeFile = name;
+  // set active styles
+  Array.from(document.querySelectorAll('#files li')).forEach(li=>{
+    li.classList.toggle('active', li.textContent === name);
+  });
+  Array.from(document.querySelectorAll('#tabs .tab')).forEach(t=>{
+    t.classList.toggle('active', t.getAttribute('data-name') === name);
+  });
+  // load content
+  const file = files[name];
+  if(editor){
+    editor.setValue(file.content);
+    try{ monaco.editor.setModelLanguage(editor.getModel(), file.lang); }catch(e){}
+    editor.focus();
+  }
+}
+
+function saveActive(){
+  if(activeFile && editor){
+    files[activeFile].content = editor.getValue();
+  }
+}
+
+/* ============================
+   Monaco editor init & shortcuts
+   ============================ */
+require(['vs/editor/editor.main'], function(){
+  editor = monaco.editor.create(document.getElementById('editor'), {
+    value: '',
+    language: 'html',
+    theme: 'vs-dark',
+    automaticLayout: true,
+    minimap: { enabled: false }
+  });
+
+  // Prettier format shortcut (Shift+Alt+F)
+  editor.addCommand(monaco.KeyMod.Shift | monaco.KeyMod.Alt | monaco.KeyCode.KEY_F, function(){
+    formatCode();
+  });
+
+  // Emmet-like '!' insertion: Shift+1 (the '!' char)
+  editor.onKeyDown((e) => {
+    // e.browserEvent is the original DOM event
+    const be = e.browserEvent || {};
+    // check Shift+1 (Digit1 + Shift)
+    if(be.code === 'Digit1' && be.shiftKey && !be.ctrlKey && !be.metaKey){
+      const curName = activeFile;
+      if(curName && files[curName] && files[curName].lang === 'html'){
+        const template = '<!DOCTYPE html>\\n<html lang="en">\\n<head>\\n  <meta charset=\"utf-8\">\\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n  <title>Document</title>\\n</head>\\n<body>\\n\\n</body>\\n</html>';
+        editor.setValue(template);
+        // prevent default handling (optional)
+        be.preventDefault && be.preventDefault();
       }
     }
   });
-  editor.onDidChangeModelContent(()=>saveActive());
-  addFile("index.html","<!DOCTYPE html>\n<html><head><meta charset='utf-8'><title>Document</title></head><body>\n</body></html>","html");
+
+  // autosave on change
+  editor.onDidChangeModelContent(() => {
+    saveActive();
+  });
+
+  // create initial file
+  addFile('index.html', '<!DOCTYPE html>\\n<html lang=\"en\">\\n<head>\\n  <meta charset=\"utf-8\">\\n  <title>Document</title>\\n</head>\\n<body>\\n\\n</body>\\n</html>', 'html');
 });
 
+/* ============================
+   Buttons: Run, Format, Export, Import
+   ============================ */
 function formatCode(){
+  if(!editor) return;
   try{
-    const code=editor.getValue();
-    const formatted=prettier.format(code,{parser:"html",plugins:prettierPlugins});
+    const code = editor.getValue();
+    // decide parser by file ext
+    const ext = (activeFile || '').split('.').pop();
+    let parser = 'babel';
+    if(ext === 'html' || ext === 'htm') parser = 'html';
+    if(ext === 'js' || ext === 'mjs' || ext === 'cjs') parser = 'babel';
+    // prettierPlugins are provided by included scripts
+    const formatted = prettier.format(code, { parser, plugins: prettierPlugins });
     editor.setValue(formatted);
-    logConsole("Code formatted.");
-  }catch(e){logConsole("Format error: "+e);}
-}
-
-function logConsole(msg){
-  const c=document.getElementById("console");
-  const d=document.createElement("div");
-  d.textContent=msg;c.appendChild(d);c.scrollTop=c.scrollHeight;
-}
-
-document.getElementById("formatBtn").onclick=formatCode;
-document.getElementById("newFileBtn").onclick=()=>{
-  const name=prompt("File name:");
-  if(!name)return;
-  const ext=name.split('.').pop();
-  const lang=ext==="js"?"javascript":ext==="py"?"python":"html";
-  addFile(name,"",lang);
-};
-
-document.getElementById("runBtn").onclick=async()=>{
-  saveActive();
-  const file=files[activeFile];const code=file.content;const lang=file.lang;
-  if(lang==="html"||lang==="javascript"){
-    document.getElementById("preview").srcdoc=lang==="html"?code:"<script>"+code+"<\/script>";
-  }else if(lang==="python"){
-    logConsole("Memuat Pyodide...");
-    if(!window.pyodide)window.pyodide=await loadPyodide();
-    try{
-      const res=await window.pyodide.runPythonAsync(code);
-      logConsole(res!==undefined?res:"[Done]");
-    }catch(e){logConsole("Python error: "+e);}
+    logConsole('✅ Code formatted.');
+  }catch(err){
+    logConsole('Format error: ' + (err && err.message ? err.message : String(err)));
   }
-};
+}
+document.getElementById('formatBtn').addEventListener('click', formatCode);
 
-document.getElementById("exportBtn").onclick=()=>{
+document.getElementById('runBtn').addEventListener('click', async ()=>{
   saveActive();
-  const file=files[activeFile];
-  const blob=new Blob([file.content],{type:"text/plain"});
-  const a=document.createElement("a");
-  a.href=URL.createObjectURL(blob);a.download=activeFile;a.click();
+  if(!activeFile) { logConsole('No file open.'); return; }
+  const file = files[activeFile];
+  if(!file) { logConsole('File not found.'); return; }
+  const ext = (activeFile || '').split('.').pop();
+  const code = file.content;
+  if(ext === 'html' || file.lang === 'html'){
+    document.getElementById('preview').srcdoc = code;
+    logConsole('Preview updated.');
+  } else if(ext === 'js' || file.lang === 'javascript'){
+    document.getElementById('preview').srcdoc = '<script>' + code + '<\\/script>';
+    logConsole('JS executed in preview.');
+  } else if(ext === 'py' || file.lang === 'python'){
+    if(!pyodideReady){ logConsole('⏳ Pyodide belum siap. Tunggu beberapa detik.'); return; }
+    logConsole('▶️ Menjalankan Python...');
+    try{
+      const res = await window.pyodide.runPythonAsync(code);
+      logTerminal(String(res !== undefined ? res : '[Done]'));
+    }catch(err){
+      logTerminal('Python error: ' + String(err));
+    }
+  } else {
+    // fallback: show content in preview
+    document.getElementById('preview').srcdoc = '<pre style="font-family:monospace;padding:12px;color:#111;background:#fff">' + escapeHtml(code) + '</pre>';
+    logConsole('Preview (plain) updated.');
+  }
+});
+
+document.getElementById('exportBtn').addEventListener('click', ()=>{
+  saveActive();
+  if(!activeFile){ logConsole('No active file to export'); return; }
+  safeDownload(activeFile, files[activeFile].content);
+  logConsole('Exported: ' + activeFile);
+});
+
+/* Improved Import (robust) */
+document.getElementById('importBtn').addEventListener('click', ()=>{
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.html,.htm,.js,.py,.txt';
+  input.onchange = (e) => {
+    const f = e.target.files && e.target.files[0];
+    if(!f) { logConsole('No file selected.'); return; }
+    const reader = new FileReader();
+    reader.onerror = () => logConsole('Gagal membaca file ' + f.name);
+    reader.onload = () => {
+      try{
+        const text = reader.result;
+        // choose language from extension
+        const ext = (f.name || '').split('.').pop().toLowerCase();
+        const lang = ext === 'js' ? 'javascript' : ext === 'py' ? 'python' : 'html';
+        addFile(f.name, text, lang);
+        logConsole('Imported ' + f.name);
+      }catch(err){
+        logConsole('Import error: ' + String(err));
+      }
+    };
+    reader.readAsText(f);
+  };
+  input.click();
+});
+
+/* New file flow (simple prompt) */
+document.getElementById('newFileBtn').addEventListener('click', ()=>{
+  const name = prompt('Nama file baru (mis. index.html):');
+  if(!name) return;
+  const ext = name.split('.').pop().toLowerCase();
+  const lang = ext === 'js' ? 'javascript' : ext === 'py' ? 'python' : 'html';
+  addFile(name, (lang==='html' ? '<!DOCTYPE html>\\n<html lang=\"en\">\\n<head>\\n  <meta charset=\"utf-8\">\\n  <title>Document</title>\\n</head>\\n<body>\\n\\n</body>\\n</html>' : ''), lang);
+});
+
+/* Close behavior helper: expose closeFile to inline handlers above if needed */
+window.closeFile = function(ev, name){
+  // not used; kept for compatibility
+  closeFile(name);
 };
 
-document.getElementById("importBtn").onclick=()=>{
-  const inp=document.createElement("input");
-  inp.type="file";inp.onchange=e=>{
-    const f=e.target.files[0];
-    const r=new FileReader();
-    r.onload=()=>addFile(f.name,r.result,f.name.endsWith(".js")?"javascript":f.name.endsWith(".py")?"python":"html");
-    r.readAsText(f);
-  };
-  inp.click();
-};
+/* Escape helper */
+function escapeHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+/* Before unload: prompt if unsaved (basic) */
+window.addEventListener('beforeunload', (e)=>{
+  saveActive();
+  // optionally show a confirm dialog - commented out to avoid annoyance
+  // e.preventDefault(); e.returnValue = '';
+});
+
+/* Accessibility: allow keyboard navigation for tabs (left/right) */
+document.addEventListener('keydown', (e)=>{
+  if(!editor) return;
+  // Ctrl+Tab / Ctrl+Shift+Tab switch tabs (simple)
+  if(e.ctrlKey && e.key === 'Tab'){
+    e.preventDefault();
+    const names = Object.keys(files);
+    if(names.length < 2) return;
+    const idx = names.indexOf(activeFile);
+    const next = names[(idx + 1) % names.length];
+    openFile(next);
+  }
+});
+
+/* End of script */
 </script>
 </body>
 </html>
