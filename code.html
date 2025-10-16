@@ -253,7 +253,17 @@ require(['vs/editor/editor.main'], function(){
     if(be.code === 'Digit1' && be.shiftKey && !be.ctrlKey && !be.metaKey){
       const curName = activeFile;
       if(curName && files[curName] && files[curName].lang === 'html'){
-        const template = '<!DOCTYPE html>\\n<html lang="en">\\n<head>\\n  <meta charset=\"utf-8\">\\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n  <title>Document</title>\\n</head>\\n<body>\\n\\n</body>\\n</html>';
+        const template = '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>';
         editor.setValue(template);
         // prevent default handling (optional)
         be.preventDefault && be.preventDefault();
@@ -267,7 +277,17 @@ require(['vs/editor/editor.main'], function(){
   });
 
   // create initial file
-  addFile('index.html', '<!DOCTYPE html>\\n<html lang=\"en\">\\n<head>\\n  <meta charset=\"utf-8\">\\n  <title>Document</title>\\n</head>\\n<body>\\n\\n</body>\\n</html>', 'html');
+  addFile('index.html', '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>', 'html');
 });
 
 /* ============================
