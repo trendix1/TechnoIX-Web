@@ -85,7 +85,17 @@
     let editor;
     require(['vs/editor/editor.main'], function() {
       editor = monaco.editor.create(document.getElementById('editor'), {
-        value: '<!DOCTYPE html>\\n<html>\\n<head>\\n  <meta charset=\"utf-8\">\\n  <title>Sample</title>\\n</head>\\n<body>\\n  <h1>Hello</h1>\\n  <script>console.log(\"hello from preview\")<\\/script>\\n</body>\\n</html>',
+        value: '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>',
         language: 'html',
         theme: 'vs-dark',
         automaticLayout: true,
