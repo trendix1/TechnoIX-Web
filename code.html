@@ -2,182 +2,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TechnoIX Code Pad Pro</title>
-  <style>
-    :root {
-      --bg:#0b1220;--panel:#0f1724;--muted:#99b3c6;
-      --logo-grad:linear-gradient(90deg,#3aa0ff,#0056d6);
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin:0; background:var(--bg); color:#e6eef8;
-      font-family:Arial,Helvetica,sans-serif; height:100vh; overflow:hidden;
-      display:flex; flex-direction:column;
-    }
-    .topbar {
-      height:60px; display:flex; align-items:center; padding:0 16px;
-      background:linear-gradient(90deg,#071126,#0b2540); flex-shrink:0;
-    }
-    .logo { font-weight:800; font-size:18px;
-      background:var(--logo-grad); -webkit-background-clip:text; color:transparent;
-    }
-    .controls { margin-left:auto; display:flex; gap:8px; }
-    .btn {
-      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
-      color:#cfeefc; padding:6px 12px; border-radius:8px; cursor:pointer;
-      font-weight:600;
-    }
-    #container { flex:1; display:grid; grid-template-columns:240px 1fr; height:calc(100vh - 60px); }
-    #explorer { background:#081224; border-right:1px solid rgba(255,255,255,.05); padding:8px; overflow:auto; }
-    #explorer h3 { margin:8px 0; font-size:14px; color:#8fb2ff; }
-    #files { list-style:none; padding:0; margin:0; }
-    #files li { padding:6px 8px; border-radius:6px; cursor:pointer; }
-    #files li.active, #files li:hover { background:rgba(255,255,255,.08); }
-    #editor-area { display:flex; flex-direction:column; height:100%; }
-    #tabs { display:flex; background:#0f1724; border-bottom:1px solid rgba(255,255,255,.1); }
-    .tab {
-      padding:8px 12px; cursor:pointer; font-size:13px; border-right:1px solid rgba(255,255,255,.05);
-    }
-    .tab.active { background:rgba(255,255,255,.07); }
-    #editor { flex:1; min-height:0; }
-    #bottom { display:flex; background:#071126; height:160px; }
-    .panel { flex:1; padding:8px; font-family:monospace; font-size:13px; overflow:auto; }
-    #preview { width:100%; height:100%; border:none; background:white; }
-    @media (max-width:900px){
-      body { zoom: 0.8; } /* skala otomatis tanpa ubah posisi */
-    }
-    @media (max-width:600px){
-      body { zoom: 0.6; }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TechnoIX Code Pad - VSCode Layout</title>
+<style>
+:root{
+  --bg:#0b1220;--panel:#0f1724;--muted:#99b3c6;
+  --logo-grad:linear-gradient(90deg,#3aa0ff,#0056d6);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:#e6eef8;
+  font-family:Arial,Helvetica,sans-serif;height:100vh;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.topbar{
+  height:60px;display:flex;align-items:center;padding:0 16px;
+  background:linear-gradient(90deg,#071126,#0b2540);flex-shrink:0;
+}
+.logo{font-weight:800;font-size:18px;background:var(--logo-grad);
+  -webkit-background-clip:text;color:transparent;}
+.controls{margin-left:auto;display:flex;gap:8px;}
+.btn{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  color:#cfeefc;padding:6px 12px;border-radius:8px;cursor:pointer;font-weight:600;
+}
+#main{
+  flex:1;display:grid;grid-template-columns:220px 1fr 400px;grid-template-rows:1fr;
+  height:calc(100vh - 60px);
+}
+#explorer{background:#081224;border-right:1px solid rgba(255,255,255,.05);padding:8px;overflow:auto;}
+#explorer h3{margin:8px 0;font-size:14px;color:#8fb2ff;}
+#files{list-style:none;padding:0;margin:0;}
+#files li{padding:6px 8px;border-radius:6px;cursor:pointer;}
+#files li.active,#files li:hover{background:rgba(255,255,255,.08);}
+#editor-area{display:flex;flex-direction:column;height:100%;background:#0f1724;}
+#tabs{display:flex;background:#0f1724;border-bottom:1px solid rgba(255,255,255,.1);}
+.tab{padding:8px 12px;cursor:pointer;font-size:13px;border-right:1px solid rgba(255,255,255,.05);}
+.tab.active{background:rgba(255,255,255,.07);}
+#editor{flex:1;min-height:0;}
+#right-panel{display:flex;flex-direction:column;background:#071126;border-left:1px solid rgba(255,255,255,.05);}
+#preview{flex:2;border:none;background:white;}
+#terminal-panel{flex:1;display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.05);}
+.panel{flex:1;padding:6px;font-family:monospace;font-size:13px;overflow:auto;}
+@media(max-width:1000px){
+  #main{grid-template-columns:180px 1fr 300px;}
+}
+@media(max-width:800px){
+  #main{grid-template-columns:180px 1fr 250px;}
+  body{zoom:0.8;}
+}
+@media(max-width:600px){
+  #main{grid-template-columns:160px 1fr 220px;}
+  body{zoom:0.65;}
+}
+</style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="logo">TechnoIX Code Pad</div>
-    <div class="controls">
-      <button id="runBtn" class="btn">Run</button>
-      <button id="formatBtn" class="btn">Format</button>
-      <button id="exportBtn" class="btn">Export</button>
-      <button id="importBtn" class="btn">Import</button>
+<div class="topbar">
+  <div class="logo">TechnoIX Code Pad</div>
+  <div class="controls">
+    <button id="runBtn" class="btn">Run</button>
+    <button id="formatBtn" class="btn">Format</button>
+    <button id="exportBtn" class="btn">Export</button>
+    <button id="importBtn" class="btn">Import</button>
+  </div>
+</div>
+<div id="main">
+  <div id="explorer">
+    <h3>Explorer</h3>
+    <ul id="files"></ul>
+    <button id="newFileBtn" class="btn" style="width:100%;margin-top:8px;">+ New File</button>
+  </div>
+  <div id="editor-area">
+    <div id="tabs"></div>
+    <div id="editor"></div>
+  </div>
+  <div id="right-panel">
+    <iframe id="preview"></iframe>
+    <div id="terminal-panel">
+      <div class="panel" id="console"></div>
+      <div class="panel" id="terminal"></div>
     </div>
   </div>
-  <div id="container">
-    <div id="explorer">
-      <h3>Explorer</h3>
-      <ul id="files"></ul>
-      <button id="newFileBtn" class="btn" style="width:100%;margin-top:8px;">+ New File</button>
-    </div>
-    <div id="editor-area">
-      <div id="tabs"></div>
-      <div id="editor"></div>
-      <div id="bottom">
-        <div class="panel" id="console"></div>
-        <div class="panel"><iframe id="preview"></iframe></div>
-      </div>
-    </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs/loader.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
-  <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
-  <script src="https://unpkg.com/prettier@2.8.8/parser-html.js"></script>
-  <script src="https://unpkg.com/prettier@2.8.8/parser-babel.js"></script>
-  <script>
-    require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs' } });
-    let editor, files={}, activeFile=null;
+</div>
 
-    function addFile(name, content="", lang="html"){
-      if(files[name]) return;
-      files[name] = {content, lang};
-      const li=document.createElement("li");
-      li.textContent=name; li.onclick=()=>openFile(name);
-      document.getElementById("files").appendChild(li);
-      const tab=document.createElement("div");
-      tab.textContent=name; tab.className="tab"; tab.onclick=()=>openFile(name);
-      document.getElementById("tabs").appendChild(tab);
-      openFile(name);
-    }
-    function openFile(name){
-      activeFile=name;
-      Array.from(document.querySelectorAll("#files li")).forEach(li=>li.classList.toggle("active",li.textContent===name));
-      Array.from(document.querySelectorAll(".tab")).forEach(t=>t.classList.toggle("active",t.textContent===name));
-      const lang=files[name].lang; const val=files[name].content;
-      if(editor){editor.setValue(val); monaco.editor.setModelLanguage(editor.getModel(), lang);}
-    }
-    function saveActive(){
-      if(activeFile && editor) files[activeFile].content=editor.getValue();
-    }
-    window.addEventListener("beforeunload",saveActive);
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs/loader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+<script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
+<script src="https://unpkg.com/prettier@2.8.8/parser-html.js"></script>
+<script src="https://unpkg.com/prettier@2.8.8/parser-babel.js"></script>
+<script>
+require.config({paths:{'vs':'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs'}});
+let editor, files={}, activeFile=null;
 
-    require(["vs/editor/editor.main"],function(){
-      editor=monaco.editor.create(document.getElementById("editor"),{
-        value:"", language:"html", theme:"vs-dark", automaticLayout:true, minimap:{enabled:false}
-      });
-      editor.addCommand(monaco.KeyMod.Shift | monaco.KeyMod.Alt | monaco.KeyCode.KEY_F,()=>formatCode());
-      editor.onKeyDown(e=>{ if(e.code==="Digit1" && e.shiftKey && !e.ctrlKey){ if(files[activeFile]?.lang==="html"){ editor.setValue('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>Document</title>\n</head>\n<body>\n\n</body>\n</html>'); } } });
-      editor.onDidChangeModelContent(()=>{ saveActive(); });
-      addFile("index.html","<!DOCTYPE html>\n<html><head><meta charset='utf-8'><title>Document</title></head><body>\n</body></html>","html");
-    });
+function addFile(name,content="",lang="html"){
+  if(files[name])return;
+  files[name]={content,lang};
+  const li=document.createElement("li");
+  li.textContent=name;li.onclick=()=>openFile(name);
+  document.getElementById("files").appendChild(li);
+  const tab=document.createElement("div");
+  tab.textContent=name;tab.className="tab";tab.onclick=()=>openFile(name);
+  document.getElementById("tabs").appendChild(tab);
+  openFile(name);
+}
+function openFile(name){
+  activeFile=name;
+  Array.from(document.querySelectorAll("#files li")).forEach(li=>li.classList.toggle("active",li.textContent===name));
+  Array.from(document.querySelectorAll(".tab")).forEach(t=>t.classList.toggle("active",t.textContent===name));
+  const lang=files[name].lang;const val=files[name].content;
+  if(editor){editor.setValue(val);monaco.editor.setModelLanguage(editor.getModel(),lang);}
+}
+function saveActive(){if(activeFile&&editor)files[activeFile].content=editor.getValue();}
+window.addEventListener("beforeunload",saveActive);
 
-    function formatCode(){
-      try{
-        const code=editor.getValue();
-        const formatted=prettier.format(code,{parser:"html",plugins:prettierPlugins});
-        editor.setValue(formatted);
-        logConsole("Code formatted.");
-      }catch(e){ logConsole("Format error: "+e); }
-    }
-
-    function logConsole(msg){
-      const c=document.getElementById("console");
-      const d=document.createElement("div");
-      d.textContent=msg; c.appendChild(d); c.scrollTop=c.scrollHeight;
-    }
-
-    document.getElementById("formatBtn").onclick=formatCode;
-    document.getElementById("newFileBtn").onclick=()=>{
-      const name=prompt("File name:");
-      if(!name) return;
-      const ext=name.split('.').pop();
-      const lang=ext==="js"?"javascript":ext==="py"?"python":"html";
-      addFile(name,"",lang);
-    };
-
-    document.getElementById("runBtn").onclick=async()=>{
-      saveActive();
-      const file=files[activeFile]; const code=file.content; const lang=file.lang;
-      if(lang==="html"||lang==="javascript"){
-        document.getElementById("preview").srcdoc = lang==="html" ? code : "<script>"+code+"<\/script>";
-      } else if(lang==="python"){
-        logConsole("Memuat Pyodide...");
-        if(!window.pyodide) window.pyodide = await loadPyodide();
-        try{
-          const res = await window.pyodide.runPythonAsync(code);
-          logConsole(res!==undefined?res:"[Done]");
-        }catch(e){ logConsole("Python error: "+e); }
+require(["vs/editor/editor.main"],function(){
+  editor=monaco.editor.create(document.getElementById("editor"),{
+    value:"",language:"html",theme:"vs-dark",automaticLayout:true,minimap:{enabled:false}
+  });
+  editor.addCommand(monaco.KeyMod.Shift|monaco.KeyMod.Alt|monaco.KeyCode.KEY_F,()=>formatCode());
+  editor.onKeyDown(e=>{
+    if(e.code==="Digit1"&&e.shiftKey&&!e.ctrlKey){
+      if(files[activeFile]?.lang==="html"){
+        editor.setValue('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>Document</title>\n</head>\n<body>\n\n</body>\n</html>');
       }
-    };
+    }
+  });
+  editor.onDidChangeModelContent(()=>saveActive());
+  addFile("index.html","<!DOCTYPE html>\n<html><head><meta charset='utf-8'><title>Document</title></head><body>\n</body></html>","html");
+});
 
-    document.getElementById("exportBtn").onclick=()=>{
-      saveActive();
-      const file=files[activeFile];
-      const blob=new Blob([file.content],{type:"text/plain"});
-      const a=document.createElement("a");
-      a.href=URL.createObjectURL(blob);
-      a.download=activeFile; a.click();
-    };
+function formatCode(){
+  try{
+    const code=editor.getValue();
+    const formatted=prettier.format(code,{parser:"html",plugins:prettierPlugins});
+    editor.setValue(formatted);
+    logConsole("Code formatted.");
+  }catch(e){logConsole("Format error: "+e);}
+}
 
-    document.getElementById("importBtn").onclick=()=>{
-      const inp=document.createElement("input");
-      inp.type="file"; inp.onchange=e=>{
-        const f=e.target.files[0];
-        const r=new FileReader();
-        r.onload=()=>addFile(f.name,r.result,f.name.endsWith(".js")?"javascript":f.name.endsWith(".py")?"python":"html");
-        r.readAsText(f);
-      };
-      inp.click();
-    };
-  </script>
+function logConsole(msg){
+  const c=document.getElementById("console");
+  const d=document.createElement("div");
+  d.textContent=msg;c.appendChild(d);c.scrollTop=c.scrollHeight;
+}
+
+document.getElementById("formatBtn").onclick=formatCode;
+document.getElementById("newFileBtn").onclick=()=>{
+  const name=prompt("File name:");
+  if(!name)return;
+  const ext=name.split('.').pop();
+  const lang=ext==="js"?"javascript":ext==="py"?"python":"html";
+  addFile(name,"",lang);
+};
+
+document.getElementById("runBtn").onclick=async()=>{
+  saveActive();
+  const file=files[activeFile];const code=file.content;const lang=file.lang;
+  if(lang==="html"||lang==="javascript"){
+    document.getElementById("preview").srcdoc=lang==="html"?code:"<script>"+code+"<\/script>";
+  }else if(lang==="python"){
+    logConsole("Memuat Pyodide...");
+    if(!window.pyodide)window.pyodide=await loadPyodide();
+    try{
+      const res=await window.pyodide.runPythonAsync(code);
+      logConsole(res!==undefined?res:"[Done]");
+    }catch(e){logConsole("Python error: "+e);}
+  }
+};
+
+document.getElementById("exportBtn").onclick=()=>{
+  saveActive();
+  const file=files[activeFile];
+  const blob=new Blob([file.content],{type:"text/plain"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);a.download=activeFile;a.click();
+};
+
+document.getElementById("importBtn").onclick=()=>{
+  const inp=document.createElement("input");
+  inp.type="file";inp.onchange=e=>{
+    const f=e.target.files[0];
+    const r=new FileReader();
+    r.onload=()=>addFile(f.name,r.result,f.name.endsWith(".js")?"javascript":f.name.endsWith(".py")?"python":"html");
+    r.readAsText(f);
+  };
+  inp.click();
+};
+</script>
 </body>
 </html>
