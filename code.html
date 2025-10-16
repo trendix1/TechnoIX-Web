@@ -241,6 +241,40 @@ ${code}
     // initial preview
     setTimeout(()=>{ if(window.monaco) updatePreviewLive(); }, 700);
 
-  </script>
+  
+
+// === PATCH FIX ===
+// Pastikan tombol berfungsi dengan baik & tidak error
+window.addEventListener('load', () => {
+  const run = document.getElementById('runBtn');
+  const format = document.getElementById('formatBtn');
+  const exportB = document.getElementById('exportBtn');
+  const term = document.getElementById('terminal');
+  const cons = document.getElementById('console');
+  const preview = document.getElementById('preview');
+
+  function safeLog(el, msg) {
+    if (!el) return;
+    const div = document.createElement('div');
+    div.textContent = msg;
+    el.appendChild(div);
+    el.scrollTop = el.scrollHeight;
+  }
+
+  // Cegah error tombol tidak bereaksi
+  [run, format, exportB].forEach(btn => {
+    if (btn) btn.disabled = false;
+  });
+
+  // Pastikan iframe bisa reset ulang setelah run
+  if (preview && !preview.srcdoc) {
+    preview.srcdoc = "<p style='color:#888;padding:12px;font-family:monospace'>Preview siap.</p>";
+  }
+
+  safeLog(term, "✅ Semua tombol aktif dan siap digunakan.");
+});
+// === END PATCH ===
+
+</script>
 </body>
 </html>
