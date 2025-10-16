@@ -381,7 +381,17 @@ document.getElementById('newFileBtn').addEventListener('click', ()=>{
   if(!name) return;
   const ext = name.split('.').pop().toLowerCase();
   const lang = ext === 'js' ? 'javascript' : ext === 'py' ? 'python' : 'html';
-  addFile(name, (lang==='html' ? '<!DOCTYPE html>\\n<html lang=\"en\">\\n<head>\\n  <meta charset=\"utf-8\">\\n  <title>Document</title>\\n</head>\\n<body>\\n\\n</body>\\n</html>' : ''), lang);
+  addFile(name, (lang==='html' ? '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>' : ''), lang);
 });
 
 /* Close behavior helper: expose closeFile to inline handlers above if needed */
