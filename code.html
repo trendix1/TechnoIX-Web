@@ -1,62 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TechnoIX Code Pad - Code Pad (Test)</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TechnoIX Code Pad Final</title>
 <style>
 :root{
-  --bg:#0b1220; --panel:#0f1724; --muted:#99b3c6;
+  --bg:#0b1220;--panel:#0f1724;--muted:#99b3c6;
   --logo-grad:linear-gradient(90deg,#3aa0ff,#0056d6);
-  --accent:#8fb2ff;
 }
 *{box-sizing:border-box}
-html,body{height:100%;margin:0}
 body{
   margin:0;background:var(--bg);color:#e6eef8;
-  font-family:Arial, Helvetica, sans-serif;
-  display:flex;flex-direction:column;height:100vh;overflow:hidden;
+  font-family:Arial,Helvetica,sans-serif;height:100vh;overflow:hidden;
+  display:flex;flex-direction:column;
 }
 .topbar{
   height:60px;display:flex;align-items:center;padding:0 16px;
   background:linear-gradient(90deg,#071126,#0b2540);flex-shrink:0;
 }
-.logo{font-weight:800;font-size:18px;background:var(--logo-grad);-webkit-background-clip:text;color:transparent}
-.controls{margin-left:auto;display:flex;gap:8px;align-items:center}
+.logo{font-weight:800;font-size:18px;background:var(--logo-grad);
+  -webkit-background-clip:text;color:transparent;}
+.controls{margin-left:auto;display:flex;gap:8px;}
 .btn{
   background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
   color:#cfeefc;padding:6px 12px;border-radius:8px;cursor:pointer;font-weight:600;
 }
 #main{
-  flex:1;display:grid;grid-template-columns:220px 1fr 420px;grid-template-rows:1fr;height:calc(100vh - 60px);
+  flex:1;
+  display:grid;
+  grid-template-columns:220px 1fr 400px;
+  grid-template-rows:1fr;
+  height:calc(100vh - 60px);
+  overflow:hidden;
 }
-#explorer{background:#081224;border-right:1px solid rgba(255,255,255,.05);padding:10px;overflow:auto}
-#explorer h3{margin:8px 0;font-size:14px;color:var(--accent)}
-#files{list-style:none;padding:0;margin:0}
-#files li{padding:6px 8px;border-radius:6px;cursor:pointer}
-#files li.active,#files li:hover{background:rgba(255,255,255,.06)}
-#editor-area{display:flex;flex-direction:column;background:#0f1724;min-width:0}
-#tabs{display:flex;background:#0f1724;border-bottom:1px solid rgba(255,255,255,.06);overflow:auto;align-items:center}
-.tab{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;font-size:13px;border-right:1px solid rgba(255,255,255,.05);white-space:nowrap}
-.tab.active{background:rgba(255,255,255,.06)}
-.tab .close-btn{color:#999;padding:0 6px;cursor:pointer;font-weight:700}
-.tab .close-btn:hover{color:#fff}
-#editor{flex:1;min-height:0;overflow:hidden}
-#right-panel{display:flex;flex-direction:column;background:#071126;border-left:1px solid rgba(255,255,255,.05)}
-#preview{flex:2;border:none;background:white;width:100%}
-#terminal-panel{flex:1;display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.06)}
-.panel{flex:1;padding:8px;font-family:monospace;font-size:13px;overflow:auto;background:transparent;color:#bfe9ff}
-#pyodideStatus{position:fixed;top:68px;right:18px;padding:6px 10px;background:rgba(0,0,0,.25);border-radius:8px;color:var(--accent);font-size:13px;z-index:30}
-.file-actions{display:flex;gap:6px;align-items:center}
-.small-btn{background:transparent;border:1px solid rgba(255,255,255,.04);padding:4px 8px;border-radius:6px;color:#cfeefc;cursor:pointer;font-size:12px}
-.newfile-input{width:100%;padding:8px;margin-top:8px;border-radius:6px;border:1px solid rgba(255,255,255,.04);background:transparent;color:inherit}
-@media (max-width:1000px){#main{grid-template-columns:180px 1fr 340px}}
-@media (max-width:800px){#main{grid-template-columns:160px 1fr 300px}; body{zoom:0.85}}
-@media (max-width:600px){#main{grid-template-columns:140px 1fr 260px}; body{zoom:0.65}}
+#explorer{background:#081224;border-right:1px solid rgba(255,255,255,.05);padding:8px;overflow:auto;}
+#explorer h3{margin:8px 0;font-size:14px;color:#8fb2ff;}
+#files{list-style:none;padding:0;margin:0;}
+#files li{padding:6px 8px;border-radius:6px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+#files li .name{flex:1;padding-right:8px;}
+.file-actions{display:flex;gap:6px;align-items:center;}
+.file-actions button{background:transparent;border:none;color:inherit;cursor:pointer;font-size:13px;padding:4px;border-radius:4px;}
+#editor-area{display:flex;flex-direction:column;height:100%;background:#0f1724;}
+#tabs{display:flex;background:#0f1724;border-bottom:1px solid rgba(255,255,255,.1);overflow:auto;}
+.tab{padding:8px 12px;cursor:pointer;font-size:13px;border-right:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:8px;}
+.tab .close{font-weight:700;opacity:0.6;padding:2px 6px;border-radius:6px;}
+.tab.active{background:rgba(255,255,255,.07);}
+#editor{flex:1;min-height:0;height:100%;}
+#right-panel{display:flex;flex-direction:column;background:#071126;border-left:1px solid rgba(255,255,255,.05);}
+#preview{flex:2;border:none;background:white;height:50%;}
+#terminal-panel{flex:1;display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.05);height:50%;}
+.panel{flex:1;padding:6px;font-family:monospace;font-size:13px;overflow:auto;}
+.overlay{
+  position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:9999;
+}
+.card{background:#0b1220;border:1px solid rgba(255,255,255,0.08);padding:20px;border-radius:10px;width:420px;box-shadow:0 8px 30px rgba(0,0,0,0.6);}
+.progress{height:10px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;margin-top:12px;}
+.progress > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,#3aa0ff,#0056d6);border-radius:6px;}
+.small{font-size:13px;color:var(--muted);margin-top:8px;}
+.empty{color:rgba(255,255,255,0.35);padding:10px;text-align:center;border-radius:6px;}
+
+/* Responsive fix */
+@media (max-width:900px){
+  #main{grid-template-columns:1fr;grid-template-rows:auto auto 1fr;overflow:auto;}
+  #explorer{height:150px;border-bottom:1px solid rgba(255,255,255,.05);}
+  #editor-area{height:40vh;}
+  #right-panel{height:auto;}
+}
 </style>
 </head>
 <body>
-
 <div class="topbar">
   <div class="logo">TechnoIX Code Pad</div>
   <div class="controls">
@@ -66,365 +79,62 @@ body{
     <button id="importBtn" class="btn">Import</button>
   </div>
 </div>
-
-<div id="pyodideStatus">🔄 Memuat Pyodide...</div>
-
 <div id="main">
   <div id="explorer">
     <h3>Explorer</h3>
     <ul id="files"></ul>
-    <div style="margin-top:10px">
-      <button id="newFileBtn" class="btn" style="width:100%">+ New File</button>
-      <input id="newFileName" class="newfile-input" placeholder="contoh: index.html" style="display:none"/>
+    <div style="display:flex;gap:8px;margin-top:8px;">
+      <button id="newFileBtn" class="btn" style="flex:1;">+ New File</button>
     </div>
   </div>
-
   <div id="editor-area">
-    <div id="tabs" role="tablist" aria-label="File tabs"></div>
-    <div id="editor" role="region" aria-label="Code editor"></div>
+    <div id="tabs"></div>
+    <div id="editor"></div>
   </div>
-
-  <div id="right-panel" aria-hidden="false">
-    <iframe id="preview" title="Preview"></iframe>
+  <div id="right-panel">
+    <iframe id="preview"></iframe>
     <div id="terminal-panel">
-      <div class="panel" id="console" aria-live="polite"></div>
-      <div class="panel" id="terminal" aria-live="polite"></div>
+      <div class="panel" id="console"></div>
+      <div class="panel" id="terminal"></div>
     </div>
   </div>
 </div>
 
-<!-- External libs -->
+<!-- Pyodide overlay -->
+<div id="pyodideOverlay" style="display:none;">
+  <div class="overlay">
+    <div class="card">
+      <div style="font-weight:800;font-size:16px;">Memuat Pyodide...</div>
+      <div id="pyStatus" class="small">Menghubungkan...</div>
+      <div class="progress"><i id="pyProgress"></i></div>
+      <div class="small" style="text-align:right;margin-top:8px;"><button id="pyCancel" class="btn">Batal</button></div>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs/loader.min.js"></script>
 <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
 <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
 <script src="https://unpkg.com/prettier@2.8.8/parser-html.js"></script>
 <script src="https://unpkg.com/prettier@2.8.8/parser-babel.js"></script>
-
 <script>
-/* ============================
-   Core app: Files, Editor, Tabs
-   ============================ */
-require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs' }});
-let editor = null;
-let files = {};          // { filename: {content, lang} }
-let activeFile = null;
-let pyodideReady = false;
-
-// UTIL
-function logConsole(msg){
-  const c = document.getElementById('console');
-  const d = document.createElement('div'); d.textContent = msg; c.appendChild(d); c.scrollTop = c.scrollHeight;
-}
-function logTerminal(msg){
-  const t = document.getElementById('terminal');
-  const d = document.createElement('div'); d.textContent = msg; t.appendChild(d); t.scrollTop = t.scrollHeight;
-}
-function safeDownload(filename, content){
-  const blob = new Blob([content], {type:'text/plain;charset=utf-8'});
-  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = filename; a.click();
-  setTimeout(()=>URL.revokeObjectURL(a.href), 5000);
-}
-
-/* ============================
-   Pyodide preload (async)
-   ============================ */
-async function preloadPyodide(){
-  const statusEl = document.getElementById('pyodideStatus');
-  try{
-    statusEl.textContent = '🔄 Memuat Pyodide (mulai)...';
-    // loadPyodide() is exposed by the pyodide.js script
-    window.pyodide = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.23.4/full/' });
-    pyodideReady = true;
-    statusEl.textContent = '✅ Pyodide siap.';
-    setTimeout(()=> { statusEl.style.display='none'; }, 1800);
-    logTerminal('Pyodide siap.');
-  }catch(err){
-    statusEl.textContent = '❌ Gagal memuat Pyodide';
-    console.error('Pyodide load error', err);
-    logTerminal('Gagal memuat Pyodide: ' + String(err));
-  }
-}
-// Start loading immediately (background)
-preloadPyodide();
-
-/* ============================
-   File management + UI
-   ============================ */
-function addFile(name, content = '', lang='html'){
-  if(!name) return;
-  if(files[name]) {
-    openFile(name);
-    return;
-  }
-  files[name] = { content: String(content || ''), lang };
-  // explorer entry
-  const li = document.createElement('li');
-  li.textContent = name;
-  li.tabIndex = 0;
-  li.onclick = () => openFile(name);
-  li.onkeydown = (e)=>{ if(e.key==='Enter') openFile(name); };
-  document.getElementById('files').appendChild(li);
-  // tab
-  const tab = document.createElement('div');
-  tab.className = 'tab';
-  tab.setAttribute('data-name', name);
-  tab.innerHTML = `<span class="tab-name">${name}</span><span class="close-btn" title="Close file">×</span>`;
-  // close handler
-  tab.querySelector('.close-btn').addEventListener('click', (ev)=>{
-    ev.stopPropagation();
-    closeFile(name);
-  });
-  tab.addEventListener('click', ()=>openFile(name));
-  document.getElementById('tabs').appendChild(tab);
-  openFile(name);
-}
-
-function closeFile(name){
-  if(!files[name]) return;
-  // remove from files object
-  delete files[name];
-  // remove explorer li
-  Array.from(document.querySelectorAll('#files li')).forEach(li=>{
-    if(li.textContent === name) li.remove();
-  });
-  // remove tab
-  Array.from(document.querySelectorAll('#tabs .tab')).forEach(t=>{
-    if(t.getAttribute('data-name') === name) t.remove();
-  });
-  // if active, switch to another tab if exists
-  if(activeFile === name){
-    const remaining = Object.keys(files);
-    if(remaining.length) openFile(remaining[0]);
-    else {
-      activeFile = null;
-      if(editor) editor.setValue('');
-    }
-  }
-}
-
-function openFile(name){
-  if(!files[name]) return;
-  saveActive(); // save current before switching
-  activeFile = name;
-  // set active styles
-  Array.from(document.querySelectorAll('#files li')).forEach(li=>{
-    li.classList.toggle('active', li.textContent === name);
-  });
-  Array.from(document.querySelectorAll('#tabs .tab')).forEach(t=>{
-    t.classList.toggle('active', t.getAttribute('data-name') === name);
-  });
-  // load content
-  const file = files[name];
-  if(editor){
-    editor.setValue(file.content);
-    try{ monaco.editor.setModelLanguage(editor.getModel(), file.lang); }catch(e){}
-    editor.focus();
-  }
-}
-
-function saveActive(){
-  if(activeFile && editor){
-    files[activeFile].content = editor.getValue();
-  }
-}
-
-/* ============================
-   Monaco editor init & shortcuts
-   ============================ */
-require(['vs/editor/editor.main'], function(){
-  editor = monaco.editor.create(document.getElementById('editor'), {
-    value: '',
-    language: 'html',
-    theme: 'vs-dark',
-    automaticLayout: true,
-    minimap: { enabled: false }
-  });
-
-  // Prettier format shortcut (Shift+Alt+F)
-  editor.addCommand(monaco.KeyMod.Shift | monaco.KeyMod.Alt | monaco.KeyCode.KEY_F, function(){
-    formatCode();
-  });
-
-  // Emmet-like '!' insertion: Shift+1 (the '!' char)
-  editor.onKeyDown((e) => {
-    // e.browserEvent is the original DOM event
-    const be = e.browserEvent || {};
-    // check Shift+1 (Digit1 + Shift)
-    if(be.code === 'Digit1' && be.shiftKey && !be.ctrlKey && !be.metaKey){
-      const curName = activeFile;
-      if(curName && files[curName] && files[curName].lang === 'html'){
-        const template = '<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>';
-        editor.setValue(template);
-        // prevent default handling (optional)
-        be.preventDefault && be.preventDefault();
-      }
-    }
-  });
-
-  // autosave on change
-  editor.onDidChangeModelContent(() => {
-    saveActive();
-  });
-
-  // create initial file
-  addFile('index.html', '<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>', 'html');
-});
-
-/* ============================
-   Buttons: Run, Format, Export, Import
-   ============================ */
-function formatCode(){
-  if(!editor) return;
-  try{
-    const code = editor.getValue();
-    // decide parser by file ext
-    const ext = (activeFile || '').split('.').pop();
-    let parser = 'babel';
-    if(ext === 'html' || ext === 'htm') parser = 'html';
-    if(ext === 'js' || ext === 'mjs' || ext === 'cjs') parser = 'babel';
-    // prettierPlugins are provided by included scripts
-    const formatted = prettier.format(code, { parser, plugins: prettierPlugins });
-    editor.setValue(formatted);
-    logConsole('✅ Code formatted.');
-  }catch(err){
-    logConsole('Format error: ' + (err && err.message ? err.message : String(err)));
-  }
-}
-document.getElementById('formatBtn').addEventListener('click', formatCode);
-
-document.getElementById('runBtn').addEventListener('click', async ()=>{
-  saveActive();
-  if(!activeFile) { logConsole('No file open.'); return; }
-  const file = files[activeFile];
-  if(!file) { logConsole('File not found.'); return; }
-  const ext = (activeFile || '').split('.').pop();
-  const code = file.content;
-  if(ext === 'html' || file.lang === 'html'){
-    document.getElementById('preview').srcdoc = code;
-    logConsole('Preview updated.');
-  } else if(ext === 'js' || file.lang === 'javascript'){
-    document.getElementById('preview').srcdoc = '<script>' + code + '<\\/script>';
-    logConsole('JS executed in preview.');
-  } else if(ext === 'py' || file.lang === 'python'){
-    if(!pyodideReady){ logConsole('⏳ Pyodide belum siap. Tunggu beberapa detik.'); return; }
-    logConsole('▶️ Menjalankan Python...');
-    try{
-      const res = await window.pyodide.runPythonAsync(code);
-      logTerminal(String(res !== undefined ? res : '[Done]'));
-    }catch(err){
-      logTerminal('Python error: ' + String(err));
-    }
-  } else {
-    // fallback: show content in preview
-    document.getElementById('preview').srcdoc = '<pre style="font-family:monospace;padding:12px;color:#111;background:#fff">' + escapeHtml(code) + '</pre>';
-    logConsole('Preview (plain) updated.');
-  }
-});
-
-document.getElementById('exportBtn').addEventListener('click', ()=>{
-  saveActive();
-  if(!activeFile){ logConsole('No active file to export'); return; }
-  safeDownload(activeFile, files[activeFile].content);
-  logConsole('Exported: ' + activeFile);
-});
-
-/* Improved Import (robust) */
-document.getElementById('importBtn').addEventListener('click', ()=>{
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = '.html,.htm,.js,.py,.txt';
-  input.onchange = (e) => {
-    const f = e.target.files && e.target.files[0];
-    if(!f) { logConsole('No file selected.'); return; }
-    const reader = new FileReader();
-    reader.onerror = () => logConsole('Gagal membaca file ' + f.name);
-    reader.onload = () => {
-      try{
-        const text = reader.result;
-        // choose language from extension
-        const ext = (f.name || '').split('.').pop().toLowerCase();
-        const lang = ext === 'js' ? 'javascript' : ext === 'py' ? 'python' : 'html';
-        addFile(f.name, text, lang);
-        logConsole('Imported ' + f.name);
-      }catch(err){
-        logConsole('Import error: ' + String(err));
-      }
-    };
-    reader.readAsText(f);
-  };
-  input.click();
-});
-
-/* New file flow (simple prompt) */
-document.getElementById('newFileBtn').addEventListener('click', ()=>{
-  const name = prompt('Nama file baru (mis. index.html):');
-  if(!name) return;
-  const ext = name.split('.').pop().toLowerCase();
-  const lang = ext === 'js' ? 'javascript' : ext === 'py' ? 'python' : 'html';
-  addFile(name, (lang==='html' ? '<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>' : ''), lang);
-});
-
-/* Close behavior helper: expose closeFile to inline handlers above if needed */
-window.closeFile = function(ev, name){
-  // not used; kept for compatibility
-  closeFile(name);
-};
-
-/* Escape helper */
-function escapeHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-
-/* Before unload: prompt if unsaved (basic) */
-window.addEventListener('beforeunload', (e)=>{
-  saveActive();
-  // optionally show a confirm dialog - commented out to avoid annoyance
-  // e.preventDefault(); e.returnValue = '';
-});
-
-/* Accessibility: allow keyboard navigation for tabs (left/right) */
-document.addEventListener('keydown', (e)=>{
-  if(!editor) return;
-  // Ctrl+Tab / Ctrl+Shift+Tab switch tabs (simple)
-  if(e.ctrlKey && e.key === 'Tab'){
-    e.preventDefault();
-    const names = Object.keys(files);
-    if(names.length < 2) return;
-    const idx = names.indexOf(activeFile);
-    const next = names[(idx + 1) % names.length];
-    openFile(next);
-  }
-});
-
-/* End of script */
+require.config({paths:{'vs':'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs'}});
+let editor,files={},activeFile=null;const STORAGE_KEY='technoix_files_final';
+function logConsole(m){const c=document.getElementById('console');const d=document.createElement('div');d.textContent=new Date().toLocaleTimeString()+' - '+m;c.appendChild(d);c.scrollTop=c.scrollHeight;}
+function saveFiles(){localStorage.setItem(STORAGE_KEY,JSON.stringify(files));}
+function loadFiles(){try{files=JSON.parse(localStorage.getItem(STORAGE_KEY))||{};}catch(e){files={};}}
+function refreshFiles(){const ul=document.getElementById('files');ul.innerHTML='';Object.keys(files).forEach(f=>{const li=document.createElement('li');const s=document.createElement('span');s.className='name';s.textContent=f;s.onclick=()=>openFile(f);const del=document.createElement('button');del.textContent='✕';del.onclick=(e)=>{e.stopPropagation();if(confirm('Hapus file '+f+'?')){delete files[f];saveFiles();refreshFiles();if(activeFile===f){editor.setValue('');}}};const fa=document.createElement('div');fa.className='file-actions';fa.appendChild(del);li.appendChild(s);li.appendChild(fa);ul.appendChild(li);});if(!Object.keys(files).length){ul.innerHTML='<div class="empty">No files</div>';}}
+function openFile(f){activeFile=f;editor.setValue(files[f].content||'');monaco.editor.setModelLanguage(editor.getModel(),files[f].lang);}
+function addFile(name,lang){if(!name)return;if(files[name])return openFile(name);files[name]={content:'',lang};saveFiles();refreshFiles();openFile(name);}
+require(['vs/editor/editor.main'],function(){editor=monaco.editor.create(document.getElementById('editor'),{value:'',language:'html',theme:'vs-dark',automaticLayout:true});editor.onDidChangeModelContent(()=>{if(activeFile){files[activeFile].content=editor.getValue();saveFiles();autoFormat();}});editor.onDidChangeModelContent((e)=>{if(files[activeFile]?.lang==='html'&&editor.getValue().trim()==='!'){editor.setValue('<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <title>Document</title>\n</head>\n<body>\n\n</body>\n</html>');}});loadFiles();if(!Object.keys(files).length)addFile('index.html','html');refreshFiles();openFile(Object.keys(files)[0]);});
+let autoFmt;function autoFormat(){clearTimeout(autoFmt);autoFmt=setTimeout(()=>{if(activeFile&&files[activeFile].lang==='html'){try{const f=prettier.format(editor.getValue(),{parser:'html',plugins:prettierPlugins});editor.setValue(f);}catch(e){}}},2000);}
+document.getElementById('newFileBtn').onclick=()=>{const n=prompt('File name');if(!n)return;const e=n.split('.').pop();addFile(n,e==='js'?'javascript':e==='py'?'python':'html');};
+document.getElementById('formatBtn').onclick=()=>{autoFormat();};
+document.getElementById('runBtn').onclick=async()=>{if(!activeFile)return;const f=files[activeFile];const code=f.content;const lang=f.lang;if(lang==='html'){document.getElementById('preview').srcdoc=code;logConsole('Preview HTML');}else if(lang==='javascript'){document.getElementById('preview').srcdoc='<!doctype html><script>'+code+'</script>';logConsole('Run JS');}else if(lang==='python'){await ensurePyodide();try{const res=await window.pyodide.runPythonAsync(code);logConsole(res||'[Done]');}catch(e){logConsole('Error: '+e);}}};
+document.getElementById('exportBtn').onclick=()=>{if(!activeFile)return;const b=new Blob([files[activeFile].content],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=activeFile;a.click();};
+document.getElementById('importBtn').onclick=()=>{const i=document.createElement('input');i.type='file';i.multiple=true;i.onchange=e=>{Array.from(e.target.files).forEach(f=>{const r=new FileReader();r.onload=()=>addFile(f.name,f.name.endsWith('.js')?'javascript':f.name.endsWith('.py')?'python':'html');r.readAsText(f);});};i.click();};
+async function ensurePyodide(){if(window.pyodide)return;window.pyodide=await loadPyodide({indexURL:'https://cdn.jsdelivr.net/pyodide/v0.23.4/full/'});logConsole('Pyodide loaded');}
+window.onresize=()=>{if(editor)editor.layout();};
 </script>
 </body>
 </html>
