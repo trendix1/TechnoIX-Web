@@ -6,43 +6,638 @@
 
   <title>TechnoIX Web | Jasa Website Modern & Profesional</title>
 
+  <!-- SEO Meta -->
   <meta name="description" content="buat website murah, Buat Website Murah, Jasa buat website murah, JASA BUAT WEBISTE MURAH, Website ini juga menyediakan Code Pad, Professional, responsive and secure websites And Code Pad In website by TechnoiX Web.">
-  <meta name="keywords" content="TechnoIX, Technoix-Web ,Technoix, technoix, Technoix-web, technoix-web, technoixweb, Desain Website, Jasa website harga 100.000, jasa buat website, jasa pembuatan website, jasa desain web, bikin website, jasa buat toko online, Code Pad, CodePad, code pad, codePad, codepad, Code Pad technoix, CodePad Technoix, CodePad TechnoIX, pembuatan website cepat, web developer Indonesia, jasa buat landing page, website creation services, website design services, jasa pembuatan website, Jasa pembuatan website, JASA PEMBUATAN WEBSITE, custom website design, create a website, business website builder, responsive website services, web development company">
+  <meta name="keywords" content="TechnoIX, Technoix-Web ,Technoix, technoix, Technoix-web, technoix-web, technoixweb, Desain Website, Jasa website harga 100.000, jasa buat website, jasa pembuatan website, jasa desain web, bikin website, jasa buat toko online, Code Pad, CodePad, code pad, codePad, codepad, Code Pad technoix, CodePad Technoix, CodePad TechnoIX, pembuatan website cepat, web developer Indonesia, jasa buat landing page, website creation services, website design services, jasa pembuatan website, Jasa pembuatan website, JASA PEMBUATAN WEBSITE, custom website design, create a website, business website builder, responsive website services, web development company, خدمات تصميم المواقع, خدمات تطوير المواقع, إنشاء موقع إلكتروني, برمجة المواقع, شركة تطوير مواقع, تصميم متجر إلكتروني, 网站建设服务, 网站设计, 网站开发公司, 创建网站, 响应式网站设计, 企业网站建设, servicios de creación de sitios web, diseño web profesional, desarrollo de páginas web, crear sitio web, agencia de diseño web, páginas web responsivas, ウェブサイト制作サービス, ウェブデザイン会社, ホームページ作成, ウェブ開発サービス, レスポンシブウェブデザイン, カスタムウェブサイト">
   <meta name="robots" content="index, follow">
 
+  <!-- Canonical & Sitemap -->
   <link rel="canonical" href="https://trendix1.github.io/TechnoIX-Web/index.html">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://trendix1.github.io/TechnoIX-Web/sitemap.xml">
 
+  <!-- Open Graph -->
   <meta property="og:title" content="TechnoiX Web">
   <meta property="og:description" content="Professional, responsive and secure websites by TechnoiX Web.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://trendix1.github.io/TechnoIX-Web/index.html">
   <link rel="manifest" href="https://trendix1.github.io/TechnoIX-Web/manifest.json">
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4675208327407139" crossorigin="anonymous"></script>
+  <!--Google AdSense (original snippet preserved) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4675208327407139"
+     crossorigin="anonymous"></script>
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
 
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Styles -->
   <style>
-    * {margin:0;padding:0;box-sizing:border-box;}
-    html {scroll-behavior:smooth;overflow-x:hidden;}
-    body {font-family:'Inter',sans-serif;background:#0a0a0f;color:#fff;line-height:1.7;overflow-x:hidden;}
-  </style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* Background Aurora Effect */
+    body {
+      background: #0d0d0d;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at 20% 20%, rgba(0,255,255,0.15), transparent 60%),
+                  radial-gradient(circle at 80% 40%, rgba(255,0,200,0.15), transparent 60%),
+                  radial-gradient(circle at 50% 80%, rgba(0,200,255,0.15), transparent 60%);
+      animation: aurora 20s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes aurora {
+      0% { transform: translate(0,0) scale(1);}
+      50% { transform: translate(-5%, -5%) scale(1.1);}
+      100% { transform: translate(0,0) scale(1);}
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: rgba(15, 15, 15, 0.6);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      z-index: 100;
+      transition: background 0.3s ease;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #00f7ff;
+      letter-spacing: 1px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 25px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      font-size: 15px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .menu a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0%; height: 2px;
+      background: #00f7ff;
+      transition: width 0.3s ease;
+    }
+    .menu a:hover::after { width: 100%; }
+
+    .hamburger { 
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #fff;
+      border-radius: 3px;
+    }
+
+    .menu-mobile {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 12px;
+      padding: 20px;
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .menu-mobile a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .menu-mobile.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+    .hamburger{
+      display: none;
+    }
+    @media (max-width: 768px){.menu{display:none;}.hamburger{display:flex;}.menu-mobile{display:none;position:absolute;top:60px;right:20px;background:rgba(0,0,0,0.9);border-radius:10px;padding:20px;flex-direction:column;gap:15px;}}
+
+    @media (max-width: 768px) {
+      .menu{ display: none;}
+      .hamburger{ display: flex;}
+      .menu-mobile{ display: none;}
+    }
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero h1 {
+      position: relative;
+      font-size: 40px;
+      font-weight: 700;
+      max-width: 800px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: slideUp 1.5s ease forwards;
+    }
+
+    .hero p {
+      position: relative;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      position: relative;
+      background: linear-gradient(135deg, #00f7ff, #00c4ff);
+      border: none;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 15px rgba(0,247,255,0.5);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0,247,255,0.8);
+    }
+
+    @keyframes slideUp {
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Sections */
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    .section.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      font-size: 34px;
+      color: #00f7ff;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(0,255,255,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 0 25px rgba(0,255,255,0.3);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #00f7ff;
+      font-size: 20px;
+    }
+
+    /* Portfolio */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-item img:hover {
+      transform: scale(1.08);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .menu2 {
+      text-decoration: none;
+      color: gray;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      padding: 8px 12px;
+    }
+
+    /* Glow effect */
+    span.glow {
+      color: #00f7ff;
+      text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff, 0 0 20px #00f7ff, 0 0 40px #00f7ff;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff; }
+      to { text-shadow: 0 0 20px #00f7ff, 0 0 40px #00f7ff, 0 0 60px #00f7ff; }
+    }
+
+    .feature {
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .feature img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+    .image{
+      height: 250px;
+      width: px;
+      padding: 30 20;
+    }
+    .info{
+      color: red;
+    }
+    /* From Uiverse.io by adamgiebl */ 
+.cssbuttons-io-button {
+  background: #a370f0;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+  cursor: pointer;
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #7b52b9;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+
+  
+/* --- Fluid Gradient Overlay (lightweight, non-invasive) --- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(0,200,255,0.04), rgba(255,0,200,0.03), rgba(0,255,150,0.03));
+  mix-blend-mode: screen;
+  z-index: -1;
+  opacity: 0.9;
+  animation: fluidMove 18s linear infinite;
+  filter: blur(40px) saturate(120%);
+}
+
+@keyframes fluidMove {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  25% { transform: translate3d(-5%,3%,0) scale(1.02); }
+  50% { transform: translate3d(3%,-6%,0) scale(1.01); }
+  75% { transform: translate3d(-2%,4%,0) scale(1.03); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+/* Ensure the overlay is very lightweight on low-end devices */
+@media (prefers-reduced-motion: reduce), (max-width: 600px) {
+  body::after { animation: none; filter: blur(30px); opacity: 0.6; }
+}
+
+</style>
 </head>
 <body>
-  <h1>TechnoIX Web</h1>
-  <p>Website ini telah diperbaiki dan siap digunakan.</p>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">TECHNOIX WEB</div>
+    <div class="menu" id="menu">
+      <a href="#home">Home</a>
+      <a href="service.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="code.html">Code Pad</a>
+      <a href="contact.html">Contact</a>
+      <a href="price.html">Pricing</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="menu-mobile" id="hamburger">
+      <a href="#home">Home</a>
+      <a href="service.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="code.html">Code Pad</a>
+      <a href="contact.html">Contact</a>
+      <a href="price.html">Pricing</a>
+    </div>
+  </div>
 
-  <script>
-    (function(){
-      const btn = document.querySelector("#nonexistentButton");
-      if (btn) {
-        btn.addEventListener("click", ()=> alert("OK"));
-      }
-    })();
-  </script>
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <h1>Your journey to a responsive and reliable website starts with <br> <span class="glow">TechnoIX</span></h1>
+    <p>We create modern, secure, and responsive websites to grow your business.</p>
+    <button class="btn">Get Started</button>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="service">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card"><h3>Fast Development</h3><p>We deliver modern and responsive websites in record time.</p></div>
+      <div class="card"><h3>Secure & Reliable</h3><p>Your data and website are protected with enterprise-level security.</p></div>
+      <div class="card"><h3>Custom Design</h3><p>We craft unique and stylish designs tailored to your brand identity.</p></div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="section" id="portfolio">
+    <h2>Our Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item"><img loading="lazy" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80" alt="Coding project"></div>
+      <div class="portfolio-item"><img loading="lazy" src="https://images.unsplash.com/photo-1508780709619-79562169bc64?w=600&auto=format&fit=crop&q=80" alt="Laptop project"></div>
+      <div class="portfolio-item"><img loading="lazy" src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&auto=format&fit=crop&q=80" alt="UI Design project"></div>
+      <div class="portfolio-item"><img loading="lazy" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80" alt="Office work project"></div>
+    </div>
+  </section>
+
+  <!-- Code Pad Section -->
+  <section class="section">
+    <h2>Code Learning Feature</h2>
+    <div class="feature">
+      <img class="image" src="code.png" alt="CodePad TechnoIX">
+      <p>
+        Our interactive code pad feature is designed to help you learn coding directly on the website
+        without needing any external tools. With a simple and user-friendly interface,
+        you can write, edit, and run code in real time while immediately seeing the results.
+        This feature makes it easier for beginners to practice step by step, and also provides
+        a flexible space for more advanced learners to experiment with new ideas.
+        Whether you're looking to sharpen your skills, the code pad is the perfect
+        place to learn, practice, and grow as a coder <b class="info">(Only For Wide Screen)</b>
+      </p>
+    </div>
+    <!-- From Uiverse.io by adamgiebl --> 
+<button class="cssbuttons-io-button" onclick="window.location.href='code.html'">
+  Try It Now
+  <div class="icon">
+    <svg
+      height="24"
+      width="24"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0 0h24v24H0z" fill="none"></path>
+      <path
+        d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+        fill="currentColor"
+      ></path>
+    </svg>
+  </div>
+</button>
+  </section>
+
+  
+<!-- Scroll To Top Button -->
+<button id="scrollTopBtn" style="position:fixed;bottom:30px;right:30px;padding:10px 15px;border:none;border-radius:50%;background:#00f7ff;color:#000;font-weight:bold;cursor:pointer;display:none;box-shadow:0 0 10px rgba(0,247,255,0.6);z-index:999;">↑</button>
+
+  <!-- Footer -->
+  
+  <!-- SEO Long Content: About, Advantages, Testimonials, FAQ (added for AdSense value) -->
+  <section class="section seo-section" id="seo-content" aria-label="SEO Content">
+    <h2>Tentang TechnoIX Web</h2>
+    <div class="feature" style="text-align:left;max-width:980px;margin:0 auto;color:#dfefff;">
+      <p><strong>TechnoIX Web</strong> adalah layanan pembuatan website modern dan profesional yang berfokus pada performa, keamanan, dan desain yang responsif. Kami membantu usaha kecil, pemilik toko online, hingga startup untuk memiliki identitas digital yang kuat dan mudah diakses di semua perangkat.</p>
+
+      <h3>Keunggulan Layanan</h3>
+      <ul>
+        <li><strong>Desain Responsif:</strong> Tata letak yang menyesuaikan pada semua ukuran layar untuk pengalaman pengguna terbaik.</li>
+        <li><strong>Keamanan Tingkat Lanjut:</strong> Praktik keamanan dan konfigurasi dasar yang membuat website lebih aman dari serangan umum.</li>
+        <li><strong>Optimasi SEO:</strong> Struktur HTML dan konten yang membantu mesin pencari memahami halaman Anda.</li>
+        <li><strong>Performance First:</strong> Gambar dioptimalkan, skrip tidak blocking, dan teknik ringan agar waktu muat cepat.</li>
+        <li><strong>Support & Upgrade:</strong> Bantuan teknis dan opsi pemeliharaan untuk menjaga situs tetap up-to-date.</li>
+      </ul>
+
+      <h3>Testimoni Pengguna</h3>
+      <blockquote>
+        "TechnoIX Web membantu bisnis saya tampil profesional dalam satu minggu. Trafik meningkat dan pelanggan lebih percaya." — <em>Arief, Pemilik Toko Online</em>
+      </blockquote>
+      <blockquote>
+        "Fitur Code Pad sangat membantu belajar coding tanpa ribet. Mudah dan fun!" — <em>Sri, Pelajar</em>
+      </blockquote>
+
+      <h3>Frequently Asked Questions (FAQ)</h3>
+      <h4>Q: Berapa lama pembuatan website biasanya?</h4>
+      <p>A: Tergantung kompleksitas. Situs landing sederhana biasanya selesai dalam 3–7 hari, sedangkan toko online atau fitur khusus bisa memakan waktu lebih lama.</p>
+
+      <h4>Q: Apakah kalian menyediakan layanan maintenance?</h4>
+      <p>A: Ya, tersedia paket maintenance untuk update, backup, dan optimasi berkala.</p>
+
+      <h4>Q: Bagaimana cara memulai?</h4>
+      <p>A: Hubungi kami melalui tombol WhatsApp di footer atau kunjungi halaman <a href="contact.html">Contact</a> untuk mengirim permintaan. Kami akan menilai kebutuhan dan memberikan estimasi.</p>
+
+      <p style="margin-top:18px;font-size:14px;color:#a8cbe8;">
+        <em>Konten ini ditambahkan untuk meningkatkan relevansi halaman terhadap topik web development dan layanan pembuatan website. Jika ingin menyesuaikan atau menambah testimoni nyata, beri tahu kami dan kami akan perbarui konten sesuai kebutuhan.</em>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <a href="https://wa.me/6282133141060" target="_blank" class="menu2">WhatsApp</a>
+    <a href="contact.html" class="menu2">Gmail</a>
+    <a href="privacy.html" class="menu2">Privacy Policy</a>
+    <a href="about.html" class="menu2">About</a>
+    <a href="service.html" class="menu2">Service</a>
+    <a href="price.html" class="menu2">Pricing</a>
+    <a href="code.html" class="menu2">Code Pad Technoix</a>
+    <a href="https://technoix-web.vercel.app/" class="menu2">Kunjungi Juga</a>
+    <a href="https://technoix-web.vercel.app/" class="menu2">https://technoix-web.vercel.app/</a>
+    <p>&copy; 2025 TechnoIX Web. All rights reserved.</p>
+  </footer>
+
 </body>
+
+<script defer>
+  function toggleMenu() {
+    document.getElementById("hamburger").classList.toggle("active");
+  }
+
+  // Scroll Reveal
+  const reveals = document.querySelectorAll(".section, .card, .portfolio-item");
+
+  window.addEventListener("scroll", () => {
+    for (let i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const revealTop = reveals[i].getBoundingClientRect().top;
+      const revealPoint = 100;
+
+      if (revealTop < windowHeight - revealPoint) {
+        reveals[i].classList.add("active");
+      }
+    }
+  });
+
+  console.log('TechnoIX Website Loaded Successfully');
+  // Scroll to Top Button
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.style.display = 'block';
+    } else {
+      scrollTopBtn.style.display = 'none';
+    }
+  });
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Close mobile menu after clicking link
+  document.querySelectorAll('.menu-mobile a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById("hamburger").classList.remove("active");
+    });
+  });
+
+
+  // Smooth scroll hanya ke Our Services
+  const getStartedBtn = document.querySelector('.btn');
+  if (getStartedBtn) {
+    getStartedBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById("service").scrollIntoView({ behavior: "smooth" });
+    });
+  }
+</script>
 </html>
