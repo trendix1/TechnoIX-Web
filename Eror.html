@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error Page</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: "Segoe UI", sans-serif;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    /* Tombol pojok kanan atas */
+    #themeToggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      height: 40px;
+      width: 150px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    #themeToggle:hover {
+      background-color: #fff;
+      color: #000;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #ffcc00;
+    }
+
+    /* Logo di atas H2 */
+    .error-logo {
+      width: 90px;
+      height: 90px;
+      margin-bottom: 15px;
+    }
+    h2 {
+      font-size: 2em;
+      margin: 10px 0;
+    }
+
+    p {
+      font-size: 1.1em;
+      max-width: 400px;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    /* Tema terang */
+    .light-mode {
+      background-color: #f9f9f9;
+      color: #111;
+    }
+
+    .light-mode .error-logo {
+      filter: drop-shadow(0 0 5px #ff9900);
+    }
+
+    .light-mode #themeToggle {
+      background-color: #222;
+      color: #fff;
+    }
+
+    .light-mode #themeToggle:hover {
+      background-color: #555;
+      color: #fff;
+      box-shadow: 0 0 10px #222;
+    }
+
+    @media (max-width: 600px) {
+      h2 { font-size: 1.4em; }
+      .error-logo { width: 70px; height: 70px; }
+      #themeToggle { width: 130px; height: 38px; font-size: 0.9em; }
+    }
+  </style>
+</head>
+<body>
+  <button id="themeToggle">Light / Dark Mode</button>
+
+  <img src="favicon.ico" 
+       alt="TechnoIX-Web Logo" 
+       class="error-logo">
+
+  <h2>Sorry, This Page Encountered an Error</h2>
+  <p>We’re working to fix the problem. Please check back later or try refreshing the page.</p>
+
+  <script>
+    const btn = document.getElementById("themeToggle");
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      btn.textContent = document.body.classList.contains("light-mode")
+        ? "Dark Mode"
+        : "Light Mode";
+    });
+  </script>
+</body>
+</html>
