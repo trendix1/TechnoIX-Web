@@ -153,18 +153,7 @@ require(['vs/editor/editor.main'], function() {
   // load stored files
   loadFiles();
   if(!Object.keys(files).length){
-    files['index.html'] = {content: '<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
-</html>
-', lang:'html'};
+    files['index.html'] = {content: '<!doctype html>\\n<html>\\n<head>\\n<meta charset=\"utf-8\">\\n<title>Welcome</title>\\n</head>\\n<body>\\n<h1>Hello</h1>\\n</body>\\n</html>', lang:'html'};
     activeFile = 'index.html';
   }
 
@@ -186,18 +175,7 @@ require(['vs/editor/editor.main'], function() {
 
     const val = model.getValue();
     if(val.trim() === '!'){
-      const template = '<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
-</html>
-';
+      const template = '<!doctype html>\\n<html>\\n<head>\\n  <meta charset=\"utf-8\">\\n  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\\n  <title>Document</title>\\n</head>\\n<body>\\n\\n</body>\\n</html>';
       model.setValue(template);
       editor.setPosition({lineNumber:9, column:3});
       log('Expanded "!" to HTML template');
