@@ -1,4 +1,4 @@
-/* style.css - VSCode-like web theme (sky-blue) */
+/* style.css - VSCode-like web theme with resizable right panel */
 :root{
   --bg-primary:#0b1220;
   --bg-secondary:#0f1724;
@@ -29,11 +29,13 @@ body{
 .btn:hover{transform:translateY(-1px)}
 
 /* layout */
-#main{flex:1;display:grid;grid-template-columns:260px 1fr 420px;min-height:0}
+#main{flex:1;display:grid;grid-template-columns:260px 1fr 420px;min-height:0;position:relative}
 #explorer{background:var(--bg-secondary);border-right:1px solid var(--border);display:flex;flex-direction:column}
 .explorer-header{padding:12px;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted)}
 #files{list-style:none;padding:8px;overflow:auto;flex:1}
 #files li{padding:10px;border-radius:6px;display:flex;justify-content:space-between;align-items:center;color:var(--text);cursor:pointer}
+#files li .file-name{flex:1}
+#files li .file-actions{margin-left:8px;display:flex;gap:6px}
 #files li.active{background:rgba(58,160,255,0.08);border-left:3px solid var(--accent-blue)}
 .explorer-footer{padding:10px;border-top:1px solid var(--border)}
 
@@ -41,19 +43,26 @@ body{
 #editor-area{display:flex;flex-direction:column;background:var(--bg-primary)}
 #tabs{display:flex;background:var(--bg-secondary);padding:6px;gap:6px;overflow:auto;border-bottom:1px solid var(--border)}
 .tab{padding:8px 12px;border-radius:6px;background:transparent;border:1px solid transparent;display:flex;gap:8px;align-items:center;cursor:pointer}
+.tab .close-btn{margin-left:8px;background:transparent;border:none;color:var(--muted);cursor:pointer}
 .tab.active{background:var(--bg-primary);border-bottom:2px solid var(--accent-blue)}
 .editor-host{flex:1;min-height:0}
 .editor-status{height:28px;background:var(--bg-secondary);border-top:1px solid var(--border);display:flex;gap:16px;align-items:center;padding:0 12px;font-size:12px;color:var(--muted)}
 
 /* right panel */
-#right-panel{background:var(--bg-secondary);border-left:1px solid var(--border);display:flex;flex-direction:column}
-.panel-header{padding:10px;border-bottom:1px solid var(--border);color:var(--muted);font-size:12px;text-transform:uppercase}
-#preview{flex:1;border:none;background:white}
+#right-panel{background:var(--bg-secondary);border-left:1px solid var(--border);display:flex;flex-direction:column;position:relative}
+.panel-header{padding:10px;border-bottom:1px solid var(--border);color:var(--muted);font-size:12px;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+#preview{flex:1;border:none;background:white;height:50%}
+#console{padding:10px;font-family:monospace;font-size:13px;overflow:auto;flex:1;color:var(--muted);height:50%}
+.panel-actions button{background:transparent;border:1px solid var(--border);padding:4px 8px;border-radius:6px;cursor:pointer;color:var(--muted)}
+.resizer{width:6px;cursor:ew-resize;position:absolute;left:-3px;top:0;bottom:0;background:transparent}
+.resizer:hover{background:rgba(58,160,255,0.06)}
 
-/* console */
-#console{padding:10px;font-family:monospace;font-size:13px;overflow:auto;flex:1;color:var(--muted)}
 /* responsive */
 @media (max-width:1000px){
   #main{grid-template-columns:1fr;grid-template-rows:auto 1fr auto}
   #explorer,#right-panel{display:none}
 }
+
+/* utility */
+.hidden{display:none !important}
+.empty{padding:14px;color:var(--muted);text-align:center}

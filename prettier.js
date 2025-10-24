@@ -1,11 +1,10 @@
 // prettier.js - loads Prettier and plugins (uses CDN). Exposes `formatWithPrettier(code, parser)`
-// It attempts to load plugins and Prettier UMD bundles.
 (function(){
-  // Prettier UMD from CDN (standalone + parsers)
   const scripts = [
     'https://unpkg.com/prettier@2.8.8/standalone.js',
     'https://unpkg.com/prettier@2.8.8/parser-html.js',
-    'https://unpkg.com/prettier@2.8.8/parser-babel.js'
+    'https://unpkg.com/prettier@2.8.8/parser-babel.js',
+    'https://unpkg.com/prettier@2.8.8/parser-postcss.js'
   ];
   window.prettierReady = false;
   function loadNext(){

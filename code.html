@@ -3,36 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Code — Technoix-Web</title>
-  <meta name="description" content="TechnoiX Web menyediakan jasa pembuatan website profesional, responsif, modern, cepat, dan SEO-friendly. Solusi digital terpercaya untuk bisnis Anda.">
-  <meta name="keywords" content="T,TechnoiX, jasa website, web design, web developer, profesional, modern, SEO, murah, terpercaya, Code Pad, code pad">
-  <meta name="author" content="TechnoiX Web">
-
-  <!-- Open Graph (Facebook/LinkedIn) -->
-  <meta property="og:title" content="TechnoiX Web - Jasa Website Profesional & Modern" />
-  <meta property="og:description" content="Solusi website responsif, modern, cepat, dan SEO-friendly untuk bisnis Anda." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://trendix1.github.io/TechnoIX-Web//code.html" />
-  <meta property="og:image" content="https://trendix1.github.io/TechnoIX-Web/cover.png" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="TechnoiX Web - Jasa Website Profesional & Modern">
-  <meta name="twitter:description" content="Solusi website responsif, modern, cepat, dan SEO-friendly untuk bisnis Anda.">
-  <meta name="twitter:image" content="https://trendix1.github.io/TechnoIX-Web/cover.png">
-
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="manifest" href="https://trendix1.github.io/TechnoIX-Web/manifest.json">
+  <title>Code — VSCode-like Web</title>
+  <link rel="icon" href="https://trendix1.Technoix-Web.github/favicon.ico" />
   <link rel="stylesheet" href="style.css">
-  <!-- Monaco (editor) loader -->
   <script>window.MONACO_BASE = 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min';</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs/loader.min.js"></script>
-  <!-- Prettier will be loaded via prettier.js -->
   <script src="prettier.js" defer></script>
-  <!-- Main application JS -->
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
   <script src="main.js" defer></script>
 </head>
 <body>
@@ -40,11 +17,13 @@
     <div class="logo">Code</div>
     <div class="topbar-center"><div class="file-info" id="currentFile">No file open</div></div>
     <div class="controls">
-      <button id="runBtn" class="btn primary">Run</button>
-      <button id="formatBtn" class="btn">Format</button>
-      <button id="newFileBtn" class="btn">+ New File</button>
-      <button id="importBtn" class="btn">Import</button>
-      <button id="exportBtn" class="btn">Export</button>
+      <button id="runBtn" class="btn primary" title="Run (Ctrl+Enter)">Run</button>
+      <button id="formatBtn" class="btn" title="Format (Ctrl+Shift+F)">Format</button>
+      <button id="newFileBtn" class="btn" title="New File">+ New File</button>
+      <button id="importBtn" class="btn" title="Import">Import</button>
+      <button id="exportBtn" class="btn" title="Export">Export</button>
+      <button id="togglePreviewBtn" class="btn" title="Toggle Preview">Preview</button>
+      <button id="toggleConsoleBtn" class="btn" title="Toggle Console">Console</button>
     </div>
   </div>
 
@@ -66,19 +45,25 @@
     </section>
 
     <aside id="right-panel">
-      <div id="preview-container">
-        <div class="panel-header"><span>Preview</span></div>
-        <iframe id="preview"></iframe>
+      <div id="preview-header" class="panel-header">
+        <span>Preview</span>
+        <div class="panel-actions">
+          <button id="refreshPreview" title="Refresh">↻</button>
+        </div>
       </div>
-      <div id="terminal-container">
-        <div class="panel-header"><span>Console</span></div>
-        <div id="console" class="panel"></div>
+      <iframe id="preview"></iframe>
+      <div id="terminal-header" class="panel-header">
+        <span>Console / Terminal</span>
+        <div class="panel-actions">
+          <button id="clearConsole" title="Clear">Clear</button>
+        </div>
       </div>
+      <div id="console" class="panel"></div>
+      <div id="resizer" class="resizer" title="Drag to resize panels"></div>
     </aside>
   </div>
 
   <script>
-    // Register service worker for offline usage
     if('serviceWorker' in navigator){
       navigator.serviceWorker.register('sw.js').catch(()=>{/*ignore*/});
     }
