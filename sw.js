@@ -10,6 +10,8 @@ const OFFLINE_URLS = [
   'https://unpkg.com/prettier@2.8.8/standalone.js',
   'https://unpkg.com/prettier@2.8.8/parser-html.js',
   'https://unpkg.com/prettier@2.8.8/parser-babel.js',
+  'https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js',
+  'https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.wasm',
   'https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js'
 ];
 
