@@ -36,3 +36,33 @@ self.addEventListener('fetch', e=>{
     })
   );
 });
+
+// ===== AUTO UPDATE SERVICE WORKER HANDLER =====
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    (async () => {
+      // hapus cache lama jika versi berubah
+      const cacheNames = await caches.keys();
+      await Promise.all(
+        cacheNames.map((name) => {
+          if (name !== CACHE) {
+            return caches.delete(name);
+          }
+        })
+      );
+      await self.clients.claim();
+
+      // beri tahu semua tab agar reload paksa
+      const clientsList = await self.clients.matchAll({ type: 'window' });
+      for (const client of clientsList) {
+        client.postMessage({ type: 'RELOAD_PAGE' });
+      }
+    })()
+  );
+});
