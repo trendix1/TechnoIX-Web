@@ -1,4 +1,3 @@
-// main.js - app logic with Pyodide, resizable preview, toggles, delete/close, and "!" shortcut
 const STORAGE_KEY = 'vscode_web_files_v2';
 let files = {};
 let activeFile = null;
@@ -297,10 +296,35 @@ document.getElementById('refreshPreview').onclick = ()=> {
 // Pyodide runner
 async function runPython(code){
   try{
-    if(!window.pyodide){
-      log('Loading Python runtime (Pyodide)...');
-      window.pyodide = await loadPyodide({indexURL:'https://cdn.jsdelivr.net/pyodide/v0.23.4/full/'});
-      log('Pyodide loaded');
+    async function loadPyodideLazy() {
+  if (window.pyodideLoading) return window.pyodideLoading;
+  window.pyodideLoading = new Promise(async (resolve, reject) => {
+    try {
+      log('Downloading Python runtime (Pyodide)...');
+      const { loadPyodide } = await import('https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js');
+      window.pyodide = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.23.4/full/' });
+      log('Pyodide loaded successfully');
+      resolve(window.pyodide);
+    } catch (e) {
+      log('Pyodide failed to load: ' + e.message);
+      reject(e);
+    }
+  });
+  return window.pyodideLoading;
+}
+
+async function runPython(code) {
+  try {
+    if (!window.pyodide) {
+      await loadPyodideLazy();
+    }
+    let output = await window.pyodide.runPythonAsync(code);
+    if (output !== undefined) log('Python output: ' + output);
+    else log('Python executed');
+  } catch (e) {
+    log('Python error: ' + (e.message || e));
+  }
+}
     }
     let output = await window.pyodide.runPythonAsync(code);
     if(output !== undefined) log('Python output: '+output);
