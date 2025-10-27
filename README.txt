@@ -1,1 +1,1 @@
-Haha your lauhging
+Haha your laugh
