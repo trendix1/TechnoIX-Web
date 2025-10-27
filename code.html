@@ -66,30 +66,5 @@
     </aside>
   </div>
 
-  <script>
-    if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').then(reg => {
-    // jika versi baru ditemukan
-    reg.addEventListener('updatefound', () => {
-      const newWorker = reg.installing;
-      newWorker.addEventListener('statechange', () => {
-        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-          // kirim pesan ke SW untuk skipWaiting
-          newWorker.postMessage({ type: 'SKIP_WAITING' });
-        }
-      });
-    });
-
-    // reload otomatis setelah SW baru aktif
-    let refreshing = false;
-    navigator.serviceWorker.addEventListener('message', event => {
-      if (event.data && event.data.type === 'RELOAD_PAGE' && !refreshing) {
-        refreshing = true;
-        window.location.reload();
-      }
-    });
-  });
-}
-  </script>
 </body>
 </html>
