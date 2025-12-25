@@ -109,7 +109,7 @@
       <div class="full">
         <button type="submit" class="btn">Send Message</button>
         <p class="note">Or contact via WhatsApp: <a href="https://wa.me/6282133141060" style="color:var(--muted)">WhatsApp</a></p>
-        <a href="index.html" class="link">Back To Home Page</a>
+       <a class="link" href="#" onclick="goBack()">Back To Page</a>
       </div>
     </form>
   </main>
@@ -195,6 +195,9 @@
       formEl.addEventListener('submit', sendEmail);
       document.getElementById('name').focus();
     })();
+    function goBack(){
+      window.history.back();
+    }
   </script>
 </body>
 </html>
