@@ -474,3 +474,6 @@ document.getElementById("formatBtn").onclick=()=>{
     try{ resizer.releasePointerCapture(e.pointerId); }catch{}
   });
 })();
+function goBack(){
+  window.history.back();
+}
