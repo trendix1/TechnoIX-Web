@@ -200,7 +200,7 @@
       </ul>
 
       <button id="fun1">Pricing</button>
-      <a href="index.html"><button id="kembali">Back</button></a>
+     <button id="kembali" onclick="goBack()">Back</button>
     </div>
   </main>
   
@@ -229,6 +229,9 @@
     document.getElementById("fun1").addEventListener("click", function(){
       window.location.href = "price.html";
     });
+    function goBack(){
+      window.history.back();
+    }
   </script>
 </body>
 </html>
